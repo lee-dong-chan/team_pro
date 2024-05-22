@@ -73,6 +73,7 @@ a {
 .top-icons .my-btns .Cookie {
   display: flex;
   align-items: center;
+  justify-content: right;
   gap: 1rem;
   font-size: 13px;
   color: gray;
