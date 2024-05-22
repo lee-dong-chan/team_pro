@@ -1,0 +1,23 @@
+body {
+  margin: 0;
+  background-color: rgb(207, 207, 207);
+}
+
+#wrap {
+  margin: auto;
+  padding: 10px 20px;
+  width: 700px;
+  height: 100%;
+  background-color: white;
+}
+
+#wrap p {
+  text-align: center;
+  font-size: 30px;
+}
+
+#wrap div {
+  font-size: 20px;
+  padding: 1rem 0;
+  border-bottom: 1px solid #c8c8c8;
+}

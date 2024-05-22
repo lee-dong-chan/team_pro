@@ -17,6 +17,11 @@ const registonElem = document.getElementsByClassName("regist")[0];
 const registbtnElem = document.getElementsByClassName("regist-btn")[0];
 const loginbtnElem = document.getElementsByClassName("login-btn")[0];
 
+const salebtnELem = document.getElementsByClassName("sale-btn")[0];
+const storeElem = document.getElementsByClassName("store-btn")[0];
+const talkElem = document.getElementsByClassName("talk-btn")[0];
+const nocookieElem = document.getElementsByClassName("noCookie")[0];
+
 const catelist1 = document
   .getElementById("cate-list1")
   .getElementsByTagName("a");
@@ -39,14 +44,19 @@ noticeElem.onmouseout = () => {
   }, 1500);
 };
 
-mystore1Elem.onmouseover = () => {
-  mystorelistElem.classList.add("on");
-};
+// mystore1Elem.onmouseover = () => {
+//   mystorelistElem.classList.add("on");
+// };
 
-mystore1Elem.onmouseout = () => {
-  setTimeout(() => {
-    mystorelistElem.classList.remove("on");
-  }, 1500);
+// mystore1Elem.onmouseout = () => {
+//   setTimeout(() => {
+//     mystorelistElem.classList.remove("on");
+//   }, 1500);
+// };
+
+mystore1Elem.onclick = () => {
+  loginmodalElem.classList.add("on");
+  loginonElem.classList.add("on");
 };
 
 mystore2Elem.onmouseover = () => {
@@ -58,6 +68,29 @@ mystore2Elem.onmouseout = () => {
   setTimeout(() => {
     mystorelistElem.classList.remove("on");
   }, 1500);
+};
+salebtnELem.onclick = (e) => {
+  if (nocookieElem.classList.contains("on")) {
+    e.preventDefault();
+    loginmodalElem.classList.add("on");
+    loginonElem.classList.add("on");
+  }
+};
+
+storeElem.onclick = (e) => {
+  if (nocookieElem.classList.contains("on")) {
+    e.preventDefault();
+    loginmodalElem.classList.add("on");
+    loginonElem.classList.add("on");
+  }
+};
+
+talkElem.onclick = (e) => {
+  if (nocookieElem.classList.contains("on")) {
+    e.preventDefault();
+    loginmodalElem.classList.add("on");
+    loginonElem.classList.add("on");
+  }
 };
 
 cateImgElem.onmouseover = () => {
