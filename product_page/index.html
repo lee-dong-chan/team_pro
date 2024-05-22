@@ -11,7 +11,7 @@
       <div class="top-icons">
         <div>
           <div class="app-btn">
-            <a href="./">
+            <a href="../mainpage/index.html">
               <div>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -67,11 +67,17 @@
             </button>
           </div>
           <div class="my-btns">
-            <button>로그아웃</button>
-            <div class="notice">알림 ▼</div>
-            <div class="my-store">내 상점 ▼</div>
+            <div class="noCookie">
+              <button id="login-btn">로그인</button>
+              <div class="my-store" id="my-store1">내 상점 ▼</div>
+            </div>
+            <div class="Cookie on">
+              <button id="login-btn">로그아웃</button>
+              <div class="notice" id="notice">알림 ▼</div>
+              <div class="my-store" id="my-store2">내 상점 ▼</div>
+            </div>
           </div>
-          <div class="notice-list">
+          <div class="notice-list" id="notice-list">
             <div class="list">
               <span><img src="./imgs/1036788552_w80.png" /></span>
               <div>
@@ -82,14 +88,14 @@
               </div>
             </div>
           </div>
-          <div class="myStore-menu">
-            <a href="./">
+          <div class="myStore-menu" id="myStore-menu">
+            <a href="../my_page/">
               <div>내 상품</div>
             </a>
-            <a href="./">
+            <a href="../my_page/">
               <div>찜한 상품</div>
             </a>
-            <a href="./">
+            <a href="../setting/">
               <div>계정설정</div>
             </a>
             <a href="./">
@@ -166,79 +172,117 @@
               </g>
             </svg>
           </a>
-          <form>
+          <form action="">
             <div class="search">
               <fieldset>
                 <input
                   type="text"
-                  id="serch"
+                  id="search"
                   placeholder="상품명,지역명,@상점명 입력"
                 />
                 <div>
-                  <button><img src="./imgs/search.png" /></button>
+                  <button type="button" onclick="location.href='../search?'">
+                    <img src="./imgs/search.png" />
+                  </button>
                 </div>
               </fieldset>
             </div>
           </form>
           <div class="menu-btns">
-            <a href="">
+            <a class="sale-btn" href="../seller/">
               <span><img src="./imgs/sale.png" /></span>
               <div>판매하기</div>
             </a>
             <div class="line"></div>
-            <a href="">
+            <a class="store-btn" href="../my_page/">
               <span><img src="./imgs/mystore.png" /></span>
               <div>내상점</div>
             </a>
             <div class="line"></div>
-            <a href="">
+            <a class="talk-btn" href="../talkpage/talk/">
               <span><img src="./imgs/talk.png" /></span>
               <div>번개톡</div>
             </a>
           </div>
         </div>
         <div class="category">
-          <div class="img"></div>
+          <div class="img" id="cateImg"></div>
           <div><a href="./">번개장터 판매자센터</a></div>
-          <div class="category-menu">
+          <div class="category-menu" id="category-menu">
             <div class="first-cate">
               <div class="all">
                 <h4>전체 카테고리</h4>
               </div>
-              <div class="cate-list">
-                <a>여성의류</a>
-                <a>남성의류</a>
-                <a>신발</a>
-                <a>가방/지갑</a>
-                <a>시계</a>
-                <a>쥬얼리</a>
-                <a>패션 액세서리</a>
-                <a>디지털</a>
-                <a>가전제품</a>
-                <a>스포츠/레저</a>
-                <a>차량/오토바이</a>
-                <a>스타굿즈</a>
-                <a>예술/희귀/수집품</a>
-                <a>음반/악기</a>
-                <a>도서/티켓/문구</a>
-                <a>뷰티/미용</a>
-                <a>가구/인테리어</a>
-                <a>생활/주방용품</a>
+              <div id="cate-list1">
+                <a href="#" class="cate-list">여성의류</a>
+                <a href="#" class="cate-list">남성의류</a>
+                <a href="#" class="cate-list">신발</a>
+                <a href="#" class="cate-list">가방/지갑</a>
+                <a href="#" class="cate-list">시계</a>
+                <a href="#" class="cate-list">쥬얼리</a>
+                <a href="#" class="cate-list">패션 액세서리</a>
+                <a href="#" class="cate-list">디지털</a>
+                <a href="#" class="cate-list">가전제품</a>
+                <a href="#" class="cate-list">스포츠/레저</a>
+                <a href="#" class="cate-list">차량/오토바이</a>
+                <a href="#" class="cate-list">스타굿즈</a>
+                <a href="#" class="cate-list">예술/희귀/수집품</a>
+                <a href="#" class="cate-list">음반/악기</a>
+                <a href="#" class="cate-list">도서/티켓/문구</a>
+                <a href="#" class="cate-list">뷰티/미용</a>
+                <a href="#" class="cate-list">가구/인테리어</a>
+                <a href="#" class="cate-list">생활/주방용품</a>
               </div>
             </div>
             <div class="second-cate">
               <div class="all">
-                <h4>전체 카테고리</h4>
+                <h4>카테고리</h4>
               </div>
-              <div class="cate-list">
-                <a>1245</a>
+              <div id="cate-list2">
+                <a href="#" class="cate-list">여성의류</a>
+                <a href="#" class="cate-list">남성의류</a>
+                <a href="#" class="cate-list">신발</a>
+                <a href="#" class="cate-list">가방/지갑</a>
+                <a href="#" class="cate-list">시계</a>
+                <a href="#" class="cate-list">쥬얼리</a>
+                <a href="#" class="cate-list">패션 액세서리</a>
+                <a href="#" class="cate-list">디지털</a>
+                <a href="#" class="cate-list">가전제품</a>
+                <a href="#" class="cate-list">스포츠/레저</a>
+                <a href="#" class="cate-list">차량/오토바이</a>
+                <a href="#" class="cate-list">스타굿즈</a>
+                <a href="#" class="cate-list">예술/희귀/수집품</a>
+                <a href="#" class="cate-list">음반/악기</a>
+                <a href="#" class="cate-list">도서/티켓/문구</a>
+                <a href="#" class="cate-list">뷰티/미용</a>
+                <a href="#" class="cate-list">가구/인테리어</a>
+                <a href="#" class="cate-list">생활/주방용품</a>
               </div>
             </div>
             <div class="third-cate">
               <div class="all">
-                <h4>전체 카테고리</h4>
+                <h4>카테고리</h4>
               </div>
-              <div class="cate-list"></div>
+              <div id="cate-list3">
+                <a href="#" class="cate-list">여성의류</a>
+                <a href="#" class="cate-list">남성의류</a>
+                <a href="#" class="cate-list">신발</a>
+                <a href="#" class="cate-list">가방/지갑</a>
+                <a href="#" class="cate-list">시계</a>
+                <a href="#" class="cate-list">쥬얼리</a>
+                <a href="#" class="cate-list">패션 액세서리</a>
+                <a href="#" class="cate-list">디지털</a>
+                <a href="#" class="cate-list">가전제품</a>
+                <a href="#" class="cate-list">스포츠/레저</a>
+                <a href="#" class="cate-list">차량/오토바이</a>
+                <a href="#" class="cate-list">스타굿즈</a>
+                <a href="#" class="cate-list">예술/희귀/수집품</a>
+                <a href="#" class="cate-list">음반/악기</a>
+                <a href="#" class="cate-list">도서/티켓/문구</a>
+                <a href="#" class="cate-list">뷰티/미용</a>
+                <a href="#" class="cate-list">가구/인테리어</a>
+                <a href="#" class="cate-list">생활/주방용품</a>
+              </div>
             </div>
           </div>
           <div class="pop">
@@ -264,283 +308,285 @@
         </div>
       </div>
       <div class="body">
-        <div class="page_category">
-          <img src="./f1f8a93028f0f6305a87.png" />
-          <span>홈</span><span> ></span>
-          <select name="" id="">
-            <option value="">여성의류</option>
-            <option value="">남성의류</option>
-            <option value="">신발</option>
-            <option value="">가방/지갑</option>
-            <option value="">시계</option>
-            <option value="">쥬얼리</option>
-            <option value="">패션 액세서리</option>
-            <option value="">디지털</option>
-            <option value="">가전제품</option>
-            <option value="">스포츠/레저</option>
-            <option value="">차량/오토바이</option>
-            <option value="">스타굿즈</option>
-            <option value="">키덜트</option>
-            <option value="">예술/희귀/수집품</option>
-            <option value="">음반/악기</option>
-            <option value="">도서/티켓/문구</option>
-            <option value="">뷰티/미용</option>
-            <option value="">가구/인테리어</option>
-            <option value="">생활/주방용품</option>
-            <option value="">공구/산업용품</option>
-            <option value="">식품</option>
-            <option value="">유아동/출산</option>
-            <option value="">반려동물용품</option>
-            <option value="">기타</option>
-            <option value="">지역 서비스</option>
-            <option value="">원룸/함께살아요</option>
-            <option value="">번개나눔</option>
-            <option value="">구인구직</option>
-            <option value="">재능</option>
-            <option value="">커뮤니티</option>
-          </select>
-          <span>></span>
-        </div>
+        <div class="body_wrap">
+          <div class="page_category">
+            <img src="./f1f8a93028f0f6305a87.png" />
+            <span>홈</span><span> ></span>
+            <select name="" id="">
+              <option value="">여성의류</option>
+              <option value="">남성의류</option>
+              <option value="">신발</option>
+              <option value="">가방/지갑</option>
+              <option value="">시계</option>
+              <option value="">쥬얼리</option>
+              <option value="">패션 액세서리</option>
+              <option value="">디지털</option>
+              <option value="">가전제품</option>
+              <option value="">스포츠/레저</option>
+              <option value="">차량/오토바이</option>
+              <option value="">스타굿즈</option>
+              <option value="">키덜트</option>
+              <option value="">예술/희귀/수집품</option>
+              <option value="">음반/악기</option>
+              <option value="">도서/티켓/문구</option>
+              <option value="">뷰티/미용</option>
+              <option value="">가구/인테리어</option>
+              <option value="">생활/주방용품</option>
+              <option value="">공구/산업용품</option>
+              <option value="">식품</option>
+              <option value="">유아동/출산</option>
+              <option value="">반려동물용품</option>
+              <option value="">기타</option>
+              <option value="">지역 서비스</option>
+              <option value="">원룸/함께살아요</option>
+              <option value="">번개나눔</option>
+              <option value="">구인구직</option>
+              <option value="">재능</option>
+              <option value="">커뮤니티</option>
+            </select>
+            <span>></span>
+          </div>
 
-        <div class="product-area">
-          <div class="img-area">
-            <img src="./pro_exam1.PNG" />
-          </div>
-          <div class="prd-info">
-            <div class="prd-title">
-              <h2>
-                오사카 산리오 게이트 프리미엄 시나모롤 담요 이치방쿠지 정품
-              </h2>
-              <h1>10,000원</h1>
+          <div class="product-area">
+            <div class="img-area">
+              <img src="./pro_exam1.PNG" />
             </div>
-            <div class="prd-detail">
-              <div class="detail-head">
-                <div>
-                  <span><img src="./img_src/heart_btn.png" /> 1</span>
-                  <span>|</span>
-                  <span
-                    ><img class="view_btn" src="./img_src/view_btn.png" />
-                    24</span
-                  >
-                  <span>|</span>
+            <div class="prd-info">
+              <div class="prd-title">
+                <h2>
+                  오사카 산리오 게이트 프리미엄 시나모롤 담요 이치방쿠지 정품
+                </h2>
+                <h1>10,000원</h1>
+              </div>
+              <div class="prd-detail">
+                <div class="detail-head">
+                  <div>
+                    <span><img src="./img_src/heart_btn.png" /> 1</span>
+                    <span>|</span>
+                    <span
+                      ><img class="view_btn" src="./img_src/view_btn.png" />
+                      24</span
+                    >
+                    <span>|</span>
 
-                  <span><img src="./img_src/cr_at_btn.png" /> 5일 전</span>
-                </div>
-                <span><img src="./img_src/siren_btn.png" />신고하기</span>
-              </div>
-              <div class="detail-body">
-                <div>
-                  <span class="info-head">ㆍ상품상태</span>
-                  <span>새 상품</span>
-                </div>
-                <div>
-                  <span class="info-head">ㆍ배송비</span>
-                  <span>2,200원</span>
-                </div>
-                <div>
-                  <span class="info-head">ㆍ거래지역</span>
-                  <span><img src="./img_src/area_btn.png" /> 전국</span>
-                </div>
-              </div>
-              <div class="btn_area">
-                <button>
-                  <img src="./img_src/heart_btn.png" /> <span>찜</span>
-                </button>
-                <button>
-                  <img src="./img_src/light_btn.png" /> <span>번개톡</span>
-                </button>
-                <button>바로구매</button>
-              </div>
-            </div>
-            <div class="prd-btns"></div>
-          </div>
-        </div>
-        <div class="ali_area">
-          <div class="ali">
-            <div class="ali-top">
-              연관상품
-              <span>AD<img src="./img_src/info_svg.svg" /></span>
-            </div>
-            <div>1/4</div>
-          </div>
-          <div class="ali_img">
-            <div class="img_btn">
-              <button><</button>
-              <button>></button>
-            </div>
-
-            <div>
-              <div>
-                <img src="./pro_exam1.PNG" /><br />
-                <span>상품 예시 1</span>
-              </div>
-            </div>
-            <div>
-              <div>
-                <img src="./pro_exam1.PNG" /> <br /><span>상품 예시 1</span>
-              </div>
-            </div>
-            <div>
-              <div>
-                <img src="./pro_exam1.PNG" /> <br /><span>상품 예시 1</span>
-              </div>
-            </div>
-            <div>
-              <div>
-                <img src="./pro_exam1.PNG" /> <br /><span>상품 예시 1</span>
-              </div>
-            </div>
-            <div>
-              <div>
-                <img src="./pro_exam1.PNG" /> <br /><span>상품 예시 1</span>
-              </div>
-            </div>
-            <div>
-              <div>
-                <img src="./pro_exam1.PNG" /> <br /><span>상품 예시 1</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="detail-info">
-          <div class="share_btns">
-            <button><img src="./img_src/blog_btn.png" /></button>
-            <button><img src="./img_src/facebook.png" /></button>
-            <button><img src="./img_src/twitter.png" /></button>
-            <button><img src="./img_src/url_btn.png" /></button>
-          </div>
-          <div class="info_area">
-            <div class="prd_explain">
-              <div class="explain_head">상품 정보</div>
-              <p>
-                오사카 산리오 게이트에서 이치방쿠지 정품 가방 나왔어요 프리미엄
-                시나모롤 쿠지입니다. 양도라 이치방쿠지 가격이랑 별차이 없게끔
-                가격 선정했어요~! 쿨거하시면 일본간식도 몇개 넣어드려요 GS25
-                반택 가능입니다 택배비는 구매자 부담입니다
-              </p>
-              <div class="etc_info">
-                <div>
-                  <div>
-                    <img src="./img_src/area_btn.png" /><span>거래 지역</span>
+                    <span><img src="./img_src/cr_at_btn.png" /> 5일 전</span>
                   </div>
-                  <div><span>전국</span></div>
+                  <span><img src="./img_src/siren_btn.png" />신고하기</span>
                 </div>
-                <div class="border">
+                <div class="detail-body">
                   <div>
-                    <img src="./img_src/cate_btn.png" /><span>카테고리</span>
+                    <span class="info-head">ㆍ상품상태</span>
+                    <span>새 상품</span>
                   </div>
                   <div>
-                    <span>스타굿즈 > 방송/예능/캐릭터 > 의류/패션 잡화</span>
-                  </div>
-                </div>
-                <div>
-                  <div>
-                    <img src="./img_src/tag_btn.png" /><span>상품 태그</span>
+                    <span class="info-head">ㆍ배송비</span>
+                    <span>2,200원</span>
                   </div>
                   <div>
-                    <span>#시나모롤쿠지</span>
-                    <span>#산리오쿠지</span>
-                    <span>#시나모롤이치방쿠지</span>
-                    <span>#산리오이치방쿠지</span>
+                    <span class="info-head">ㆍ거래지역</span>
+                    <span><img src="./img_src/area_btn.png" /> 전국</span>
                   </div>
                 </div>
-              </div>
-              <div class="prd_footer">
-                <h3>비슷한 새 상품 보기</h3>
-                <div class="rel_prd">
-                  <div>
-                    <img src="./pro_exam1.PNG" />
-                    <div class="rel_prd_detail">
-                      <span>64,000원</span>
-                      <span
-                        >23FW) 비버리힐즈폴로클럽 울 케이블 니트 3종
-                        (여성)</span
-                      >
-                      <span>신세계라이브쇼핑・광고</span>
-                    </div>
-                  </div>
-                  <div>
-                    <img src="./pro_exam1.PNG" />
-                    <div class="rel_prd_detail">
-                      <span>64,000원</span>
-                      <span
-                        >23FW) 비버리힐즈폴로클럽 울 케이블 니트 3종
-                        (여성)</span
-                      >
-                      <span>신세계라이브쇼핑・광고</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="seller_info">
-              <div class="seller_head">상점 정보</div>
-              <div class="seller_who">
-                <img src="./pro_exam1.PNG" />
-                <div>
-                  <p>윰면냥</p>
-                  <p>상품 7 | 팔로워 0</p>
-                </div>
-              </div>
-              <div class="follow_btn">
-                <button><img src="./img_src/follow_btn.png" />팔로우</button>
-              </div>
-              <div class="seller_prd_other">
-                <div><img src="./pro_exam1.PNG" /></div>
-                <div><img src="./pro_exam1.PNG" /></div>
-                <div><img src="./pro_exam1.PNG" /></div>
-                <div><img src="./pro_exam1.PNG" /></div>
-                <div><img src="./pro_exam1.PNG" /></div>
-                <div><img src="./pro_exam1.PNG" /></div>
-                <p>1개 상품 더보기></p>
-              </div>
-              <div class="prd_review">
-                <p>상품후기 1</p>
-                <div class="review_detail">
-                  <img src="./img_src/store_btn_svg.svg" />
-                  <div>
-                    <div class="reviewer">
-                      <div>1일상점</div>
-                      <div>1년 전</div>
-                    </div>
-                    <div class="star">
-                      <img src="./img_src/star.png" />
-                      <img src="./img_src/star.png" />
-                      <img src="./img_src/star.png" />
-                      <img src="./img_src/star.png" />
-                      <img src="./img_src/star.png" />
-                    </div>
-                    <p>
-                      상품의 후기가 어쩌구 저쩌구 오늘 점심 뭐먹지 백화점 지하
-                      푸드코트에 맛있는거 많아보이던데
-                    </p>
-                  </div>
-                </div>
-                <div class="review_detail">
-                  <img src="./img_src/store_btn_svg.svg" />
-                  <div>
-                    <div class="reviewer">
-                      <div>1일상점</div>
-                      <div>1년 전</div>
-                    </div>
-                    <div class="star">
-                      <img src="./img_src/star.png" />
-                      <img src="./img_src/star.png" />
-                      <img src="./img_src/star.png" />
-                      <img src="./img_src/star.png" />
-                      <img src="./img_src/star.png" />
-                    </div>
-                    <p>
-                      상품의 후기가 어쩌구 저쩌구 오늘 점심 뭐먹지 백화점 지하
-                      푸드코트에 맛있는거 많아보이던데
-                    </p>
-                  </div>
-                </div>
-                <div class="review_more"><p>상점 후기 더 보기</p></div>
-
-                <div class="prd_review_footer">
-                  <button><img src="img_src/light_btn.png" />번개톡</button>
+                <div class="btn_area">
+                  <button>
+                    <img src="./img_src/heart_btn.png" /> <span>찜</span>
+                  </button>
+                  <button>
+                    <img src="./img_src/light_btn.png" /> <span>번개톡</span>
+                  </button>
                   <button>바로구매</button>
+                </div>
+              </div>
+              <div class="prd-btns"></div>
+            </div>
+          </div>
+          <div class="ali_area">
+            <div class="ali">
+              <div class="ali-top">
+                연관상품
+                <span>AD<img src="./img_src/info_svg.svg" /></span>
+              </div>
+              <div>1/4</div>
+            </div>
+            <div class="ali_img">
+              <div class="img_btn">
+                <button><</button>
+                <button>></button>
+              </div>
+
+              <div>
+                <div>
+                  <img src="./pro_exam1.PNG" /><br />
+                  <span>상품 예시 1</span>
+                </div>
+              </div>
+              <div>
+                <div>
+                  <img src="./pro_exam1.PNG" /> <br /><span>상품 예시 1</span>
+                </div>
+              </div>
+              <div>
+                <div>
+                  <img src="./pro_exam1.PNG" /> <br /><span>상품 예시 1</span>
+                </div>
+              </div>
+              <div>
+                <div>
+                  <img src="./pro_exam1.PNG" /> <br /><span>상품 예시 1</span>
+                </div>
+              </div>
+              <div>
+                <div>
+                  <img src="./pro_exam1.PNG" /> <br /><span>상품 예시 1</span>
+                </div>
+              </div>
+              <div>
+                <div>
+                  <img src="./pro_exam1.PNG" /> <br /><span>상품 예시 1</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="detail-info">
+            <div class="share_btns">
+              <button><img src="./img_src/blog_btn.png" /></button>
+              <button><img src="./img_src/facebook.png" /></button>
+              <button><img src="./img_src/twitter.png" /></button>
+              <button><img src="./img_src/url_btn.png" /></button>
+            </div>
+            <div class="info_area">
+              <div class="prd_explain">
+                <div class="explain_head">상품 정보</div>
+                <p>
+                  오사카 산리오 게이트에서 이치방쿠지 정품 가방 나왔어요
+                  프리미엄 시나모롤 쿠지입니다. 양도라 이치방쿠지 가격이랑
+                  별차이 없게끔 가격 선정했어요~! 쿨거하시면 일본간식도 몇개
+                  넣어드려요 GS25 반택 가능입니다 택배비는 구매자 부담입니다
+                </p>
+                <div class="etc_info">
+                  <div>
+                    <div>
+                      <img src="./img_src/area_btn.png" /><span>거래 지역</span>
+                    </div>
+                    <div><span>전국</span></div>
+                  </div>
+                  <div class="border">
+                    <div>
+                      <img src="./img_src/cate_btn.png" /><span>카테고리</span>
+                    </div>
+                    <div>
+                      <span>스타굿즈 > 방송/예능/캐릭터 > 의류/패션 잡화</span>
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <img src="./img_src/tag_btn.png" /><span>상품 태그</span>
+                    </div>
+                    <div>
+                      <span>#시나모롤쿠지</span>
+                      <span>#산리오쿠지</span>
+                      <span>#시나모롤이치방쿠지</span>
+                      <span>#산리오이치방쿠지</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="prd_footer">
+                  <h3>비슷한 새 상품 보기</h3>
+                  <div class="rel_prd">
+                    <div>
+                      <img src="./pro_exam1.PNG" />
+                      <div class="rel_prd_detail">
+                        <span>64,000원</span>
+                        <span
+                          >23FW) 비버리힐즈폴로클럽 울 케이블 니트 3종
+                          (여성)</span
+                        >
+                        <span>신세계라이브쇼핑・광고</span>
+                      </div>
+                    </div>
+                    <div>
+                      <img src="./pro_exam1.PNG" />
+                      <div class="rel_prd_detail">
+                        <span>64,000원</span>
+                        <span
+                          >23FW) 비버리힐즈폴로클럽 울 케이블 니트 3종
+                          (여성)</span
+                        >
+                        <span>신세계라이브쇼핑・광고</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="seller_info">
+                <div class="seller_head">상점 정보</div>
+                <div class="seller_who">
+                  <img src="./pro_exam1.PNG" />
+                  <div>
+                    <p>윰면냥</p>
+                    <p>상품 7 | 팔로워 0</p>
+                  </div>
+                </div>
+                <div class="follow_btn">
+                  <button><img src="./img_src/follow_btn.png" />팔로우</button>
+                </div>
+                <div class="seller_prd_other">
+                  <div><img src="./pro_exam1.PNG" /></div>
+                  <div><img src="./pro_exam1.PNG" /></div>
+                  <div><img src="./pro_exam1.PNG" /></div>
+                  <div><img src="./pro_exam1.PNG" /></div>
+                  <div><img src="./pro_exam1.PNG" /></div>
+                  <div><img src="./pro_exam1.PNG" /></div>
+                  <p>1개 상품 더보기></p>
+                </div>
+                <div class="prd_review">
+                  <p>상품후기 1</p>
+                  <div class="review_detail">
+                    <img src="./img_src/store_btn_svg.svg" />
+                    <div>
+                      <div class="reviewer">
+                        <div>1일상점</div>
+                        <div>1년 전</div>
+                      </div>
+                      <div class="star">
+                        <img src="./img_src/star.png" />
+                        <img src="./img_src/star.png" />
+                        <img src="./img_src/star.png" />
+                        <img src="./img_src/star.png" />
+                        <img src="./img_src/star.png" />
+                      </div>
+                      <p>
+                        상품의 후기가 어쩌구 저쩌구 오늘 점심 뭐먹지 백화점 지하
+                        푸드코트에 맛있는거 많아보이던데
+                      </p>
+                    </div>
+                  </div>
+                  <div class="review_detail">
+                    <img src="./img_src/store_btn_svg.svg" />
+                    <div>
+                      <div class="reviewer">
+                        <div>1일상점</div>
+                        <div>1년 전</div>
+                      </div>
+                      <div class="star">
+                        <img src="./img_src/star.png" />
+                        <img src="./img_src/star.png" />
+                        <img src="./img_src/star.png" />
+                        <img src="./img_src/star.png" />
+                        <img src="./img_src/star.png" />
+                      </div>
+                      <p>
+                        상품의 후기가 어쩌구 저쩌구 오늘 점심 뭐먹지 백화점 지하
+                        푸드코트에 맛있는거 많아보이던데
+                      </p>
+                    </div>
+                  </div>
+                  <div class="review_more"><p>상점 후기 더 보기</p></div>
+
+                  <div class="prd_review_footer">
+                    <button><img src="img_src/light_btn.png" />번개톡</button>
+                    <button>바로구매</button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -566,5 +612,70 @@
         </div>
       </div>
     </div>
+    <div id="modal">
+      <div class="login-modal"></div>
+      <div class="login">
+        <div class="log">
+          <div class="user-box">
+            <h1>번개장터 로그인</h1>
+            <form action="" id="login">
+              <fieldset>
+                <legend>이메일 주소</legend>
+                <input type="email" name="email" placeholder="이메일 주소" />
+              </fieldset>
+              <div class="err" id="email"></div>
+              <fieldset>
+                <legend>비밀번호</legend>
+                <input type="password" name="pw" placeholder="비밀번호" />
+              </fieldset>
+              <div class="err" id="pw"></div>
+              <button class="login-btn">로그인</button>
+              <p>
+                번개장터 계정이 아직 없으신가요?
+                <a class="regist-link"> 회원가입 </a>
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="regist">
+        <div class="reg">
+          <div class="user-box">
+            <h1>번개장터 회원가입</h1>
+
+            <form id="regist" action="" method="">
+              <fieldset>
+                <legend>이메일 주소</legend>
+                <input type="email" name="email" placeholder="이메일 주소" />
+              </fieldset>
+              <div class="err" id="email-result"></div>
+              <fieldset>
+                <legend>비밀번호</legend>
+                <input type="password" name="pw" placeholder="비밀번호" />
+              </fieldset>
+              <div class="err" id="pw-result"></div>
+              <fieldset>
+                <legend>비밀번호 확인</legend>
+                <input type="password" name="pw-check" placeholder="비밀번호" />
+              </fieldset>
+              <div class="err" id="pw-check-result"></div>
+              <fieldset>
+                <legend>닉네임</legend>
+                <input type="text" name="nick" placeholder="닉네임" />
+                <div class="err" id="nick-result"></div>
+              </fieldset>
+              <button class="regist-btn">회원가입</button>
+            </form>
+
+            <p>
+              이미 계정이 있으신가요?
+              <a class="login-link"> 로그인 </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./index.js"></script>
+    <script src="./root.js"></script>
   </body>
 </html>
