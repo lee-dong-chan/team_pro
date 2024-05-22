@@ -1,8 +1,10 @@
-#root {
+.body_wrap {
+  width: 1024px;
+}
+
+.body {
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
 }
 
 .page_category {
