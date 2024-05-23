@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>search</title>
+  <title>product-list</title>
   <link rel="stylesheet" href="./index.css">
 </head>
 
@@ -33,11 +33,11 @@
           </button>
         </div>
         <div class="my-btns">
-          <div class="noCookie on">
+          <div class="noCookie">
             <button id="login-btn">로그인</button>
             <div class="my-store" id="my-store1">내 상점 ▼</div>
           </div>
-          <div class="Cookie">
+          <div class="Cookie on">
             <button id="login-btn">로그아웃</button>
             <div class="notice" id="notice">알림 ▼</div>
             <div class="my-store" id="my-store2">내 상점 ▼</div>
@@ -72,7 +72,7 @@
 
     <div class="top-menu">
       <div class="top">
-        <a href="../mainpage/"><svg xmlns="http://www.w3.org/2000/svg" width="136" height="40" viewBox="0 0 136 40" fill="none">
+        <a href="../"><svg xmlns="http://www.w3.org/2000/svg" width="136" height="40" viewBox="0 0 136 40" fill="none">
             <g id="z.TBD / BX-Refresh / ic_logotype-pw">
               <rect width="136" height="40" fill="white" />
               <g id="Logotype / KR êµ&shy;ë¬¸">
@@ -94,7 +94,7 @@
           <div class="search">
             <fieldset>
               <input type="text" id="serch" placeholder="상품명,지역명,@상점명 입력" />
-              <div><button><img src="./imgs/search.png"></button></div>
+              <div><a href="../search/"><button><img src="./imgs/search.png"></button></a></div>
             </fieldset>
           </div>
         </form>
@@ -217,39 +217,62 @@
     <div class="product-list-body">
       <div>
         <div class="product-cate">
-          <div class="search-cate">
-            <p>카테고리</p>
-            <div>
-              <div class="result-cate1"><span><img src="./imgs/path.png"></span>123123<p>4</p>
+          <div class="select-cate">
+            <div><img src="./imgs/home.png" style="width: 12px; padding-right: 10px;">홈</div>
+            <div class="cate1" id="cate1"><img class="path" src="./imgs/path.png" style="width: 10px; height: 10px; padding:0 13px;">
+              <div class="select">
+                <div>123</div>
+                <img src="./imgs/select.png">
               </div>
-              <div class="result-cate2"><span><img src="./imgs/path.png"></span>123123<p>4</p>
+              <ul class="main">
+                <li><a href="./" class="cate-li">1231</a></li>
+                <li><a href="#" class="cate-li">1231</a></li>
+                <li><a href="#" class="cate-li">1231</a></li>
+                <li><a href="#" class="cate-li">1231</a></li>
+                <li><a href="#" class="cate-li">1231</a></li>
+                <li><a href="#" class="cate-li">1231</a></li>
+              </ul>
+            </div>
+
+            <div class="cate2" id="cate2">
+              <img class="path" src="./imgs/path.png" style="width: 10px; height: 10px; padding:0 13px;">
+              <div class="select2">
+                <div></div>
+                <img src="./imgs/select.png">
               </div>
-              <div class="result-cate3"><span><img src="./imgs/path.png"></span>123123<p>4</p>
+              <ul class="sub">
+                <li><a href="#" class="cate-li">1231</a></li>
+                <li><a href="#" class="cate-li">1231</a></li>
+                <li><a href="#" class="cate-li">1231</a></li>
+                <li><a href="#" class="cate-li">1231</a></li>
+                <li><a href="#" class="cate-li">1231</a></li>
+                <li><a href="#" class="cate-li">1231</a></li>
+              </ul>
+            </div>
+            <div class="cate3" id=cate3>
+              <img class="path" src="./imgs/path.png" style="width: 10px; height: 10px; padding:0 13px;">
+              <div class="select3">
+                <div></div>
+                <img src="./imgs/select.png">
               </div>
-              <div class="result-cate4"><span><img src="./imgs/path.png"></span>123123<p>4</p>
-              </div>
+              <ul class="sub2">
+                <li><a href="#" class="cate-li">1231</a></li>
+                <li><a href="#" class="cate-li">1231</a></li>
+                <li><a href="#" class="cate-li">1231</a></li>
+                <li><a href="#" class="cate-li">1231</a></li>
+                <li><a href="#" class="cate-li">1231</a></li>
+                <li><a href="#" class="cate-li">1231</a></li>
+              </ul>
             </div>
           </div>
           <div class="cate-btns" id="cate-btns">
+            <div class="cate-all" id="cate-all"><a href="#">전체보기<img src="./imgs/path.png"></a></div>
             <div class="sub-btn"><a href="#">아우터<span>76만+</span></a></div>
             <div class="sub2-btn"><a href="#">패딩<span>76만+</span></a></div>
           </div>
         </div>
         <div class="product-list">
-          <div class="sort">
-            <h4>
-              <span>남성의류</span>의 검색결과
-            </h4>
-            <div>
-              <span id="accuracy-btn" class="on">정확도순</span>
-              <div class="line"></div>
-              <span id="recent-btn">최신순</span>
-              <div class="line"></div>
-              <span id="low-btn">저가순</span>
-              <div class="line"></div>
-              <span id="high-btn">고가순</span>
-            </div>
-          </div>
+          <h4><span>남성의류</span>의 추천상품</h4>
           <div class="product-wrap">
             <a href="#">
               <div class="product">
