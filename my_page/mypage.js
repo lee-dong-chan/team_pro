@@ -48,6 +48,7 @@ mypageElem.innerHTML = `<div class="all_sell_list">
     </div>
   </div>
   <div class="prdboxArea">
+  <a href="./">
     <div class="prdimgbox">
       <img src="./imgs/sample.png" />
       <span class="prdname">상품명예시텍스트</span>
@@ -60,6 +61,8 @@ mypageElem.innerHTML = `<div class="all_sell_list">
         <span>서울특별시 강남구 세곡동</span>
       </div>
     </div>
+    </a>
+    <a href="./">
     <div class="prdimgbox">
       <img src="./imgs/sample.png" />
       <span class="prdname">상품명예시텍스트</span>
@@ -72,6 +75,8 @@ mypageElem.innerHTML = `<div class="all_sell_list">
         <span>서울특별시 강남구 세곡동</span>
       </div>
     </div>
+    </a>
+    <a href="./">
     <div class="prdimgbox">
       <img src="./imgs/sample.png" />
       <span class="prdname">상품명예시텍스트</span>
@@ -84,6 +89,8 @@ mypageElem.innerHTML = `<div class="all_sell_list">
         <span>서울특별시 강남구 세곡동</span>
       </div>
     </div>
+    </a>
+    <a href="./">
     <div class="prdimgbox">
       <img src="./imgs/sample.png" />
       <span class="prdname">상품명예시텍스트</span>
@@ -96,6 +103,7 @@ mypageElem.innerHTML = `<div class="all_sell_list">
         <span>서울특별시 강남구 세곡동</span>
       </div>
     </div>
+    </a>
     <div class="prdimgbox">
       <img src="./imgs/sample.png" />
       <span class="prdname">상품명예시텍스트</span>
@@ -283,7 +291,7 @@ reviewBtn.onclick = () => {
             review_content innerHTML 어쩌구저쩌구</span
           >
         </div>
-        <div class="report_button"><button>신고하기</button></div>
+        <div class="report_button"><a href="./"><button>신고하기</button></a></div>
       </div>
     </div>
   </div>
@@ -373,7 +381,7 @@ followingBtn.onclick = () => {
         <span>|</span>
         <span>팔로워<span class="bold">16</span></span>
       </div>
-      <button><img src="./imgs/following_btn.png" />팔로잉</button>
+      <button><a href=./><img src="./imgs/following_btn.png" />팔로잉</a></button>
     </div>
     <div>
       <img class="follower_prd" src="./imgs/sample.png" />
@@ -388,7 +396,7 @@ followingBtn.onclick = () => {
         <span>|</span>
         <span>팔로워<span class="bold">16</span></span>
       </div>
-      <button><img src="./imgs/following_btn.png" />팔로잉</button>
+      <button><a href=./><img src="./imgs/following_btn.png" />팔로잉</a></button>
     </div>
     <div>
       <img class="follower_prd" src="./imgs/sample.png" />
@@ -426,7 +434,7 @@ followerBtn.onclick = () => {
         <span>팔로워<span class="bold">16</span></span>
       </div>
       <div class="follow_btn">
-        <button><img src="./imgs/follow_btn.png" />팔로우</button>
+        <button><img src="./imgs/follow_btn.png" /><a href="./">팔로우</a></button>
       </div>
     </div>
     <div class="follower_box">
@@ -445,7 +453,7 @@ followerBtn.onclick = () => {
         <span>팔로워<span class="bold">16</span></span>
       </div>
       <div class="follow_btn">
-        <button><img src="./imgs/follow_btn.png" />팔로우</button>
+        <button><img src="./imgs/follow_btn.png" /><a href="./">팔로우</a></button>
       </div>
     </div>
     <div class="follower_box">
@@ -464,7 +472,7 @@ followerBtn.onclick = () => {
         <span>팔로워<span class="bold">16</span></span>
       </div>
       <div class="follow_btn">
-        <button><img src="./imgs/follow_btn.png" />팔로우</button>
+        <button><img src="./imgs/follow_btn.png" /><a href="./">팔로우</a></button>
       </div>
     </div>
   </div>
