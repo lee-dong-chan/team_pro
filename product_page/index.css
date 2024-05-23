@@ -467,6 +467,10 @@
   color: white;
 }
 
+.prd_review_footer button a {
+  color: white;
+}
+
 .prd_review_footer button:nth-child(1) {
   background-color: orange;
 }
