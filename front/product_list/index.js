@@ -516,6 +516,7 @@ let user = [
 ];
 let page = 1;
 let count = 40;
+let pageidx = 0;
 console.log(user.length);
 
 const prdArea = document.getElementById("product-wrap");
@@ -553,8 +554,9 @@ const prdArea = document.getElementById("product-wrap");
 
 const getPrd = async () => {
   try {
-    const product = (await axios.post("/product_list", { user, page, count }))
-      .data;
+    const product = (
+      await axios.post("/product_list", { user, page, count, pageidx })
+    ).data;
     prdArea.innerHTML = "";
 
     // (page -1) * count, page * count
@@ -592,16 +594,50 @@ const pageLi = async () => {
     const pagingCount = 10;
 
     pagingElem = document.getElementById("page-list");
+    preElem = document.getElementById("pre-btn");
     pagingElem.innerHTML = "";
-    for (let i = 0; i < pagingCount; ++i) {
-      const creLi = document.createElement("li");
-      creLi.innerHTML = i + 1;
-      creLi.onclick = () => {
-        page = i + 1;
-        getPrd(page);
-        console.log(page);
-      };
-      pagingElem.append(creLi);
+    preElem.innerHTML = "";
+    const creLi = document.createElement("li");
+
+    for (
+      let i = pageidx * pagingCount;
+      i < pagingCount * (pageidx + 1) + 1;
+      ++i
+    ) {
+      if (i < pagingCount * (pageidx + 1)) {
+        const creLi = document.createElement("li");
+
+        creLi.innerHTML = `<a href="#" class="num">${i + 1}</a>`;
+        creLi.onclick = () => {
+          page = i + 1;
+          getPrd(page);
+          console.log(page);
+        };
+        pagingElem.append(creLi);
+      } else if (i == pagingCount * (pageidx + 1)) {
+        creLi.innerHTML = `<a href="#" class="next">></a>`;
+        creLi.onclick = () => {
+          page = i + 1;
+          pageidx += 1;
+          console.log("idx: " + pageidx);
+          getPrd(page);
+          pageLi();
+          console.log(page);
+        };
+        pagingElem.append(creLi);
+      } else if (pageidx > 0) {
+        creLi.innerHTML = `<a href="#" class="next"><</a>`;
+        creLi.onclick = () => {
+          page = i - 10;
+          pageidx -= 1;
+          console.log("idx: " + pageidx);
+          getPrd(page);
+          pageLi();
+          console.log(page);
+          return;
+        };
+        preElem.append(creLi);
+      }
     }
   } catch (err) {
     console.error(err);
