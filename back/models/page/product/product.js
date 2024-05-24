@@ -8,14 +8,14 @@ export default class Product extends Model {
           type: DataTypes.STRING(100),
           allowNull: false,
         },
-        seller_id: {
+        store_id: {
           type: DataTypes.INTEGER.UNSIGNED,
           allowNull: false,
         },
-        img_id: {
-          type: DataTypes.INTEGER.UNSIGNED,
-          allowNull: true,
-        },
+        // img_id: {
+        //   type: DataTypes.INTEGER.UNSIGNED,
+        //   allowNull: true,
+        // },
       },
       {
         sequelize,
@@ -26,5 +26,21 @@ export default class Product extends Model {
         paranoid: true,
       }
     );
+  }
+  static associate({
+    Product,
+    Productetc,
+    Productinfo,
+    Productsell,
+    Prd_img,
+    Product_tag,
+    Favorit_prd,
+  }) {
+    Product.hasOne(Productetc);
+    Product.hasOne(Productinfo);
+    Product.hasOne(Productsell);
+    Product.hasOne(Product_tag);
+    Product.hasMany(Prd_img);
+    Product.hasOne(Favorit_prd);
   }
 }

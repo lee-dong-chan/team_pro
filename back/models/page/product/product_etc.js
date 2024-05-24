@@ -25,12 +25,15 @@ export default class Productetc extends Model {
       },
       {
         sequelize,
-        modelName: "Productinfo",
-        tableName: "productinfo",
+        modelName: "Productetc",
+        tableName: "productetc",
         underscored: true,
         timestamps: true,
         paranoid: true,
       }
     );
+  }
+  static associate({ Product, Productetc }) {
+    Productetc.belongsTo(Product);
   }
 }

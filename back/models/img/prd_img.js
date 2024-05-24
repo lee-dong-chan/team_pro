@@ -1,29 +1,28 @@
 import { Model, DataTypes } from "sequelize";
 
-export default class Thirdcategory extends Model {
+export default class Prd_img extends Model {
   static init(sequelize) {
     return super.init(
       {
-        name: {
-          type: DataTypes.STRING(30),
-          allowNull: false,
+        img_path: {
+          type: DataTypes.STRING(100),
         },
-        Secondcategory_id: {
+        product_id: {
           type: DataTypes.INTEGER.UNSIGNED,
           allowNull: false,
         },
       },
       {
         sequelize,
-        modelName: "Thirdcategory",
-        tableName: "thirdcategory",
+        modelName: "Prd_img",
+        tableName: "prd_img",
         underscored: true,
         timestamps: true,
         paranoid: true,
       }
     );
   }
-  static associate({ Secondcategory }) {
-    Thirdcategory.belongsTo(Secondcategory);
+  static associate({ Product, Prd_img }) {
+    Prd_img.belongsTo(Product);
   }
 }
