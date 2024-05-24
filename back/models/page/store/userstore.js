@@ -36,4 +36,7 @@ export default class Userstore extends Model {
       }
     );
   }
+  static associate({ Userstore, Favorit_prd }) {
+    Userstore.hasMany(Favorit_prd);
+  }
 }
