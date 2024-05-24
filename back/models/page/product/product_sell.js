@@ -27,7 +27,7 @@ export default class Productsell extends Model {
           allowNull: false,
         },
         sell_status: {
-          type: DataTypes.ENUM(0, 1, 2),
+          type: DataTypes.TINYINT,
           allowNull: false,
           defaultValue: 0,
         },
@@ -41,5 +41,8 @@ export default class Productsell extends Model {
         paranoid: true,
       }
     );
+  }
+  static associate({ Product, Productsell }) {
+    Productsell.belongsTo(Product);
   }
 }
