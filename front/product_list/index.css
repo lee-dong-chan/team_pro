@@ -801,6 +801,11 @@ a {
   gap: 15px;
   list-style: none;
 }
+.product-list-body div .page .next-btn {
+  display: flex;
+  gap: 15px;
+  list-style: none;
+}
 
 .product-list-body div .page .page-list li {
   width: 30px;
