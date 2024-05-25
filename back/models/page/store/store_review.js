@@ -5,10 +5,9 @@ export default class Storereview extends Model {
     return super.init(
       {
         writer: {
-          type: DataTypes.INTEGER.UNSIGNED,
-          allowNull: false,
+          type: DataTypes.INTEGER,
         },
-        store_id: {
+        userstore_id: {
           type: DataTypes.INTEGER.UNSIGNED,
           allowNull: false,
         },
@@ -17,12 +16,11 @@ export default class Storereview extends Model {
           allowNull: false,
         },
         product_id: {
-          type: DataTypes.INTEGER.UNSIGNED,
-          allowNull: false,
+          type: DataTypes.INTEGER,
         },
         star_grade: {
-          type: DataTypes.ENUM(1, 2, 3, 4, 5),
-          allowNull: false,
+          type: DataTypes.ENUM("1", "2", "3", "4", "5"),
+          defaultValue: 5,
         },
       },
       {
@@ -34,5 +32,19 @@ export default class Storereview extends Model {
         paranoid: true,
       }
     );
+  }
+  static associate({ Storereview, Userstore }) {
+    Storereview.belongsTo(Userstore, {
+      foreignKey: "writer",
+      sourceKey: "userstoreId",
+    });
+    Storereview.belongsTo(Userstore, {
+      foreignKey: "userstoreId",
+      sourceKey: "userstoreId",
+    });
+    Storereview.belongsTo(Userstore, {
+      foreignKey: "product_id",
+      sourceKey: "productId",
+    });
   }
 }
