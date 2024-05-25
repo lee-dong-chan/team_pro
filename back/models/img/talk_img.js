@@ -7,6 +7,9 @@ export default class Talk_img extends Model {
         img_path: {
           type: DataTypes.STRING(100),
         },
+        ThundertalkId: {
+          type: DataTypes.INTEGER,
+        },
       },
       {
         sequelize,
@@ -18,5 +21,7 @@ export default class Talk_img extends Model {
       }
     );
   }
-  static associate() {}
+  static associate({ Talk_img, Thundertalk }) {
+    Talk_img.belongsTo(Thundertalk);
+  }
 }
