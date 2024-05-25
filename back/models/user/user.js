@@ -7,7 +7,7 @@ export default class User extends Model {
         emil: {
           type: DataTypes.STRING(64),
           allowNull: false,
-          unique,
+          unique: true,
         },
         password: {
           type: DataTypes.STRING(30),
@@ -15,8 +15,7 @@ export default class User extends Model {
         },
         nickname: {
           type: DataTypes.STRING(30),
-          allowNull: false,
-          unique,
+          unique: true,
         },
         location: {
           type: DataTypes.STRING(100),
@@ -37,5 +36,7 @@ export default class User extends Model {
       }
     );
   }
-  static associate() {}
+  static associate({ User, Userstore }) {
+    User.hasOne(Userstore);
+  }
 }
