@@ -7,6 +7,9 @@ export default class Store_img extends Model {
         img_path: {
           type: DataTypes.STRING(100),
         },
+        Userstore_id: {
+          type: DataTypes.INTEGER.UNSIGNED,
+        },
       },
       {
         sequelize,
@@ -18,5 +21,7 @@ export default class Store_img extends Model {
       }
     );
   }
-  static associate() {}
+  static associate({ Store_img, Userstore }) {
+    Store_img.belongsTo(Userstore);
+  }
 }

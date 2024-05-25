@@ -5,12 +5,10 @@ export default class Storefollow extends Model {
     return super.init(
       {
         follower: {
-          type: DataTypes.INTEGER.UNSIGNED,
-          allowNull: false,
+          type: DataTypes.INTEGER,
         },
-        folloing_store: {
-          type: DataTypes.INTEGER.UNSIGNED,
-          allowNull: false,
+        following: {
+          type: DataTypes.INTEGER,
         },
       },
       {
@@ -23,5 +21,14 @@ export default class Storefollow extends Model {
       }
     );
   }
+  static associate({ Storefollow, Userstore }) {
+    Storefollow.belongsTo(Userstore, {
+      foreignKey: "follower",
+      sourceKey: "userstoreId",
+    });
+    Storefollow.belongsTo(Userstore, {
+      foreignKey: "following",
+      sourceKey: "userstoreId",
+    });
+  }
 }
-v;

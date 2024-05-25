@@ -8,7 +8,7 @@ export default class Product extends Model {
           type: DataTypes.STRING(100),
           allowNull: false,
         },
-        store_id: {
+        userstore_id: {
           type: DataTypes.INTEGER.UNSIGNED,
           allowNull: false,
         },
@@ -35,6 +35,10 @@ export default class Product extends Model {
     Prd_img,
     Product_tag,
     Favorit_prd,
+    Userstore,
+    Storereview,
+    Productreport,
+    Thundertalk,
   }) {
     Product.hasOne(Productetc);
     Product.hasOne(Productinfo);
@@ -42,5 +46,12 @@ export default class Product extends Model {
     Product.hasOne(Product_tag);
     Product.hasMany(Prd_img);
     Product.hasOne(Favorit_prd);
+    Product.belongsTo(Userstore);
+    Product.hasMany(Storereview, {
+      foreignKey: "product_id",
+      targetKey: "productId",
+    });
+    Product.hasMany(Thundertalk);
+    Product.hasMany(Productreport);
   }
 }
