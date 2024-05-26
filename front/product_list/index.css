@@ -710,12 +710,12 @@ a {
   background-color: white;
 }
 .product-list-body div .product-cate .cate-btns div {
-  width: 171.7px;
+  width: 177.2px;
   height: 47px;
   display: flex;
   align-items: center;
   justify-content: left;
-  padding: 0 1rem;
+  padding: 0 0.8rem;
   border: 0.1px solid #ebeefe;
   font-size: 13px;
 }
