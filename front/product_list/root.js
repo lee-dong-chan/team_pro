@@ -102,30 +102,30 @@ firstCateElem.onmouseover = () => {
   cateImgElem.classList.add("on");
 };
 
-for (let i = 0; i < catelist1.length; i++) {
-  catelist1[i].onmouseover = () => {
-    secondCateElem.classList.add("on");
-  };
+// for (let i = 0; i < catelist1.length; i++) {
+//   catelist1[i].onmouseover = () => {
+//     secondCateElem.classList.add("on");
+//   };
 
-  catelist1[i].onmousedown = () => {
-    for (let a = 0; a < catelist1.length; a++) {
-      catelist1[a].classList.remove("on");
-    }
-    catelist1[i].classList.add("on");
-  };
-}
+//   catelist1[i].onmousedown = () => {
+//     for (let a = 0; a < catelist1.length; a++) {
+//       catelist1[a].classList.remove("on");
+//     }
+//     catelist1[i].classList.add("on");
+//   };
+// }
 
-for (let i = 0; i < catelist2.length; i++) {
-  catelist2[i].onmouseover = () => {
-    thirdCateElem.classList.add("on");
-  };
-  catelist2[i].onmousedown = () => {
-    for (let a = 0; a < catelist1.length; a++) {
-      catelist2[a].classList.remove("on");
-    }
-    catelist2[i].classList.add("on");
-  };
-}
+// for (let i = 0; i < catelist2.length; i++) {
+//   catelist2[i].onmouseover = () => {
+//     thirdCateElem.classList.add("on");
+//   };
+//   catelist2[i].onmousedown = () => {
+//     for (let a = 0; a < catelist1.length; a++) {
+//       catelist2[a].classList.remove("on");
+//     }
+//     catelist2[i].classList.add("on");
+//   };
+// }
 
 for (let i = 0; i < catelist3.length; i++) {
   catelist3[i].onclick = () => {
