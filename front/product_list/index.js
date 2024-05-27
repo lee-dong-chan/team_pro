@@ -5,7 +5,7 @@ const catelist3Elem = document.getElementById("cate-list3");
   try {
     const category = (
       await axios.get(
-        "http://localhost:8080/main",
+        "http://localhost:8000/main",
         {},
         {
           withCredentials: true,
@@ -5544,12 +5544,14 @@ pageLi();
 
 //search
 const form = document.forms.searchform;
+console.log(form);
 
-// form.search.onsubmit = async (e) => {
-//   try {
-//     const search = (await axios.get("http://localhost:8080/products", {})).data;
-//     console.log(search);
-//   } catch (err) {
-//     console.error(err);
-//   }
-// };
+form.onsubmit = async (e) => {
+  e.preventDefault();
+  try {
+    const search = (await axios.get("http://localhost:8000/products", {})).data;
+    console.log(search);
+  } catch (err) {
+    console.error(err);
+  }
+};
