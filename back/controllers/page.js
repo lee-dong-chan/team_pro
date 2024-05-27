@@ -37,7 +37,7 @@ router.use("/product_list", product_list);
 router.use("/talk", talk);
 router.use("/product_page", products);
 router.use("/mystore", mystore);
-router.use("/seller", seller);
+router.post("/seller", seller);
 router.use("/search", search);
 
 export default router;

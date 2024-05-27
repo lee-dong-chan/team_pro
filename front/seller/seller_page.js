@@ -101,12 +101,112 @@ detail.oninput = (e) => {
 
 let status = 1;
 
+const prd_catelist1Elem = document.getElementById("prd_cate-list1");
+const prd_catelist2Elem = document.getElementById("prd_cate-list2");
+const prd_catelist3Elem = document.getElementById("prd_cate-list3");
+
+const prd_firstCateElem = document.getElementsByClassName("prd_first_cate")[0];
+const prd_secondCateElem =
+  document.getElementsByClassName("prd_second_cate")[0];
+const prd_thirdCateElem = document.getElementsByClassName("prd_third_cate")[0];
+
+let cateValue1;
+let cateValue2;
+let cateValue3;
+
+(async () => {
+  try {
+    const mainpage = (await axios.get("http://localhost:8000/main", {})).data;
+
+    console.log(mainpage);
+    //category
+    if (mainpage[0]) {
+      mainpage[0].forEach((cate1) => {
+        prd_catelist1Elem.innerHTML += `<span class="cate-list">
+        ${cate1.name}</span>`;
+      });
+      for (let i = 0; i < prd_catelist1.length; i++) {
+        prd_catelist1[i].onclick = () => {
+          prd_secondCateElem.classList.add("on");
+          cateValue1 = prd_catelist1[i].innerText;
+          cateValue2 = null;
+          cateValue3 = null;
+          console.log(cateValue1);
+          console.log(cateValue3);
+          prd_catelist3Elem.innerHTML = "";
+          let secondcate = i;
+          let str = "";
+          if (mainpage[0][secondcate].Secondcategories) {
+            mainpage[0][secondcate].Secondcategories.forEach((cate2) => {
+              str += `<span class="cate-list">${cate2.name}</span>`;
+            });
+          }
+          prd_catelist2Elem.innerHTML = str;
+          for (let i = 0; i < prd_catelist2.length; i++) {
+            prd_catelist2[i].onclick = () => {
+              cateValue2 = prd_catelist2[i].innerText;
+              console.log(cateValue2);
+              prd_thirdCateElem.classList.add("on");
+              let thirdcate = i;
+              let str = "";
+              // console.log(thirdcate);
+              // console.log(
+              //   mainpage[0][secondcate].Secondcategories[thirdcate]
+              //     .Thirdcategories
+              // );
+              if (
+                mainpage[0][secondcate].Secondcategories[thirdcate]
+                  .Thirdcategories
+              ) {
+                mainpage[0][secondcate].Secondcategories[
+                  thirdcate
+                ].Thirdcategories.forEach((cate3) => {
+                  str += `<span class="cate-list3">${cate3.name}</span>`;
+                });
+              }
+              prd_catelist3Elem.innerHTML = str;
+              let cate3Btn = document.getElementsByClassName("cate-list3");
+            };
+
+            // prd_catelist2[i].onclick = () => {
+            //   for (let a = 0; a < prd_catelist1.length; a++) {
+            //     prd_catelist2[a].classList.remove("on");
+            //   }
+            //   prd_catelist2[i].classList.add("on");
+            // };
+          }
+        };
+
+        // prd_catelist1[i].onclick = () => {
+        //   for (let a = 0; a < prd_catelist1.length; a++) {
+        //     prd_catelist1[a].classList.remove("on");
+        //   }
+        //   prd_catelist1[i].classList.add("on");
+        // };
+      }
+    }
+    //
+  } catch (err) {
+    console.error(err);
+  }
+})();
+
+const prd_catelist1 = document
+  .getElementById("prd_cate-list1")
+  .getElementsByTagName("span");
+const prd_catelist2 = document
+  .getElementById("prd_cate-list2")
+  .getElementsByTagName("span");
+const prd_catelist3 = document
+  .getElementById("prd_cate-list3")
+  .getElementsByTagName("span");
+
 form.onsubmit = async (e) => {
   e.preventDefault();
   try {
     const sellData = (
       await axios.post(
-        "http://localhost:8080/seller",
+        "http://localhost:8000/seller",
         {
           img: form.prd_img.files,
           prd_name: form.nameinput.value,
@@ -122,6 +222,7 @@ form.onsubmit = async (e) => {
       )
     ).data;
     console.log(sellData);
+    location.href = "http://localhost:8080";
   } catch (err) {
     console.error(err);
   }
