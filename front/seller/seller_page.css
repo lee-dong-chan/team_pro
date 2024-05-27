@@ -715,7 +715,7 @@ a {
   margin: 0;
 }
 
-.category_ul li {
+.category_ul .cate-list {
   padding: 0 1.5rem;
   height: 2.5rem;
   display: flex;
@@ -723,7 +723,19 @@ a {
   font-size: 0.9rem;
 }
 
-.category_ul li:hover {
+.category_ul .cate-list:hover {
+  background-color: #e2e2e2;
+}
+
+.category_ul .cate-list3 {
+  padding: 0 1.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.category_ul .cate-list3:hover {
   background-color: #e2e2e2;
 }
 
