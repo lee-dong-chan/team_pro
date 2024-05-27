@@ -68,11 +68,11 @@
             </button>
           </div>
           <div class="my-btns">
-            <div class="noCookie">
+            <div class="noCookie on">
               <button id="login-btn">로그인</button>
               <div class="my-store" id="my-store1">내 상점 ▼</div>
             </div>
-            <div class="Cookie on">
+            <div class="Cookie">
               <button id="login-btn">로그아웃</button>
               <div class="notice" id="notice">알림 ▼</div>
               <div class="my-store" id="my-store2">내 상점 ▼</div>
@@ -173,7 +173,7 @@
               </g>
             </svg>
           </a>
-          <form action="http://localhost/search/" id="searchform">
+          <form action="" id="searchform">
             <div class="search">
               <fieldset>
                 <input
@@ -459,6 +459,16 @@
                 <legend>닉네임</legend>
                 <input type="text" name="nick" placeholder="닉네임" />
                 <div class="err" id="nick-result"></div>
+              </fieldset>
+              <fieldset>
+                <legend>전화번호</legend>
+                <input type="text" name="phone" placeholder="전화번호" />
+                <div class="err" id="phone-result"></div>
+              </fieldset>
+              <fieldset>
+                <legend>주소</legend>
+                <input type="text" name="location" placeholder="주소" />
+                <div class="err" id="location-result"></div>
               </fieldset>
               <button class="regist-btn">회원가입</button>
             </form>
