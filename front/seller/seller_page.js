@@ -106,7 +106,7 @@ form.onsubmit = async (e) => {
   try {
     const sellData = (
       await axios.post(
-        "/localhost/seller",
+        "http://localhost:8080/seller",
         {
           img: form.prd_img.files,
           prd_name: form.nameinput.value,
@@ -122,7 +122,6 @@ form.onsubmit = async (e) => {
       )
     ).data;
     console.log(sellData);
-    location.href = "localhost/main";
   } catch (err) {
     console.error(err);
   }
