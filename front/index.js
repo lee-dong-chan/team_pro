@@ -28,13 +28,9 @@ const catelist3Elem = document.getElementById("cate-list3");
 (async () => {
   try {
     const mainpage = (
-      await axios.get(
-        "http://localhost:8000/main",
-        {},
-        {
-          withCredentials: true,
-        }
-      )
+      await axios.get("http://localhost:8000/main", {
+        withCredentials: true,
+      })
     ).data;
 
     //category
