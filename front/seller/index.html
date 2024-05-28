@@ -569,7 +569,7 @@
                     <input
                       type="radio"
                       id="direct-trade-yes"
-                      name="direct-trade"
+                      name="directtrade"
                       value="0"
                       checked
                       onclick="tradeFnc(event)"
@@ -578,7 +578,7 @@
                     <input
                       type="radio"
                       id="direct-trade-no"
-                      name="direct-trade"
+                      name="directtrade"
                       value="1"
                       onclick="tradeFnc(event)"
                     />
@@ -590,7 +590,10 @@
                       <button type="button">최근 지역</button>
                       <button type="button">주소 검색</button>
                     </div>
-                    <input placeholder="거래 희망 장소를 입력해 주세요." />
+                    <input
+                      placeholder="거래 희망 장소를 입력해 주세요."
+                      name="location"
+                    />
                   </div>
                 </div>
               </div>

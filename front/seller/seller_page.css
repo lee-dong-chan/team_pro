@@ -811,9 +811,6 @@ a {
   border: 1px solid gray;
   background-color: #ebeefe;
   border-radius: 16px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   gap: 0.3rem;
   font-size: 0.8rem;
   min-width: 2rem;
