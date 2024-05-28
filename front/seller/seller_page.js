@@ -1,43 +1,3 @@
-// let cateAdd = document.getElementById("category_ul");
-// cateArr = [
-//   "여성의류",
-//   "남성의류",
-//   "신발",
-//   "가방/지갑",
-//   "시계",
-//   "쥬얼리",
-//   "패션 액세서리",
-//   "디지털",
-//   "가전제품",
-//   "스포츠/레저",
-//   "차량/오토바이",
-//   "스타굿즈",
-//   "키덜트",
-//   "예술/희귀/수집품",
-//   "음반/악기",
-//   "도서/티켓/문구",
-//   "뷰티/미용",
-//   "가구/인테리어",
-//   "생활/주방용품",
-//   "공구/산업용품",
-//   "식품",
-//   "유아동/출산",
-//   "반려동물용품",
-//   "기타",
-//   "지역 서비스",
-//   "원룸/함께살아요",
-//   "번개나눔",
-//   "구인구직",
-//   "재능",
-//   "커뮤니티",
-// ];
-
-// for (i = 0; i < cateArr.length + 1; i++) {
-//   cateAdd.innerHTML = "";
-//   console.log(cateArr[i]);
-//   cateAdd.innerHTML = `<li>${cateArr[i]}</li>`;
-// }
-
 const imgArea = document.getElementById("img_area");
 const inputBtn = document.getElementById("prd_img");
 inputBtn.onchange = (e) => {
@@ -53,16 +13,6 @@ inputBtn.onchange = (e) => {
     console.log(e.target.files);
     reader.readAsDataURL(image);
   }
-
-  //   let preview = new FileReader();
-
-  //   preview.onload = (e) => {
-  //     let img = document.createElement("img");
-  //     img.setAttribute("src", e.target.result);
-  //     imgArea.appendChild(img);
-  //   };
-
-  //   preview.readAsDataURL(e.target.files[0]);
 };
 
 const namelength = document.getElementById("name_length");
@@ -84,6 +34,17 @@ form.sizeSelecter.oninput = (e) => {
   console.log(e.target.value);
 };
 
+let directrade = document.querySelector(
+  'input[name="direct-trade"]:checked'
+).value;
+function tradeFnc(e) {
+  console.log(e.target.value);
+}
+
+form.sizeSelecter.oninput = (e) => {
+  console.log(e.target.value);
+};
+
 nameInput.oninput = (e) => {
   if (e.target.value.length > 0) {
     isnameEmpty = true;
@@ -95,8 +56,27 @@ nameInput.oninput = (e) => {
   }
 };
 
+const price = document.getElementById("price");
+let price_empty = false;
+let detail_empty = false;
+
+price.oninput = (e) => {
+  if (e.target.value.length > 0) {
+    price_empty = true;
+  } else if (e.target.value.length < 1) {
+    price_empty = false;
+  }
+};
+
 detail.oninput = (e) => {
   detailLength.innerHTML = `${e.target.value.length}/2000`;
+  if (e.target.value.length > 0) {
+    detail_empty = true;
+    console.log(detail_empty);
+  } else if (e.target.value.length == 0) {
+    detail_empty = false;
+    console.log(detail_empty);
+  }
 };
 
 let status = 1;
@@ -110,9 +90,56 @@ const prd_secondCateElem =
   document.getElementsByClassName("prd_second_cate")[0];
 const prd_thirdCateElem = document.getElementsByClassName("prd_third_cate")[0];
 
+let tagArr = [];
+
+const tagElem = document.getElementById("tagElem");
+const tag = document.getElementById("tags");
+tag.oninput = (e) => {
+  if (
+    e.data == " " &&
+    tagArr.length < 5 &&
+    2 < e.target.value.length &&
+    e.target.value.length <= 10 &&
+    e.target.value != "  " &&
+    tagArr.indexOf(e.target.value.slice(0, e.target.value.length - 1)) == -1
+  ) {
+    // alert(e.target.value.slice(0, -1));
+    const temp = document.createElement("div");
+    temp.classList.add("tagbtns");
+    temp.innerHTML = e.target.value.slice(0, -1);
+    temp.onclick = () => {
+      temp.outerHTML = "";
+      let targetValue = tagArr.indexOf(temp);
+      tagArr.splice(targetValue, 1);
+    };
+    // tagElem.innerHTML += `<div class="tagbtns">${e.target.value.slice(0, -1)}`;
+    tagElem.append(temp);
+    tagArr.push(temp.innerText);
+    console.log(tagArr);
+    e.target.value = "";
+  } else if (e.data == " " && tagArr.length < 5 && e.target.value.length > 10) {
+    e.target.value = null;
+  } else if (tagArr.length >= 5 || e.target.value == "  ") {
+    e.target.value = null;
+  } else if (
+    e.data == " " &&
+    tagArr.indexOf(e.target.value.slice(0, e.target.value.length - 1)) != -1
+  ) {
+    e.target.value = null;
+  }
+};
+
 let cateValue1;
 let cateValue2;
 let cateValue3;
+
+cateTEXT1 = document.getElementById("selcate1");
+cateTEXT2 = document.getElementById("selcate2");
+cateTEXT3 = document.getElementById("selcate3");
+
+cateTEXT1.innerHTML = "";
+cateTEXT2.innerHTML = "";
+cateTEXT3.innerHTML = "";
 
 (async () => {
   try {
@@ -122,32 +149,38 @@ let cateValue3;
     //category
     if (mainpage[0]) {
       mainpage[0].forEach((cate1) => {
-        prd_catelist1Elem.innerHTML += `<span class="cate-list">
+        prd_catelist1Elem.innerHTML += `<span id="1st_${cate1.id}" class="cate-list">
         ${cate1.name}</span>`;
+        prd_catelist1Elem.value = cate1.id;
       });
       for (let i = 0; i < prd_catelist1.length; i++) {
         prd_catelist1[i].onclick = () => {
           prd_secondCateElem.classList.add("on");
-          cateValue1 = prd_catelist1[i].innerText;
+          cateValue1 = prd_catelist1[i].id;
           cateValue2 = null;
           cateValue3 = null;
           console.log(cateValue1);
           console.log(cateValue3);
           prd_catelist3Elem.innerHTML = "";
+          cateTEXT1.innerHTML = prd_catelist1[i].innerText;
+          cateTEXT2.innerHTML = "";
+          cateTEXT3.innerHTML = "";
           let secondcate = i;
           let str = "";
           if (mainpage[0][secondcate].Secondcategories) {
             mainpage[0][secondcate].Secondcategories.forEach((cate2) => {
-              str += `<span class="cate-list">${cate2.name}</span>`;
+              str += `<span id="2nd_${cate2.id}" class="cate-list">${cate2.name}</span>`;
             });
           }
           prd_catelist2Elem.innerHTML = str;
-          for (let i = 0; i < prd_catelist2.length; i++) {
-            prd_catelist2[i].onclick = () => {
-              cateValue2 = prd_catelist2[i].innerText;
+          for (let j = 0; j < prd_catelist2.length; j++) {
+            prd_catelist2[j].onclick = () => {
+              cateValue2 = prd_catelist2[j].id;
+              cateTEXT2.innerHTML = prd_catelist2[j].innerText;
+              cateTEXT3.innerHTML = "";
               console.log(cateValue2);
               prd_thirdCateElem.classList.add("on");
-              let thirdcate = i;
+              let thirdcate = j;
               let str = "";
               // console.log(thirdcate);
               // console.log(
@@ -161,11 +194,18 @@ let cateValue3;
                 mainpage[0][secondcate].Secondcategories[
                   thirdcate
                 ].Thirdcategories.forEach((cate3) => {
-                  str += `<span class="cate-list3">${cate3.name}</span>`;
+                  str += `<span id="3rd_${cate3.id}" class="cate-list3">${cate3.name}</span>`;
                 });
               }
               prd_catelist3Elem.innerHTML = str;
               let cate3Btn = document.getElementsByClassName("cate-list3");
+              for (let k = 0; k < cate3Btn.length; k++) {
+                cate3Btn[k].onclick = () => {
+                  cateValue3 = cate3Btn[k].id;
+                  console.log(cateValue3);
+                  cateTEXT3.innerHTML = cate3Btn[k].innerText;
+                };
+              }
             };
 
             // prd_catelist2[i].onclick = () => {
@@ -208,12 +248,22 @@ form.onsubmit = async (e) => {
       await axios.post(
         "http://localhost:8000/seller",
         {
+          store_id: 1,
           img: form.prd_img.files,
           prd_name: form.nameinput.value,
-          size: form.sizeSelecter.value,
           prd_quality: statusValue,
+          product_count: form.count.value,
           product_explanation: form.prd_detail.value,
-          price: form.price_input.value,
+          price: form.price.value,
+          direct_trade: form.direct_trade.value,
+          firstcate_id: cateValue1,
+          secondcate_id: cateValue2,
+          thirdcate_id: cateValue3,
+          tag1: tagArr[1],
+          tag2: tagArr[2],
+          tag3: tagArr[3],
+          tag4: tagArr[4],
+          tag5: tagArr[5],
         },
         {
           // options
