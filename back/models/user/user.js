@@ -4,22 +4,22 @@ export default class User extends Model {
   static init(sequelize) {
     return super.init(
       {
-        emil: {
-          type: DataTypes.STRING(64),
+        email: {
+          type: DataTypes.STRING(500),
           allowNull: false,
           unique: true,
         },
         password: {
-          type: DataTypes.STRING(30),
+          type: DataTypes.STRING(500),
           allowNull: false,
         },
         nickname: {
           type: DataTypes.STRING(30),
-          unique: true,
+          allowNull: false,
         },
         location: {
           type: DataTypes.STRING(100),
-          allowNull: true,
+          allowNull: false,
         },
         phone_number: {
           type: DataTypes.STRING(30),

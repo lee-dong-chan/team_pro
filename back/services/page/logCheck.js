@@ -4,8 +4,11 @@ export default async (req, res, next) => {
   try {
     if (req.session) {
       console.log(req.session);
-      console.log(req.session.id);
-      console.log(req.session.user);
+      // if (req.user) {
+      //   res.json({ result: "login" });
+      // } else {
+      //   res.json({ result: "notlogin" });
+      // }
     }
   } catch (err) {
     console.error(err);
