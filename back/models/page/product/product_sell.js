@@ -1,12 +1,12 @@
 import { Model, DataTypes } from "sequelize";
 
-export default class Productsell extends Model {
+export default class ProductSell extends Model {
   static init(sequelize) {
     return super.init(
       {
         product_id: {
           type: DataTypes.INTEGER.UNSIGNED,
-          allowNull: false,
+          // allowNull: false,
         },
         price: {
           type: DataTypes.INTEGER.UNSIGNED,
@@ -14,7 +14,7 @@ export default class Productsell extends Model {
           defaultValue: 0,
         },
         product_count: {
-          type: DataTypes.TINYINT.UNSIGNED,
+          type: DataTypes.INTEGER.UNSIGNED,
           allowNull: false,
           defaultValue: 1,
         },
@@ -33,15 +33,15 @@ export default class Productsell extends Model {
       },
       {
         sequelize,
-        modelName: "Productsell",
-        tableName: "productsell",
+        modelName: "ProductSell",
+        tableName: "product_sell",
         underscored: true,
         timestamps: true,
         paranoid: true,
       }
     );
   }
-  static associate({ Product, Productsell }) {
-    Productsell.belongsTo(Product);
+  static associate({ Product, ProductSell }) {
+    ProductSell.belongsTo(Product);
   }
 }
