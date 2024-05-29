@@ -1,5 +1,7 @@
 import crypto from "crypto";
 import User from "../../models/user/user.js";
+import { Userstore } from "../../models/index.js";
+import { userInfo } from "os";
 export default async (req, res) => {
   try {
     if (req.body.email !== "" && req.body.pw !== "") {
@@ -12,12 +14,18 @@ export default async (req, res) => {
         .pbkdf2Sync(req.body.pw, salt, 1000, 64, "sha512")
         .toString("hex");
 
-      await User.create({
+      const Userinfo = await User.create({
         email: cryptoId,
         password: cryptoPw,
         nickname: req.body.nick,
         phone_number: req.body.phone,
         location: req.body.location,
+      });
+
+      await Userstore.create({
+        name: Userinfo.nickname,
+        user_id: Userinfo.id,
+        location: Userinfo.location,
       });
     }
     res.json("ok");

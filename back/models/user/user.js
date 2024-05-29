@@ -15,11 +15,11 @@ export default class User extends Model {
         },
         nickname: {
           type: DataTypes.STRING(30),
+          unique: true,
           allowNull: false,
         },
         location: {
           type: DataTypes.STRING(100),
-          allowNull: false,
         },
         phone_number: {
           type: DataTypes.STRING(30),
@@ -37,6 +37,13 @@ export default class User extends Model {
     );
   }
   static associate({ User, Userstore }) {
-    User.hasOne(Userstore);
+    User.hasOne(Userstore, {
+      foreignKey: "user_id",
+      targetKey: "id",
+    });
+    // User.hasOne(Userstore, {
+    //   foreignKey: "location",
+    //   targetKey: "location",
+    // });
   }
 }
