@@ -1,12 +1,12 @@
 import { Model, DataTypes } from "sequelize";
 
-export default class Product_tag extends Model {
+export default class ProductTag extends Model {
   static init(sequelize) {
     return super.init(
       {
         product_id: {
           type: DataTypes.INTEGER.UNSIGNED,
-          allowNull: false,
+          // allowNull: false,
         },
         tag1: {
           type: DataTypes.STRING(10),
@@ -18,7 +18,7 @@ export default class Product_tag extends Model {
       },
       {
         sequelize,
-        modelName: "Product_tag",
+        modelName: "ProductTag",
         tableName: "product_tag",
         underscored: true,
         timestamps: true,
@@ -26,7 +26,7 @@ export default class Product_tag extends Model {
       }
     );
   }
-  static associate({ Product, Product_tag }) {
-    Product_tag.belongsTo(Product);
+  static associate({ Product, ProductTag }) {
+    ProductTag.belongsTo(Product);
   }
 }
