@@ -33,6 +33,7 @@ export default async (req, res) => {
           attributes: ["thirdcategory_id"],
         },
       ],
+      order: [ProductSell, "price", "asc"],
     });
     res.json(serchlist);
   } catch (err) {
