@@ -5,6 +5,10 @@ a {
   text-decoration: none;
   color: black;
 }
+.err {
+  color: red;
+  font-size: 11px;
+}
 .test {
   background-color: aqua;
 }
@@ -484,7 +488,7 @@ a {
 #modal .login.on {
   width: 500px;
   height: 600px;
-  top: 200px;
+  top: 80px;
   margin: auto;
   position: fixed;
   z-index: 11000;
@@ -497,8 +501,8 @@ a {
 }
 #modal .regist.on {
   width: 500px;
-  height: 600px;
-  top: 200px;
+
+  top: 10px;
   margin: auto;
   position: fixed;
   z-index: 11000;
@@ -523,6 +527,7 @@ a {
 
 .log .user-box h1,
 .regist .user-box h1 {
+  font-size: 19px;
   text-align: center;
 }
 
