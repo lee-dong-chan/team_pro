@@ -6,7 +6,7 @@ export default class Productinfo extends Model {
       {
         product_id: {
           type: DataTypes.INTEGER.UNSIGNED,
-          allowNull: false,
+          // allowNull: false,
         },
         product_status: {
           type: DataTypes.ENUM("1", "2", "3", "4", "5"),
@@ -31,7 +31,7 @@ export default class Productinfo extends Model {
       {
         sequelize,
         modelName: "Productinfo",
-        tableName: "productinfo",
+        tableName: "product_info",
         underscored: true,
         timestamps: true,
         paranoid: true,
