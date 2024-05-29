@@ -54,7 +54,7 @@ const catelist3Elem = document.getElementById("cate-list3");
               thirdCateElem.classList.add("on");
               let thirdcate = i;
               let str = "";
-              console.log(thirdcate);
+
               console.log(
                 mainpage[0][secondcate].Secondcategories[thirdcate]
                   .Thirdcategories
@@ -512,11 +512,11 @@ logoutbtn.onclick = () => {
         withCredentials: true,
       })
     ).data;
-    console.log(logUser.result);
+
     if (logUser.result == "notlogin") {
       CookieElem.classList.remove("on");
       noCookieElem.classList.add("on");
-    } else if (logUser.result == "login") {
+    } else if (logUser[0].result == "login") {
       noCookieElem.classList.remove("on");
       CookieElem.classList.add("on");
     }

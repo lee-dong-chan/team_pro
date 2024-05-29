@@ -6,15 +6,15 @@ export default class Userstore extends Model {
       {
         name: {
           type: DataTypes.STRING(20),
+          unique: true,
         },
         visitor: {
           type: DataTypes.INTEGER.UNSIGNED,
           defaultValue: 0,
           allowNull: false,
         },
-        user_id: {
-          type: DataTypes.INTEGER.UNSIGNED,
-          allowNull: false,
+        location: {
+          type: DataTypes.STRING(100),
         },
         store_imgId: {
           type: DataTypes.INTEGER.UNSIGNED,
@@ -49,7 +49,6 @@ export default class Userstore extends Model {
   }) {
     Userstore.hasMany(Favorit_prd);
     Userstore.hasOne(Store_img);
-    Userstore.belongsTo(User);
     Userstore.hasMany(Storefollow, {
       foreignKey: "follower",
       targetKey: "userstoreId",
@@ -83,6 +82,16 @@ export default class Userstore extends Model {
     Userstore.hasMany(Thundertalk, {
       foreignKey: "sender",
       targetKey: "userstoreId",
+    });
+
+    // Userstore.belongsTo(User, {
+    //   foreignKey: "location",
+    //   sourceKey: "location",
+    // });
+
+    Userstore.belongsTo(User, {
+      foreignKey: "user_id",
+      sourceKey: "id",
     });
   }
 }

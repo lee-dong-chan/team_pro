@@ -1,7 +1,7 @@
 import Prd_img from "../../models/img/prd_img.js";
 import Product from "../../models/page/product/product.js";
-import ProductSell from "../../models/page/product/product_sell.js";
 import Productinfo from "../../models/page/product/product_info.js";
+import ProductSell from "../../models/page/product/product_sell.js";
 import Userstore from "../../models/page/store/userstore.js";
 import { Op } from "sequelize";
 
@@ -33,6 +33,7 @@ export default async (req, res) => {
           attributes: ["thirdcategory_id"],
         },
       ],
+      order: [ProductSell, "price", "desc"],
     });
     res.json(serchlist);
   } catch (err) {
