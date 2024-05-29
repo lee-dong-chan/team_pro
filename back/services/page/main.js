@@ -3,7 +3,7 @@ import {
   Secondcategory,
   Thirdcategory,
   Product,
-  Productsell,
+  ProductSell,
   Prd_img,
 } from "../../models/index.js";
 
@@ -28,7 +28,7 @@ export default async (req, res) => {
       attributes: ["name", "created_at"],
       include: [
         {
-          model: Productsell,
+          model: ProductSell,
           attributes: ["price"],
         },
         {

@@ -279,7 +279,7 @@ form.onsubmit = async (e) => {
           "http://localhost:8000/seller",
           {
             userstore_id: 1,
-            imgs: form.prd_img.files,
+            img: form.prd_img.files,
             name: form.nameinput.value,
             price: form.price.value,
             product_count: form.count.value,
@@ -291,11 +291,12 @@ form.onsubmit = async (e) => {
             firstcategory_id: cateValue1,
             secondcategory_id: cateValue2,
             thirdcategory_id: cateValue3,
-            tag1: tagArr[1],
-            tag2: tagArr[2],
-            tag3: tagArr[3],
-            tag4: tagArr[4],
-            tag5: tagArr[5],
+            tag1: tagArr[0],
+            tag2: tagArr[1],
+            tag3: tagArr[2],
+            tag4: tagArr[3],
+            tag5: tagArr[4],
+            URL: "seller",
           },
           {
             // options
