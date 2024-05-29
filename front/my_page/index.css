@@ -5,6 +5,10 @@ a {
   text-decoration: none;
   color: black;
 }
+.err {
+  color: red;
+  font-size: 11px;
+}
 .test {
   background-color: aqua;
 }
