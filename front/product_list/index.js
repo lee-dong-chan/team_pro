@@ -229,7 +229,7 @@ const prdArea = document.getElementById("product-wrap");
       }
     )
   ).data;
-  console.log(product);
+  console.log(product[0].Product.Prdimgs[0].img_path);
 
   const getPrd = async () => {
     try {
@@ -244,6 +244,9 @@ const prdArea = document.getElementById("product-wrap");
             Math.floor(
               (new Date() - new Date(product[i].created_at)) / (1000 * 60 * 60)
             ) + "시간전";
+          if (time < 1) {
+            timedata = "방금전";
+          }
           if (time > 24) {
             timedata =
               Math.floor(
@@ -253,9 +256,9 @@ const prdArea = document.getElementById("product-wrap");
                 24 +
               "일전";
           }
-          prdArea.innerHTML += `<a href="/product_page/?product${product[i].id}">
+          prdArea.innerHTML += `<a href="/product_page/?product${product[i].product_id}">
         <div class="product">
-          <img src="./imgs/select.png" />
+          <img id="pd_img" src="http://localhost:8000/productimg/${product[i].Product.Prdimgs[0].img_path}" />
           <div class="info">
             <p>${product[i].name}</p>
             <div>

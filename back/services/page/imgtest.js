@@ -1,4 +1,4 @@
-import { sequelize, Prd_img } from "../../models/index.js";
+import { sequelize, Prdimg } from "../../models/index.js";
 import fs from "fs/promises";
 import multer from "multer";
 import storegeRouter from "../../lib/multer.js";

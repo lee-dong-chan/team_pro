@@ -17,14 +17,16 @@ export default async (req, res) => {
     } else if (user.password == cryptoPw) {
       let cookie = req.session;
       cookie.user = user.id;
-      // console.log(cookie);
+
       console.log("이거맞음");
       req.session.user = user.id;
-      // console.log(req.session);
-      console.log(req.session.id);
-      res.json({ user: user.id });
+      if (req.session.user == 1) {
+        res.json({ menager: "관리자님 환영합니다." });
+      } else {
+        res.json({ user: user.id });
+      }
     } else {
-      res.json({ error: "유저를 찾을수 없습니다." });
+      res.json({ pwerror: "비밀번호가 일치하지 않습니다." });
     }
   } catch (err) {
     console.log(err);
