@@ -9,6 +9,8 @@ import products from "../services/page/products.js";
 import mystore from "../services/page/mystore.js";
 import seller from "../services/page/seller.js";
 import search from "../services/page/search.js";
+import storegeRouter from "../lib/multer.js";
+import imgtest from "../services/page/imgtest.js";
 // import logCheck from "../services/page/logCheck.js";
 const router = Router();
 // const FileStore = fileStore(session);
@@ -37,7 +39,8 @@ router.use("/product_list", product_list);
 router.use("/talk", talk);
 router.use("/product_page", products);
 router.use("/mystore", mystore);
-router.post("/seller", seller);
+router.post("/seller", storegeRouter("imgs"), seller);
+// router.post("/imgtest", storegeRouter, imgtest);
 router.use("/search", search);
 
 export default router;

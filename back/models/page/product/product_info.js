@@ -24,7 +24,7 @@ export default class Productinfo extends Model {
           allowNull: true,
         },
         product_explanation: {
-          type: DataTypes.INTEGER.UNSIGNED,
+          type: DataTypes.STRING(1000),
           allowNull: true,
         },
       },
