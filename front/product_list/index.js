@@ -106,7 +106,7 @@ const catelist3Elem = document.getElementById("cate-list3");
       </div>`;
         secondcate.forEach((item) => {
           catebtnsElem.innerHTML += `<div class="sub-btn">
-      <a href="?cate2=${item.id}">${item.name}<span>76만+</span></a>
+      <a href="?cate2=${item.id}">${item.name}<span></span></a>
     </div>`;
         });
       }
@@ -144,7 +144,7 @@ const catelist3Elem = document.getElementById("cate-list3");
         thirdarr.forEach((item) => {
           if (item.secondcategory_id == cate2) {
             catebtnsElem.innerHTML += `<div class="sub2-btn">
-<a href="?cate3=${item.id}">${item.name}<span>76만+</span></a>
+<a href="?cate3=${item.id}">${item.name}<span></span></a>
 </div>`;
           }
         });
@@ -237,13 +237,29 @@ const prdArea = document.getElementById("product-wrap");
 
       for (let i = (page - 1) * count; i < page * count; ++i) {
         if (i < product.length) {
+          const time = Math.floor(
+            (new Date() - new Date(product[i].created_at)) / (1000 * 60 * 60)
+          );
+          let timedata =
+            Math.floor(
+              (new Date() - new Date(product[i].created_at)) / (1000 * 60 * 60)
+            ) + "시간전";
+          if (time > 24) {
+            timedata =
+              Math.floor(
+                (new Date() - new Date(product[i].created_at)) /
+                  (1000 * 60 * 60)
+              ) /
+                24 +
+              "일전";
+          }
           prdArea.innerHTML += `<a href="/product_page/?product${product[i].id}">
         <div class="product">
           <img src="./imgs/select.png" />
           <div class="info">
             <p>${product[i].name}</p>
             <div>
-              <span><span>${product[i].price}</span>원</span>4초전
+              <span><span>${product[i].price}</span>원</span>${timedata}
             </div>
           </div>
           <div class="location">
