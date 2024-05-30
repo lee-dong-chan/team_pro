@@ -1,7 +1,7 @@
 import crypto from "crypto";
-import User from "../../models/user/user.js";
-import { Userstore } from "../../models/index.js";
-import { userInfo } from "os";
+
+import { Userstore, User } from "../../models/index.js";
+
 export default async (req, res) => {
   try {
     if (req.body.email !== "" && req.body.pw !== "") {
@@ -23,9 +23,7 @@ export default async (req, res) => {
       });
 
       await Userstore.create({
-        name: Userinfo.nickname,
         user_id: Userinfo.id,
-        location: Userinfo.location,
       });
     }
     res.json("ok");

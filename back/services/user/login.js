@@ -1,4 +1,4 @@
-import User from "../../models/user/user.js";
+import { User } from "../../models/index.js";
 import crypto from "crypto";
 export default async (req, res) => {
   try {
@@ -13,7 +13,7 @@ export default async (req, res) => {
       where: { email: cryptoId },
     });
     if (!user) {
-      throw new Error("not found user");
+      res.json({ error: "유저를 찾을수 없습니다." });
     } else if (user.password == cryptoPw) {
       let cookie = req.session;
       cookie.user = user.id;
@@ -24,7 +24,7 @@ export default async (req, res) => {
       console.log(req.session.id);
       res.json({ user: user.id });
     } else {
-      throw new Error("not match password");
+      res.json({ error: "유저를 찾을수 없습니다." });
     }
   } catch (err) {
     console.log(err);
