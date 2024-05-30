@@ -542,3 +542,50 @@ searchform.onsubmit = async (e) => {
     console.error(err);
   }
 };
+
+(async () => {
+  try {
+    const mainitem = (
+      await axios.get("http://localhost:8000/mainitem", {
+        withCredentials: true,
+      })
+    ).data;
+    const prdArea = document.getElementById("prd-list");
+
+    prdArea.innerHTML = "";
+
+    for (let i = 0; i < mainitem.length; i++) {
+      const time = Math.floor(
+        (new Date() - new Date(mainitem[i].created_at)) / (1000 * 60 * 60)
+      );
+      let timedata =
+        Math.floor(
+          (new Date() - new Date(mainitem[i].created_at)) / (1000 * 60 * 60)
+        ) + "시간전";
+      if (time > 24) {
+        timedata =
+          Math.floor(
+            (new Date() - new Date(mainitem[i].created_at)) / (1000 * 60 * 60)
+          ) /
+            24 +
+          "일전";
+      }
+
+      prdArea.innerHTML += `<a href="/product_page/?product${mainitem[i].id}" class="item">
+      <div>
+        <div>
+          <img src="./imgs/sample.png" />
+        </div>
+        <div class="info">
+          <div>
+            <p>${mainitem[i].name}</p>
+            <div>20000원<span>${timedata}</span></div>
+          </div>
+        </div>
+      </div>
+    </a>`;
+    }
+
+    console.log(timedata);
+  } catch (err) {}
+})();
