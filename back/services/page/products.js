@@ -1,4 +1,4 @@
-import { Prd_img, Product, ProductSell } from "../../models/index.js";
+import { Prdimg, Product, ProductSell } from "../../models/index.js";
 
 export default async (req, res) => {
   try {
@@ -8,7 +8,7 @@ export default async (req, res) => {
           model: ProductSell,
         },
         {
-          model: Prd_img,
+          model: Prdimg,
         },
       ],
     });
