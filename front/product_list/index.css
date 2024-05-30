@@ -753,12 +753,13 @@ a {
 }
 .product-list-body div .product-list .product-wrap .product img {
   width: 100%;
+  height: fit-content;
 }
 .product-list-body div .product-list .product-wrap .product .info {
   padding: 0 1rem 0.5rem;
 }
 .product-list-body div .product-list .product-wrap .product .info p {
-  margin: 0, 0.5rem;
+  /* margin: 0 0.5rem; */
   font-size: 15px;
 }
 .product-list-body div .product-list .product-wrap .product .info div {
