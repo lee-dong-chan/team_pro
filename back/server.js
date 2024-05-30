@@ -10,6 +10,8 @@ import bodyParser from "body-parser";
 // import { storegeRouter } from "./lib/multer.js";
 import session from "express-session";
 import fileStore from "session-file-store";
+import fs from "fs";
+import storegeRouter from "./lib/multer.js";
 const FileStore = fileStore(session);
 dotenv.config();
 
@@ -25,7 +27,6 @@ app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extendd: true }));
 
-app.post("*/seller", storegeRouter("img"));
 // app.post("*/store", storegeRouter("img"));
 // app.post("*/talk", storegeRouter("img"));
 //req.url 확인;
@@ -45,6 +46,7 @@ app.use(
   })
 );
 
+// app.use();
 app.use(router);
 
 category();
