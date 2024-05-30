@@ -26,8 +26,9 @@ export default async (req, res) => {
         user_id: Userinfo.id,
       });
     }
-    res.json("ok");
+    res.json({ pop: "회원가입완료" });
   } catch (err) {
     console.log(err);
+    res.json({ error: "회원가입에 실패하엿습니다." });
   }
 };

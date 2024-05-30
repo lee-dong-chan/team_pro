@@ -85,7 +85,7 @@ const prdArea = document.getElementById("product-wrap");
       )
     ).data;
     searchproduct = correctitem;
-
+    console.log(searchproduct);
     correctElem.onclick = () => {
       getPrd();
       correctElem.classList.remove("on");
@@ -188,6 +188,9 @@ const prdArea = document.getElementById("product-wrap");
               (new Date() - new Date(searchproduct[i].created_at)) /
                 (1000 * 60 * 60)
             ) + "시간전";
+          if (time < 1) {
+            timedata = "방금전";
+          }
           if (time > 24) {
             timedata =
               Math.floor(
@@ -197,9 +200,9 @@ const prdArea = document.getElementById("product-wrap");
                 24 +
               "일전";
           }
-          prdArea.innerHTML += `<a href="/product_page/?product${searchproduct[i].id}">
+          prdArea.innerHTML += `<a href="/product_page/?product=${searchproduct[i].id}">
         <div class="product">
-          <img src="./imgs/select.png" />
+          <img id="pd_img" src="http://localhost:8000/productimg/${searchproduct[i].Prdimgs[0].img_path}" />
           <div class="info">
             <p>${searchproduct[i].name}</p>
             <div>

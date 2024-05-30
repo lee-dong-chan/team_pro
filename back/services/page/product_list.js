@@ -1,5 +1,5 @@
 import {
-  Prd_img,
+  Prdimg,
   Product,
   Productinfo,
   ProductSell,
@@ -18,10 +18,6 @@ export default async (req, res) => {
             model: Product,
             attributes: ["name", "created_at"],
             include: [
-              // {
-              //   model: Prd_img,
-              //   attributes: ["img_path"],
-              // },
               {
                 model: ProductSell,
                 attributes: [],
@@ -36,6 +32,10 @@ export default async (req, res) => {
                   },
                 ],
               },
+              {
+                model: Prdimg,
+                attributes: ["img_path"],
+              },
             ],
           },
         ],
@@ -43,8 +43,8 @@ export default async (req, res) => {
           "product_id",
           [Sequelize.col("Product.Userstore.User.location"), "location"],
           [Sequelize.col("Product.name"), "name"],
+          // [Sequelize.col("Product.Prdimg.img_path"), "path"],
           [Sequelize.col("Product.created_at"), "created_at"],
-          // [Sequelize.col("Product.Prd_img.img_path"), "Prd"],
           [Sequelize.col("Product.ProductSell.price"), "price"],
         ],
       });
@@ -58,13 +58,13 @@ export default async (req, res) => {
             model: Product,
             attributes: ["name", "created_at"],
             include: [
-              // {
-              //   model: Prd_img,
-              //   attributes: ["img_path"],
-              // },
+              {
+                model: Prd_img,
+                attributes: [],
+              },
               {
                 model: ProductSell,
-                attributes: [],
+                attributes: ["img_path"],
               },
               {
                 model: Userstore,
@@ -99,10 +99,10 @@ export default async (req, res) => {
             model: Product,
             attributes: ["name", "created_at"],
             include: [
-              // {
-              //   model: Prd_img,
-              //   attributes: ["img_path"],
-              // },
+              {
+                model: Prd_img,
+                attributes: ["img_path"],
+              },
               {
                 model: ProductSell,
                 attributes: [],

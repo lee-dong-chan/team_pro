@@ -647,11 +647,16 @@ a {
 .body .goods-list .list .item {
   width: fit-content;
 }
+
 .body .goods-list .list .item > div {
   border: 1px solid #ebeefe;
 }
+.body .goods-list .list .item #imgdiv {
+  width: 13rem;
+}
 
 .body .goods-list .list .item img {
+  width: 100%;
   height: 194px;
 }
 
