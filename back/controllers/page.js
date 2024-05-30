@@ -15,11 +15,16 @@ import imgtest from "../services/page/imgtest.js";
 import search_new from "../services/page/search_new.js";
 import search_low from "../services/page/search_low.js";
 import search_high from "../services/page/search_high.js";
+<<<<<<< HEAD
 
 >>>>>>> 3bf4352 (feat:service)
+=======
+import mainitem from "../services/page/mainitem.js";
+>>>>>>> 38ca82d (feat:service)
 const router = Router();
 
 router.use("/main", main);
+router.use("/mainitem", mainitem);
 router.use("/product_list", product_list);
 router.use("/talk", talk);
 router.use("/product_page", products);

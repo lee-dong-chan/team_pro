@@ -48,7 +48,7 @@ const prdArea = document.getElementById("product-wrap");
         }
       )
     ).data;
-    console.log(correctitem);
+
     const newitem = (
       await axios.post(
         "http://localhost:8000/search_new",
@@ -60,7 +60,7 @@ const prdArea = document.getElementById("product-wrap");
         }
       )
     ).data;
-    console.log(newitem);
+
     const lowtitem = (
       await axios.post(
         "http://localhost:8000/search_low",
@@ -72,7 +72,7 @@ const prdArea = document.getElementById("product-wrap");
         }
       )
     ).data;
-    console.log(lowtitem);
+
     const highitem = (
       await axios.post(
         "http://localhost:8000/search_high",
@@ -87,7 +87,6 @@ const prdArea = document.getElementById("product-wrap");
     searchproduct = correctitem;
 
     correctElem.onclick = () => {
-      searchproduct = correctitem;
       getPrd();
       correctElem.classList.remove("on");
       recentElem.classList.remove("on");
@@ -97,7 +96,7 @@ const prdArea = document.getElementById("product-wrap");
     };
     recentElem.onclick = () => {
       searchproduct = newitem;
-      console.log(searchproduct);
+
       getPrd();
       correctElem.classList.remove("on");
       recentElem.classList.remove("on");
@@ -107,7 +106,7 @@ const prdArea = document.getElementById("product-wrap");
     };
     lowElem.onclick = () => {
       searchproduct = lowtitem;
-      console.log(searchproduct);
+
       getPrd();
       correctElem.classList.remove("on");
       recentElem.classList.remove("on");
@@ -118,7 +117,6 @@ const prdArea = document.getElementById("product-wrap");
 
     highElem.onclick = () => {
       searchproduct = highitem;
-      console.log(searchproduct);
       getPrd();
       correctElem.classList.remove("on");
       recentElem.classList.remove("on");
@@ -126,6 +124,45 @@ const prdArea = document.getElementById("product-wrap");
       highElem.classList.remove("on");
       highElem.classList.add("on");
     };
+
+    const cateboxElem = document.getElementById("cate-box");
+    const catebtnElem = document.getElementById("cate-btns");
+    const arrUnique = searchproduct.filter((cate, idx, arr) => {
+      return arr.findIndex((item) => item.cate3 === cate.cate3) === idx;
+    });
+
+    cateboxElem.innerHTML = "";
+    catebtnElem.innerHTML = "";
+    arrUnique.forEach((item) => {
+      if (item.cate3) {
+        cateboxElem.innerHTML += `<a href="/product_list/?cate3=${item.cate3id}"><div class="result-cate">
+        <span><img src="./imgs/path.png" /></span>${item.cate3}
+        <p></p>
+      </div></a>`;
+
+        catebtnElem.innerHTML += `<div class="sub-btn">
+      <a href="/product_list/?cate3=${item.cate3id}">${item.cate3}<span></span></a>
+    </div>`;
+      } else if (!item.cate3) {
+        cateboxElem.innerHTML += `<a href="/product_list/?cate2=${item.cate2id}"><div class="result-cate">
+        <span><img src="./imgs/path.png" /></span>${item.cate2}
+        <p></p>
+      </div></a>`;
+
+        catebtnElem.innerHTML += `<div class="sub-btn">
+      <a href="/product_list/?cate2=${item.cate2id}">${item.cate2}<span></span></a>
+    </div>`;
+      } else if (!item.cate2) {
+        cateboxElem.innerHTML += `<a href="/product_list/?cate1=${item.cate1id}"><div class="result-cate">
+        <span><img src="./imgs/path.png" /></span>${item.cate1}
+        <p></p>
+      </div></a>`;
+
+        catebtnElem.innerHTML += `<div class="sub-btn">
+      <a href="/product_list/?cate1=${item.cate1id}">${item.cate1}<span></span></a>
+    </div>`;
+      }
+    });
 
     ProductList.innerHTML = "";
 
@@ -142,13 +179,31 @@ const prdArea = document.getElementById("product-wrap");
 
       for (let i = (page - 1) * count; i < page * count; ++i) {
         if (i < searchproduct.length) {
+          const time = Math.floor(
+            (new Date() - new Date(searchproduct[i].created_at)) /
+              (1000 * 60 * 60)
+          );
+          let timedata =
+            Math.floor(
+              (new Date() - new Date(searchproduct[i].created_at)) /
+                (1000 * 60 * 60)
+            ) + "시간전";
+          if (time > 24) {
+            timedata =
+              Math.floor(
+                (new Date() - new Date(searchproduct[i].created_at)) /
+                  (1000 * 60 * 60)
+              ) /
+                24 +
+              "일전";
+          }
           prdArea.innerHTML += `<a href="/product_page/?product${searchproduct[i].id}">
         <div class="product">
           <img src="./imgs/select.png" />
           <div class="info">
             <p>${searchproduct[i].name}</p>
             <div>
-              <span><span>${searchproduct[i].price}</span>원</span>4초전
+              <span><span>${searchproduct[i].price}</span>원</span>${timedata}
             </div>
           </div>
           <div class="location">
