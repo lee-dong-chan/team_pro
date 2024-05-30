@@ -10,5 +10,5 @@ export default async (req, res) => {
   } catch (err) {
     console.error(err);
   }
-  res.send("ok");
+  res.json({ pop: "로그아웃 완료" });
 };
