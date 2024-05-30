@@ -8,7 +8,7 @@ import {
 } from "../models/index.js";
 
 const category = async function () {
-  const force = true;
+  const force = false;
 
   const firstcate = [
     { name: "여성의류" },

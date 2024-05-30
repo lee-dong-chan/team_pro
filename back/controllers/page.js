@@ -28,7 +28,7 @@ router.post("/seller", storegeRouter("imgs"), seller);
 // router.post("/imgtest", storegeRouter, imgtest);
 router.use("/search", search);
 router.use("/search_new", search_new);
-router.use("/search_new", search_low);
-router.use("/search_new", search_high);
+router.use("/search_low", search_low);
+router.use("/search_high", search_high);
 
 export default router;
