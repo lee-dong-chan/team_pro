@@ -207,6 +207,18 @@ const catelist3Elem = document.getElementById("cate-list3");
   }
 })();
 
+//search
+const form = document.forms.searchform;
+
+form.search.onsubmit = async (e) => {
+  try {
+    const search = (await axios.get("http://localhost:8080/products", {})).data;
+    console.log(search);
+  } catch (err) {
+    console.error(err);
+  }
+};
+
 //paging script
 const pagelistElem = document.getElementsByClassName("page-list")[0];
 const pageElem = document.getElementsByClassName("num");
@@ -5495,6 +5507,10 @@ const pageLi = async () => {
         creLi.onclick = () => {
           page = i + 1;
           getPrd(page);
+          console.log("i:", i);
+          console.log("page:", page);
+          console.log("idx:", pageidx);
+
           [...pageElem].forEach((item) => {
             item.classList.remove("on");
           });
@@ -5516,6 +5532,9 @@ const pageLi = async () => {
           console.log("idx: " + pageidx);
           getPrd(page);
           pageLi();
+          console.log("i:", i);
+          console.log("page:", page);
+          console.log("idx:", pageidx);
         };
       }
     }
@@ -5526,8 +5545,12 @@ const pageLi = async () => {
         creLi.onclick = () => {
           pageidx -= 1;
           page = pageidx * 10 + 10;
+          console.log("idx: " + pageidx);
           getPrd(page);
           pageLi();
+          console.log("i:", i);
+          console.log("page:", page);
+          console.log("idx:", pageidx);
         };
         preElem.append(creLi);
       }
@@ -5541,15 +5564,3 @@ const pageLi = async () => {
 };
 
 pageLi();
-
-//search
-const form = document.forms.searchform;
-
-// form.search.onsubmit = async (e) => {
-//   try {
-//     const search = (await axios.get("http://localhost:8080/products", {})).data;
-//     console.log(search);
-//   } catch (err) {
-//     console.error(err);
-//   }
-// };
