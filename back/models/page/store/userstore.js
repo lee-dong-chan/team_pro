@@ -5,13 +5,16 @@ export default class Userstore extends Model {
     return super.init(
       {
         name: {
-          type: DataTypes.STRING(30),
+          type: DataTypes.STRING(20),
           unique: true,
         },
         visitor: {
           type: DataTypes.INTEGER.UNSIGNED,
           defaultValue: 0,
           allowNull: false,
+        },
+        location: {
+          type: DataTypes.STRING(100),
         },
         store_imgId: {
           type: DataTypes.INTEGER.UNSIGNED,
@@ -80,6 +83,11 @@ export default class Userstore extends Model {
       foreignKey: "sender",
       targetKey: "userstoreId",
     });
+
+    // Userstore.belongsTo(User, {
+    //   foreignKey: "location",
+    //   sourceKey: "location",
+    // });
 
     Userstore.belongsTo(User, {
       foreignKey: "user_id",

@@ -77,7 +77,6 @@ Object.keys(db).forEach((model) => {
   }
 });
 
-export { Sequelize };
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 

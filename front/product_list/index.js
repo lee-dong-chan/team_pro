@@ -210,127 +210,2597 @@ let urlparams = url.searchParams;
 let cate1 = urlparams.get("cate1");
 let cate2 = urlparams.get("cate2");
 let cate3 = urlparams.get("cate3");
+
+let user = [
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGBT",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGBT",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGBT",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "SAMSUNG/TV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Shaomi",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "Banill/ChinRu",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+  {
+    name: "LGTV",
+    price: "25000",
+    location: "A시 B구 C동",
+    img: "./imgs/eye.png",
+  },
+];
+
 let page = 1;
 let count = 40;
 let pageidx = 0;
 
 const prdArea = document.getElementById("product-wrap");
-(async () => {
-  const product = (
-    await axios.post(
-      "http://localhost:8000/product_list",
-      {
-        cate1ID: cate1,
-        cate2ID: cate2,
-        cate3ID: cate3,
-      },
-      {
-        withCredentials: true,
-      }
-    )
-  ).data;
-  console.log(product);
 
-  const getPrd = async () => {
-    try {
-      prdArea.innerHTML = "";
+const getPrd = async () => {
+  try {
+    const product = (
+      await axios.post(
+        "http://localhost:8000/product_list",
+        {
+          cate1ID: cate1,
+          cate2ID: cate2,
+          cate3ID: cate3,
+        },
+        {
+          withCredentials: true,
+        }
+      )
+    ).data;
+    console.log(product);
 
-      for (let i = (page - 1) * count; i < page * count; ++i) {
-        if (i < product.length) {
-          prdArea.innerHTML += `<a href="/product_page/?product${product[i].id}">
+    prdArea.innerHTML = "";
+
+    for (let i = (page - 1) * count; i < page * count; ++i) {
+      if (i < user.length) {
+        prdArea.innerHTML += `<a href="#">
         <div class="product">
-          <img src="./imgs/select.png" />
+          <img src="${user[i].img}" />
           <div class="info">
-            <p>${product[i].name}</p>
+            <p>${user[i].name}</p>
             <div>
-              <span><span>${product[i].price}</span>원</span>4초전
+              <span><span>${user[i].price}</span>원</span>4초전
             </div>
           </div>
           <div class="location">
-            <img src="./imgs/location.png" />${product[i].location}
+            <img src="./imgs/location.png" />${user[i].location}
           </div>
         </div>
       </a>`;
-        }
       }
-    } catch (err) {
-      console.error(err);
     }
-  };
+  } catch (err) {
+    console.error(err);
+  }
+};
 
-  getPrd();
+getPrd();
 
-  const pageLi = async () => {
-    try {
-      const pagingCount = Math.floor(product.length / 40);
-      const pagingElem = document.getElementById("page-list");
-      const preElem = document.getElementById("pre-btn");
-      pagingElem.innerHTML = "";
-      preElem.innerHTML = "";
-      const creLi = document.createElement("li");
+const pageLi = async () => {
+  try {
+    const pagingCount = Math.floor(user.length / 40);
+    const pagingElem = document.getElementById("page-list");
+    const preElem = document.getElementById("pre-btn");
+    pagingElem.innerHTML = "";
+    preElem.innerHTML = "";
+    const creLi = document.createElement("li");
 
-      for (let i = pageidx * 10; i < pagingCount; ++i) {
-        if (i < 10 * (pageidx + 1)) {
-          const creLi = document.createElement("li");
-          creLi.innerHTML += `<a href="#${pageidx}" class="num">${i + 1}</a>`;
+    for (let i = pageidx * 10; i < pagingCount; ++i) {
+      if (i < 10 * (pageidx + 1)) {
+        const creLi = document.createElement("li");
+        creLi.innerHTML += `<a href="#${pageidx}" class="num">${i + 1}</a>`;
 
-          creLi.onclick = () => {
-            page = i + 1;
-            getPrd(page);
-            console.log("i:", i);
-            console.log("page:", page);
-            console.log("idx:", pageidx);
+        creLi.onclick = () => {
+          page = i + 1;
+          getPrd(page);
+          console.log("i:", i);
+          console.log("page:", page);
+          console.log("idx:", pageidx);
 
-            [...pageElem].forEach((item) => {
-              item.classList.remove("on");
-            });
-            pageElem[page - pageidx * 10 - 1].classList.add("on");
-          };
+          [...pageElem].forEach((item) => {
+            item.classList.remove("on");
+          });
+          pageElem[page - pageidx * 10 - 1].classList.add("on");
+        };
 
-          pagingElem.append(creLi);
-        }
+        pagingElem.append(creLi);
       }
-
-      for (let i = pageidx * 10; i < pagingCount; ++i) {
-        if (i == 10 * (pageidx + 1)) {
-          nextElem.onclick = () => {
-            if (pageidx == Math.floor(pagingCount / 10)) {
-              return;
-            }
-            pageidx += 1;
-            page = pageidx * 10 + 1;
-            console.log("idx: " + pageidx);
-            getPrd(page);
-            pageLi();
-            console.log("i:", i);
-            console.log("page:", page);
-            console.log("idx:", pageidx);
-          };
-        }
-      }
-
-      for (let i = pageidx * 1; i < pagingCount; ++i) {
-        if (pageidx > 0) {
-          creLi.innerHTML = `<a href="#" class="pred">〈</a>`;
-          creLi.onclick = () => {
-            pageidx -= 1;
-            page = pageidx * 10 + 10;
-            console.log("idx: " + pageidx);
-            getPrd(page);
-            pageLi();
-            console.log("i:", i);
-            console.log("page:", page);
-            console.log("idx:", pageidx);
-          };
-          preElem.append(creLi);
-        }
-      }
-
-      pageElem[page - pageidx * 10 - 1].classList.add("on");
-      console.log("page C:", pagingCount);
-      pageLi();
-    } catch (err) {
-      console.error(err);
     }
-  };
-})();
+
+    for (let i = pageidx * 10; i < pagingCount; ++i) {
+      if (i == 10 * (pageidx + 1)) {
+        nextElem.onclick = () => {
+          if (pageidx == Math.floor(pagingCount / 10)) {
+            return;
+          }
+          pageidx += 1;
+          page = pageidx * 10 + 1;
+          console.log("idx: " + pageidx);
+          getPrd(page);
+          pageLi();
+          console.log("i:", i);
+          console.log("page:", page);
+          console.log("idx:", pageidx);
+        };
+      }
+    }
+
+    for (let i = pageidx * 1; i < pagingCount; ++i) {
+      if (pageidx > 0) {
+        creLi.innerHTML = `<a href="#" class="pred">〈</a>`;
+        creLi.onclick = () => {
+          pageidx -= 1;
+          page = pageidx * 10 + 10;
+          console.log("idx: " + pageidx);
+          getPrd(page);
+          pageLi();
+          console.log("i:", i);
+          console.log("page:", page);
+          console.log("idx:", pageidx);
+        };
+        preElem.append(creLi);
+      }
+    }
+
+    pageElem[page - pageidx * 10 - 1].classList.add("on");
+    console.log("page C:", pagingCount);
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+pageLi();

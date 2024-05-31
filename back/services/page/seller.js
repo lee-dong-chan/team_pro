@@ -30,7 +30,6 @@ export default async (req, res) => {
     await prd.setProductinfo(await Productinfo.create(req.body));
     await prd.setProductSell(await ProductSell.create(req.body));
     await prd.setProductTag(await ProductTag.create(req.body));
-<<<<<<< HEAD
     let prd_id = prd.id;
     console.log("상품 생성 ID : ", prd_id);
     for (let i = 0; i < fileUrls.length; ++i) {
@@ -40,10 +39,6 @@ export default async (req, res) => {
       uploaded: true,
       urls: fileUrls,
     });
-=======
-    img(req.body);
-    res.json("ok");
->>>>>>> 3e72887 (feat:service)
   } catch (err) {
     console.log(err);
     res.send("error");
