@@ -174,6 +174,8 @@ loginmodalElem.onclick = () => {
   registonElem.classList.remove("on");
 };
 
+//regist
+
 const registform = document.forms.regist;
 
 const emailResultElem = document.getElementById("email-result");
@@ -258,22 +260,24 @@ registform["pw-check"].oninput = (e) => {
 };
 
 registform.nick.onchange = async (e) => {
+  // (
+  //   await axios.post("http://localhost:8000/user/nick", {
+  //     nick: e.target.value,
+  //   })
+  // ).data;
+  // const dubnick = await axios.get("http://localhost:8000/user/nick", {});
   const nickReg = /^[A-Z|a-z|0-9|ㄱ-ㅎ|가-힣]{2,16}$/;
   isNick = false;
+  // console.log(dubnick.message);
 
-  const nickdub = (
-    await axios.post("http://localhost:8000/user/nick", {
-      nick: e.target.value,
-    })
-  ).data;
-  console.log(nickdub.message);
+  // if (dubnick.message == "중복임") {
+  //   nickResultElem.innerHTML = "닉네임이 중복되었습니다.";
+  // }
 
   if (e.target.value.lenght < 2 || e.target.value.length > 30) {
     nickResultElem.innerHTML = "닉네임 2글자 이상, 16글자 이하로 작성하세요";
   } else if (!nickReg.test(e.target.value)) {
     nickResultElem.innerHTML = "특수문자 제외 알파벳과 한글로 작성하세요";
-  } else if (nickdub.message == "중복임") {
-    nickResultElem.innerHTML = "중복된 닉네임입니다";
   } else {
     isNick = true;
     nickResultElem.innerHTML = "";
@@ -437,11 +441,11 @@ logoutbtn.onclick = () => {
         withCredentials: true,
       })
     ).data;
-
+    console.log(logUser.result);
     if (logUser.result == "notlogin") {
       CookieElem.classList.remove("on");
       noCookieElem.classList.add("on");
-    } else if (logUser[0].result == "login") {
+    } else if (logUser.result == "login") {
       noCookieElem.classList.remove("on");
       CookieElem.classList.add("on");
     }
@@ -458,12 +462,14 @@ searchform.onsubmit = async (e) => {
   e.preventDefault();
 
   try {
-    location.href = `http://localhost:8080/search/?${searchform.search.value}`;
     await axios.post("http://localhost:8000/search", {
       keyword: searchform.search.value,
     });
     await axios.get("http://localhost:8000/search", {}).data;
+    location.href = `http://localhost:8080/search/?${searchform.search.value}`;
   } catch (err) {
     console.error(err);
   }
 };
+
+console.log();

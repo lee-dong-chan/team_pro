@@ -397,11 +397,11 @@ logoutbtn.onclick = () => {
         withCredentials: true,
       })
     ).data;
-    console.log(logUser);
+    console.log(logUser.result);
     if (logUser.result == "notlogin") {
       CookieElem.classList.remove("on");
       noCookieElem.classList.add("on");
-    } else if (logUser[0].result == "login") {
+    } else if (logUser.result == "login") {
       noCookieElem.classList.remove("on");
       CookieElem.classList.add("on");
     }
@@ -409,3 +409,21 @@ logoutbtn.onclick = () => {
     console.error(err);
   }
 })();
+
+// search;
+
+const searchform = document.forms.searchform;
+
+searchform.onsubmit = async (e) => {
+  e.preventDefault();
+
+  try {
+    location.href = `http://localhost:8080/search/?${searchform.search.value}`;
+    await axios.post("http://localhost:8000/search", {
+      keyword: searchform.search.value,
+    });
+    await axios.get("http://localhost:8000/search", {}).data;
+  } catch (err) {
+    console.error(err);
+  }
+};
