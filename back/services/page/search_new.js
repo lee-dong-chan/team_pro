@@ -53,7 +53,7 @@ export default async (req, res) => {
         [Sequelize.col("Productinfo.secondcategory_id"), "cate2"],
         [Sequelize.col("Productinfo.thirdcategory_id"), "cate3"],
       ],
-      order: [["created_at", "desc"]],
+      order: [["created_at", "asc"]],
     });
     res.json(serchlist);
   } catch (err) {
