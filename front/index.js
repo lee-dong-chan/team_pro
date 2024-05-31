@@ -27,9 +27,8 @@ const catelist2Elem = document.getElementById("cate-list2");
 const catelist3Elem = document.getElementById("cate-list3");
 (async () => {
   try {
-    const mainpage = (await axios.get("http://localhost:8080/main", {})).data;
+    const mainpage = (await axios.get("http://localhost:8080", {})).data;
 
-    console.log(mainpage);
     //category
     if (mainpage[0]) {
       mainpage[0].forEach((cate1) => {
@@ -261,16 +260,4 @@ document.getElementById("next").onclick = () => {
   if (isMoving) return;
   idx++;
   move();
-};
-
-//search
-const form = document.forms.searchform;
-
-form.search.onsubmit = async (e) => {
-  try {
-    const search = (await axios.get("http://localhost:8080/products", {})).data;
-    console.log(search);
-  } catch (err) {
-    console.error(err);
-  }
 };
