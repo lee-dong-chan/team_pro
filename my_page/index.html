@@ -36,11 +36,11 @@
           </button>
         </div>
         <div class="my-btns">
-          <div class="noCookie">
+          <div class="noCookie on">
             <button id="login-btn">로그인</button>
             <div class="my-store" id="my-store1">내 상점 ▼</div>
           </div>
-          <div class="Cookie on">
+          <div class="Cookie">
             <button id="login-btn">로그아웃</button>
             <div class="notice" id="notice">알림 ▼</div>
             <div class="my-store" id="my-store2">내 상점 ▼</div>
@@ -58,13 +58,13 @@
           </div>
         </div>
         <div class="myStore-menu" id="myStore-menu">
-          <a href="../my_page/">
+          <a href="./">
             <div>내 상품</div>
           </a>
-          <a href="../my_page/">
+          <a href="./">
             <div>찜한 상품</div>
           </a>
-          <a href="../setting/">
+          <a href="./">
             <div>계정설정</div>
           </a>
           <a href="./">
@@ -94,30 +94,28 @@
             </g>
           </svg>
         </a>
-        <form action="">
+        <form>
           <div class="search">
             <fieldset>
-              <input type="text" id="search" placeholder="상품명,지역명,@상점명 입력" />
+              <input type="text" id="serch" placeholder="상품명,지역명,@상점명 입력" />
               <div>
-                <button type="button" onclick="location.href='../search?'">
-                  <img src="./imgs/search.png" />
-                </button>
+                <button><img src="./imgs/search.png" /></button>
               </div>
             </fieldset>
           </div>
         </form>
         <div class="menu-btns">
-          <a class="sale-btn" href="../seller/">
+          <a href="">
             <span><img src="./imgs/sale.png" /></span>
             <div>판매하기</div>
           </a>
           <div class="line"></div>
-          <a class="store-btn" href="../my_page/">
+          <a href="">
             <span><img src="./imgs/mystore.png" /></span>
             <div>내상점</div>
           </a>
           <div class="line"></div>
-          <a class="talk-btn" href="../talkpage/talk/">
+          <a href="">
             <span><img src="./imgs/talk.png" /></span>
             <div>번개톡</div>
           </a>
@@ -223,7 +221,6 @@
         </div>
       </div>
     </div>
-
     <div class="body">
       <div class="mypage_header">
         <div class="profile_box">
@@ -237,7 +234,7 @@
               <img src="./imgs/empty_star.png" />
               <img src="./imgs/empty_star.png" />
             </div>
-            <a href="../seller_list/"> 내 상점 관리</a>
+            <a> 내 상점 관리</a>
           </div>
         </div>
         <div class="mystore_info">
@@ -427,7 +424,7 @@
                   <input type="checkbox" />
                   <button>선택삭제</button>
                 </div>
-                <div id="">
+                <div>
                   <a class="on">최신순</a>
                   <a>|</a>
                   <a>인기순</a>
@@ -452,22 +449,20 @@
                     <p><img src="./imgs/loca_icon.png" />위치없음</p>
                   </div>
                 </div>
-                <a href="./">
-                  <div class="favorite_prd">
-                    <div class="fav_prd_img">
-                      <img src="./imgs/profile_ex.webp" />
-                    </div>
-                    <div class="fav_prd_content">
-                      <p>
-                        예시상품명 피규어 전자제품 그외등등
-                        <input type="checkbox" />
-                      </p>
-                      <p>100,000원</p>
-                      <p>10시간 전</p>
-                      <p><img src="./imgs/loca_icon.png" />위치없음</p>
-                    </div>
+                <div class="favorite_prd">
+                  <div class="fav_prd_img">
+                    <img src="./imgs/profile_ex.webp" />
                   </div>
-                </a>
+                  <div class="fav_prd_content">
+                    <p>
+                      예시상품명 피규어 전자제품 그외등등
+                      <input type="checkbox" />
+                    </p>
+                    <p>100,000원</p>
+                    <p>10시간 전</p>
+                    <p><img src="./imgs/loca_icon.png" />위치없음</p>
+                  </div>
+                </div>
               </div>
             </form>
           </div>
