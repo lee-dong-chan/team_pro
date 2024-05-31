@@ -5297,9 +5297,6 @@ const pageLi = async () => {
     for (let i = pageidx * 10; i < pagingCount; ++i) {
       if (i == 10 * (pageidx + 1)) {
         nextElem.onclick = () => {
-          if (pageidx == Math.floor(pagingCount / 10)) {
-            return;
-          }
           pageidx += 1;
           page = pageidx * 10 + 1;
           console.log("idx: " + pageidx);

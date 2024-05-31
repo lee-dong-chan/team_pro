@@ -51,13 +51,3 @@ document.getElementById("next").onclick = () => {
   idx++;
   move();
 };
-
-(async () => {
-  try {
-    const mainpage = (await axios.get("http://localhost:8080/", {})).data;
-
-    console.log(mainpage);
-  } catch (err) {
-    console.error(err);
-  }
-})();

@@ -5229,12 +5229,7 @@ const prdArea = document.getElementById("product-wrap");
 const getPrd = async () => {
   try {
     const product = (
-      await axios.post("http://localhost:8080/product_list", {
-        user,
-        page,
-        count,
-        pageidx,
-      })
+      await axios.post("/product_list", { user, page, count, pageidx })
     ).data;
 
     prdArea.innerHTML = "";
@@ -5303,9 +5298,6 @@ const pageLi = async () => {
     for (let i = pageidx * 10; i < pagingCount; ++i) {
       if (i == 10 * (pageidx + 1)) {
         nextElem.onclick = () => {
-          if (pageidx == Math.floor(pagingCount / 10)) {
-            return;
-          }
           pageidx += 1;
           page = pageidx * 10 + 1;
           console.log("idx: " + pageidx);
