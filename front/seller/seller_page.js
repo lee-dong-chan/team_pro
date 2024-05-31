@@ -633,6 +633,7 @@ negoInput.oninput = (e) => {
 
 form.onsubmit = async (e) => {
   e.preventDefault();
+
   const logUser = (
     await axios.get("http://localhost:8000/user/info", {
       withCredentials: true,
