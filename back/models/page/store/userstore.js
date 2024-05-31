@@ -80,10 +80,6 @@ export default class Userstore extends Model {
       foreignKey: "sender",
       targetKey: "userstoreId",
     });
-
-    Userstore.belongsTo(User, {
-      foreignKey: "user_id",
-      sourceKey: "id",
-    });
+    Userstore.belongsTo(User);
   }
 }

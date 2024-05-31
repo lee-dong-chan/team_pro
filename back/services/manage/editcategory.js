@@ -2,35 +2,39 @@ import {
   Firstcategory,
   Secondcategory,
   Thirdcategory,
-  Product,
-  ProductSell,
-  Prdimg,
+  Sequelize,
+  sequelize,
 } from "../../models/index.js";
 
 export default async (req, res) => {
   try {
     const category = await Firstcategory.findAll({
       where: { deletedAt: null },
-      attributes: ["id", "name"],
       include: [
         {
           model: Secondcategory,
-          attributes: ["id", "name", "firstcategory_id"],
           where: { deletedAt: null },
+          attributes: ["name", "id"],
           include: [
             {
               model: Thirdcategory,
-              attributes: ["id", "name", "secondcategory_id"],
               where: { deletedAt: null },
+              attributes: ["name", "id"],
             },
           ],
         },
       ],
+      attributes: [
+        "name",
+        "id",
+        //   [
+        //     Sequelize.col("Firstcategory.Secondategory.Thirdcategory.name"),
+        //     "cate3",
+        //   ],
+      ],
     });
-
-    res.json([category]);
+    res.json(category);
   } catch (err) {
-    console.log(err);
-    res.send("error");
+    console.error(err);
   }
 };

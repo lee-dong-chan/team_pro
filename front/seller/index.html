@@ -73,7 +73,7 @@
               <div class="my-store" id="my-store1">내 상점 ▼</div>
             </div>
             <div class="Cookie">
-              <button id="login-btn">로그아웃</button>
+              <button id="logout-btn">로그아웃</button>
               <div class="notice" id="notice">알림 ▼</div>
               <div class="my-store" id="my-store2">내 상점 ▼</div>
             </div>
@@ -213,76 +213,19 @@
               <div class="all">
                 <h4>전체 카테고리</h4>
               </div>
-              <div id="cate-list1">
-                <a href="#" class="cate-list">여성의류</a>
-                <a href="#" class="cate-list">남성의류</a>
-                <a href="#" class="cate-list">신발</a>
-                <a href="#" class="cate-list">가방/지갑</a>
-                <a href="#" class="cate-list">시계</a>
-                <a href="#" class="cate-list">쥬얼리</a>
-                <a href="#" class="cate-list">패션 액세서리</a>
-                <a href="#" class="cate-list">디지털</a>
-                <a href="#" class="cate-list">가전제품</a>
-                <a href="#" class="cate-list">스포츠/레저</a>
-                <a href="#" class="cate-list">차량/오토바이</a>
-                <a href="#" class="cate-list">스타굿즈</a>
-                <a href="#" class="cate-list">예술/희귀/수집품</a>
-                <a href="#" class="cate-list">음반/악기</a>
-                <a href="#" class="cate-list">도서/티켓/문구</a>
-                <a href="#" class="cate-list">뷰티/미용</a>
-                <a href="#" class="cate-list">가구/인테리어</a>
-                <a href="#" class="cate-list">생활/주방용품</a>
-              </div>
+              <div id="cate-list1"></div>
             </div>
             <div class="second-cate">
               <div class="all">
                 <h4>카테고리</h4>
               </div>
-              <div id="cate-list2">
-                <a href="#" class="cate-list">여성의류</a>
-                <a href="#" class="cate-list">남성의류</a>
-                <a href="#" class="cate-list">신발</a>
-                <a href="#" class="cate-list">가방/지갑</a>
-                <a href="#" class="cate-list">시계</a>
-                <a href="#" class="cate-list">쥬얼리</a>
-                <a href="#" class="cate-list">패션 액세서리</a>
-                <a href="#" class="cate-list">디지털</a>
-                <a href="#" class="cate-list">가전제품</a>
-                <a href="#" class="cate-list">스포츠/레저</a>
-                <a href="#" class="cate-list">차량/오토바이</a>
-                <a href="#" class="cate-list">스타굿즈</a>
-                <a href="#" class="cate-list">예술/희귀/수집품</a>
-                <a href="#" class="cate-list">음반/악기</a>
-                <a href="#" class="cate-list">도서/티켓/문구</a>
-                <a href="#" class="cate-list">뷰티/미용</a>
-                <a href="#" class="cate-list">가구/인테리어</a>
-                <a href="#" class="cate-list">생활/주방용품</a>
-              </div>
+              <div id="cate-list2"></div>
             </div>
             <div class="third-cate">
               <div class="all">
                 <h4>카테고리</h4>
               </div>
-              <div id="cate-list3">
-                <a href="#" class="cate-list">여성의류</a>
-                <a href="#" class="cate-list">남성의류</a>
-                <a href="#" class="cate-list">신발</a>
-                <a href="#" class="cate-list">가방/지갑</a>
-                <a href="#" class="cate-list">시계</a>
-                <a href="#" class="cate-list">쥬얼리</a>
-                <a href="#" class="cate-list">패션 액세서리</a>
-                <a href="#" class="cate-list">디지털</a>
-                <a href="#" class="cate-list">가전제품</a>
-                <a href="#" class="cate-list">스포츠/레저</a>
-                <a href="#" class="cate-list">차량/오토바이</a>
-                <a href="#" class="cate-list">스타굿즈</a>
-                <a href="#" class="cate-list">예술/희귀/수집품</a>
-                <a href="#" class="cate-list">음반/악기</a>
-                <a href="#" class="cate-list">도서/티켓/문구</a>
-                <a href="#" class="cate-list">뷰티/미용</a>
-                <a href="#" class="cate-list">가구/인테리어</a>
-                <a href="#" class="cate-list">생활/주방용품</a>
-              </div>
+              <div id="cate-list3"></div>
             </div>
           </div>
           <div class="pop">
@@ -681,6 +624,16 @@
                 <legend>닉네임</legend>
                 <input type="text" name="nick" placeholder="닉네임" />
                 <div class="err" id="nick-result"></div>
+              </fieldset>
+              <fieldset>
+                <legend>전화번호</legend>
+                <input type="text" name="phone" placeholder="전화번호" />
+                <div class="err" id="phone-result"></div>
+              </fieldset>
+              <fieldset>
+                <legend>주소</legend>
+                <input type="text" name="location" placeholder="주소" />
+                <div class="err" id="location-result"></div>
               </fieldset>
               <button class="regist-btn">회원가입</button>
             </form>

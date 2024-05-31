@@ -1,8 +1,8 @@
-import { User, Userstore } from "../models/index.js";
+import { User, Userstore } from "../../models/index.js";
 import crypto from "crypto";
 export default async (req, res, next) => {
   try {
-    const check = await User.findOne({ where: { id: 1 } });
+    const check = await User.findOne({ where: { authority: true } });
 
     if (check == undefined) {
       const salt = "암호화를 하도록 합시다";
