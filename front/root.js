@@ -1,4 +1,4 @@
-const bodyElem = document.getElementsByClassName("product-list-body")[0];
+const bodyElem = document.getElementsByClassName("body")[0];
 const noticeElem = document.getElementById("notice");
 const noticelistElem = document.getElementById("notice-list");
 const mystore1Elem = document.getElementById("my-store1");
@@ -16,10 +16,12 @@ const modal_loginELem = document.getElementsByClassName("login-link")[0];
 const registonElem = document.getElementsByClassName("regist")[0];
 const registbtnElem = document.getElementsByClassName("regist-btn")[0];
 const loginbtnElem = document.getElementsByClassName("login-btn")[0];
+
 const salebtnELem = document.getElementsByClassName("sale-btn")[0];
 const storeElem = document.getElementsByClassName("store-btn")[0];
 const talkElem = document.getElementsByClassName("talk-btn")[0];
 const nocookieElem = document.getElementsByClassName("noCookie")[0];
+
 const catelist1 = document
   .getElementById("cate-list1")
   .getElementsByTagName("a");
@@ -67,7 +69,6 @@ mystore2Elem.onmouseout = () => {
     mystorelistElem.classList.remove("on");
   }, 1500);
 };
-
 salebtnELem.onclick = (e) => {
   if (nocookieElem.classList.contains("on")) {
     e.preventDefault();
