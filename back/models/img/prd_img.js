@@ -1,6 +1,6 @@
 import { Model, DataTypes } from "sequelize";
 
-export default class Prdimg extends Model {
+export default class Prd_img extends Model {
   static init(sequelize) {
     return super.init(
       {
@@ -14,15 +14,15 @@ export default class Prdimg extends Model {
       },
       {
         sequelize,
-        modelName: "Prdimg",
-        tableName: "prdimg",
+        modelName: "Prd_img",
+        tableName: "prd_img",
         underscored: true,
         timestamps: true,
         paranoid: true,
       }
     );
   }
-  static associate({ Product, Prdimg }) {
-    Prdimg.belongsTo(Product);
+  static associate({ Product, Prd_img }) {
+    Prd_img.belongsTo(Product);
   }
 }

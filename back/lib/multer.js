@@ -15,7 +15,7 @@ const storage = multer.diskStorage({
   },
   filename: (req, file, callback) => {
     console.log("2?");
-    callback(null, `${Date.now()}_product.png`);
+    callback(null, `${Date.now()}_product`);
     // if(){
     //     callback(null, `${Date.now()}_product`)
     // }else if(){

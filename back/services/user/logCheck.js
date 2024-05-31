@@ -2,6 +2,7 @@ import { User, sequelize } from "../../models/index.js";
 import { Userstore } from "../../models/index.js";
 export default async (req, res, next) => {
   try {
+    console.log(req.session.user);
     if (req.session.user) {
       req.user = await User.findAll({
         attributes: ["id"],

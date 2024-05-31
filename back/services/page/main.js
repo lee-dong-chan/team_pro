@@ -4,7 +4,7 @@ import {
   Thirdcategory,
   Product,
   ProductSell,
-  Prdimg,
+  Prd_img,
 } from "../../models/index.js";
 
 export default async (req, res) => {
@@ -24,7 +24,19 @@ export default async (req, res) => {
         },
       ],
     });
-
+    const product = await Product.findAll({
+      attributes: ["name", "created_at"],
+      include: [
+        {
+          model: ProductSell,
+          attributes: ["price"],
+        },
+        {
+          model: Prd_img,
+          attributes: ["img_path"],
+        },
+      ],
+    });
     res.json([category]);
   } catch (err) {
     console.log(err);

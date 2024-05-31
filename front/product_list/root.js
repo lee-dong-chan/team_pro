@@ -309,7 +309,7 @@ registform.onsubmit = async (e) => {
   e.preventDefault();
   console.log(registform.email.value);
   try {
-    const registdata = (
+    (
       await axios.post(
         "http://localhost:8000/user/regist",
         {
@@ -325,10 +325,7 @@ registform.onsubmit = async (e) => {
         }
       )
     ).data;
-    if (registdata.pop) {
-      alert(registdata.pop);
-      location.href = location.href;
-    }
+    location.href = location.href;
   } catch (err) {
     console.error(err);
   }
@@ -402,14 +399,7 @@ loginform.onsubmit = async (e) => {
         }
       )
     ).data;
-    if (logindata.error) {
-      alert(logindata.error);
-    } else if (logindata.pwerror) {
-      alert(logindata.pwerror);
-    } else {
-      alert("로그인 성공!");
-      location.href = location.href;
-    }
+    location.href = location.href;
   } catch (err) {
     console.error(err);
   }
@@ -418,9 +408,10 @@ loginform.onsubmit = async (e) => {
 //logout
 const logoutbtn = document.getElementById("logout-btn");
 logoutbtn.onclick = () => {
+  console.log("작동함");
   (async () => {
     try {
-      const logoutdata = (
+      (
         await axios.post(
           "http://localhost:8000/user/logout",
           {},
@@ -429,10 +420,7 @@ logoutbtn.onclick = () => {
           }
         )
       ).data;
-      if (logoutdata.pop) {
-        alert(logoutdata.pop);
-        location.href = location.href;
-      }
+      location.href = location.href;
     } catch (err) {
       console.error(err);
     }

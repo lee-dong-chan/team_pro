@@ -12,10 +12,6 @@ import session from "express-session";
 import fileStore from "session-file-store";
 import fs from "fs";
 import storegeRouter from "./lib/multer.js";
-
-import { createServer } from "http";
-import { Server } from "socket.io";
-
 const FileStore = fileStore(session);
 dotenv.config();
 
@@ -30,7 +26,11 @@ app.use(express.json());
 app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extendd: true }));
-app.use("/productimg", express.static("productimg"));
+
+// app.post("*/seller", storegeRouter("img"));
+// app.post("*/store", storegeRouter("img"));
+// app.post("*/talk", storegeRouter("img"));
+//req.url 확인;
 app.use(
   session({
     resave: false,
@@ -38,22 +38,16 @@ app.use(
     secret: "project",
     name: "user",
     store: new FileStore({
-      reapInterval: 1000,
+      reapInterval: 100000,
       path: "./user_session",
     }),
     cookie: {
-      maxAge: 10000000,
+      maxAge: 100000,
     },
   })
 );
 
-// const server = createServer(app);
-// const io = new Server(server, {
-//   cors: { origin: ["http://localhost:8080"] },
-// });
-
-// const chat = io.of("chat");
-
+// app.use();
 app.use(router);
 
 category();

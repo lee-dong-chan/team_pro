@@ -25,12 +25,6 @@ export default class User extends Model {
           type: DataTypes.STRING(30),
           allowNull: false,
         },
-
-        authority: {
-          type: DataTypes.BOOLEAN,
-          defaultValue: false,
-          allowNull: false,
-        },
       },
       {
         sequelize,

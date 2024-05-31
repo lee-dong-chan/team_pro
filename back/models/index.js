@@ -7,7 +7,7 @@ import ProductModel from "./page/product/product.js";
 import ProductetcModel from "./page/product/product_etc.js";
 import ProductinfoModel from "./page/product/product_info.js";
 import ProductSellModel from "./page/product/product_sell.js";
-import PrdimgModel from "./img/prd_img.js";
+import Prd_imgModel from "./img/prd_img.js";
 import ProductTagModel from "./page/product/product_tag.js";
 import Favorit_prdModel from "./page/product/favorit_prd.js";
 import UserstoreModel from "./page/store/userstore.js";
@@ -36,7 +36,7 @@ export const Product = ProductModel.init(sequelize);
 export const Productetc = ProductetcModel.init(sequelize);
 export const Productinfo = ProductinfoModel.init(sequelize);
 export const ProductSell = ProductSellModel.init(sequelize);
-export const Prdimg = PrdimgModel.init(sequelize);
+export const Prd_img = Prd_imgModel.init(sequelize);
 export const ProductTag = ProductTagModel.init(sequelize);
 export const Favorit_prd = Favorit_prdModel.init(sequelize);
 export const Userstore = UserstoreModel.init(sequelize);
@@ -58,7 +58,7 @@ const db = {
   Productetc,
   Productinfo,
   ProductSell,
-  Prdimg,
+  Prd_img,
   ProductTag,
   Favorit_prd,
   Userstore,
