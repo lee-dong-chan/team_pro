@@ -4,7 +4,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>template</title>
     <link rel="stylesheet" href="./seller_page.css" />
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
 
   <body>
@@ -307,7 +306,7 @@
           </div>
         </div>
       </div>
-      <form name="create_prd" id="create_prd" action="/main" method="post">
+      <form>
         <div class="body">
           <div class="body-wrap">
             <div class="seller-head">
@@ -335,7 +334,6 @@
                         type="file"
                         accept="image/*"
                         id="prd_img"
-                        name="prd_img"
                         multiple
                       />
                       <label for="prd_img">
@@ -354,14 +352,9 @@
               <div class="sell_prd">
                 <div class="sell_prd_right"><span>상품명</span></div>
                 <div class="prd_name_input">
-                  <div id="prd_name_input">
-                    <input
-                      type="text"
-                      placeholder="상품명을 입력해주세요"
-                      name="prd_name"
-                      id="nameinput"
-                    />
-                    <span id="name_length"> 0/40 </span>
+                  <div id="prd_name_input" action="" method="">
+                    <input type="text" placeholder="상품명을 입력해주세요" />
+                    <span> 0/40 </span>
                   </div>
                 </div>
               </div>
@@ -419,49 +412,26 @@
                 <div class="sell_prd_right">상품상태<span></span></div>
                 <div id="prd_quality">
                   <div>
-                    <input
-                      type="radio"
-                      name="prd_quality"
-                      value="1"
-                      checked
-                      onclick="radioFnc(event)"
-                    />새 상품 (미사용) <span> 사용하지 않은 새 상품</span><br />
+                    <input type="radio" name="prd_quality" value="1" />새 상품
+                    (미사용) <span> 사용하지 않은 새 상품</span><br />
                   </div>
                   <div>
-                    <input
-                      type="radio"
-                      name="prd_quality"
-                      value="2"
-                      onclick="radioFnc(event)"
-                    />사용감 없음
+                    <input type="radio" name="prd_quality" value="2" />사용감
+                    없음
                     <span> 사용은 했지만 눈에 띄는 흔적이나 얼룩이 없음</span
                     ><br />
                   </div>
                   <div>
-                    <input
-                      type="radio"
-                      name="prd_quality"
-                      value="3"
-                      onclick="radioFnc(event)"
-                    />사용감 적음
-                    <span> 눈에 띄는 흔적이나 얼룩이 약간 있음</span><br />
+                    <input type="radio" name="prd_quality" value="3" />사용감
+                    적음 <span> 눈에 띄는 흔적이나 얼룩이 약간 있음</span><br />
                   </div>
                   <div>
-                    <input
-                      type="radio"
-                      name="prd_quality"
-                      value="4"
-                      onclick="radioFnc(event)"
-                    />사용감 많음
-                    <span> 눈에 띄는 흔적이나 얼룩이 많이 있음</span><br />
+                    <input type="radio" name="prd_quality" value="4" />사용감
+                    많음 <span> 눈에 띄는 흔적이나 얼룩이 많이 있음</span><br />
                   </div>
                   <div>
-                    <input
-                      type="radio"
-                      name="prd_quality"
-                      value="5"
-                      onclick="radioFnc(event)"
-                    />고장/파손 상품
+                    <input type="radio" name="prd_quality" value="5" />고장/파손
+                    상품
                     <span> 기능 이상이나 외관 손상 등으로 수리/수선 필요</span
                     ><br />
                   </div>
@@ -470,11 +440,7 @@
               <div class="sell_prd">
                 <div class="sell_prd_right"><span>사이즈(선택)</span></div>
                 <div>
-                  <select
-                    id="sizeSelecter"
-                    class="size_select"
-                    name="sizeSelecter"
-                  >
+                  <select class="size_select">
                     <option>사이즈를 선택해주세요</option>
                     <option>Free</option>
                     <option>2XS</option>
@@ -499,17 +465,13 @@
               <div class="sell_prd">
                 <div class="sell_prd_right"><span>설명</span></div>
                 <div>
-                  <div class="prd_detail">
+                  <div id="prd_detail">
                     <textarea
                       type="text"
-                      name="prd_detail"
-                      id="prd_detail"
                       placeholder=" 브랜드, 모델명, 구매 시기, 하자 유무 등 상품 설명을 최대한 자세히 적어주세요.&#10; 전화번호, SNS 계정 등 개인정보 입력은 제한될 수 있어요. &#10; 안전하고 건전한 거래 환경을 위해 과학기술정보통신부, 한국인터넷진흥원과 번개장터(주)가 함께합니다."
                     ></textarea>
                   </div>
-                  <div class="prd_detail_footer">
-                    <span id="detail_length">0/2000</span>
-                  </div>
+                  <div class="prd_detail_footer"><span>0/2000</span></div>
                 </div>
               </div>
               <div class="sell_prd">
@@ -547,7 +509,6 @@
                       <input
                         type="number"
                         name="price"
-                        id="price_input"
                         placeholder="가격을 입력해 주세요."
                       />
                       <span>원</span>
@@ -599,9 +560,9 @@
                   </div>
                   <div class="seller_location">
                     <div>
-                      <button type="button">내 위치</button>
-                      <button type="button">최근 지역</button>>
-                      <button type="button">주소 검색</button>>
+                      <button>내 위치</button>
+                      <button>최근 지역</button>
+                      <button>주소 검색</button>
                     </div>
                     <input placeholder="거래 희망 장소를 입력해 주세요." />
                   </div>
@@ -612,7 +573,7 @@
         </div>
 
         <div class="sticky_footer">
-          <div><button id="sendBtn" type="submit">등록하기</button></div>
+          <div><button>등록하기</button></div>
         </div>
       </form>
       <div class="footer">
