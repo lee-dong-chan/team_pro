@@ -173,12 +173,12 @@
               </g>
             </svg>
           </a>
-          <form action="http://localhost/search/" id="searchform">
+          <form>
             <div class="search">
               <fieldset>
                 <input
                   type="text"
-                  name="serch"
+                  id="serch"
                   placeholder="상품명,지역명,@상점명 입력"
                 />
                 <div>
@@ -269,10 +269,17 @@
                   style="width: 10px; height: 10px; padding: 0 13px"
                 />
                 <div class="select">
-                  <div id="cate1-sel">123</div>
+                  <div class="cate1-sel">123</div>
                   <img src="./imgs/select.png" />
                 </div>
-                <ul class="main"></ul>
+                <ul class="main">
+                  <li><a href="./" class="cate-li">1231</a></li>
+                  <li><a href="#" class="cate-li">1231</a></li>
+                  <li><a href="#" class="cate-li">1231</a></li>
+                  <li><a href="#" class="cate-li">1231</a></li>
+                  <li><a href="#" class="cate-li">1231</a></li>
+                  <li><a href="#" class="cate-li">1231</a></li>
+                </ul>
               </div>
 
               <div class="cate2" id="cate2">
@@ -282,10 +289,17 @@
                   style="width: 10px; height: 10px; padding: 0 13px"
                 />
                 <div class="select2">
-                  <div id="cate2-sel"></div>
+                  <div></div>
                   <img src="./imgs/select.png" />
                 </div>
-                <ul class="sub"></ul>
+                <ul class="sub">
+                  <li><a href="#" class="cate-li">1231</a></li>
+                  <li><a href="#" class="cate-li">1231</a></li>
+                  <li><a href="#" class="cate-li">1231</a></li>
+                  <li><a href="#" class="cate-li">1231</a></li>
+                  <li><a href="#" class="cate-li">1231</a></li>
+                  <li><a href="#" class="cate-li">1231</a></li>
+                </ul>
               </div>
               <div class="cate3" id="cate3">
                 <img
@@ -294,7 +308,7 @@
                   style="width: 10px; height: 10px; padding: 0 13px"
                 />
                 <div class="select3">
-                  <div id="cate3-sel"></div>
+                  <div></div>
                   <img src="./imgs/select.png" />
                 </div>
                 <ul class="sub2">
@@ -309,12 +323,18 @@
             </div>
             <div class="cate-btns" id="cate-btns">
               <div class="cate-all" id="cate-all">
-                <a href="?cate1=1">전체보기<img src="./imgs/path.png" /></a>
+                <a href="#">전체보기<img src="./imgs/path.png" /></a>
+              </div>
+              <div class="sub-btn">
+                <a href="#">아우터<span>76만+</span></a>
+              </div>
+              <div class="sub2-btn">
+                <a href="#">패딩<span>76만+</span></a>
               </div>
             </div>
           </div>
           <div class="product-list">
-            <h4><span id="pick-title">남성의류</span>의 추천상품</h4>
+            <h4><span>남성의류</span>의 추천상품</h4>
             <div class="product-wrap" id="product-wrap">
               <a href="#">
                 <div class="product">

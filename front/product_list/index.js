@@ -3,19 +3,12 @@ const catelist2Elem = document.getElementById("cate-list2");
 const catelist3Elem = document.getElementById("cate-list3");
 (async () => {
   try {
-    const category = (
-      await axios.get(
-        "http://localhost:8080/main",
-        {},
-        {
-          withCredentials: true,
-        }
-      )
-    ).data;
+    const mainpage = (await axios.get("http://localhost:8080/product_list", {}))
+      .data;
 
     //category
-    if (category[0]) {
-      category[0].forEach((cate1) => {
+    if (mainpage[0]) {
+      mainpage[0].forEach((cate1) => {
         catelist1Elem.innerHTML += `<a href="/product_list?cate1=${cate1.id}" class="cate-list">${cate1.name}</a>`;
       });
       for (let i = 0; i < catelist1.length; i++) {
@@ -23,8 +16,8 @@ const catelist3Elem = document.getElementById("cate-list3");
           secondCateElem.classList.add("on");
           let secondcate = i;
           let str = "";
-          if (category[0][secondcate].Secondcategories) {
-            category[0][secondcate].Secondcategories.forEach((cate2) => {
+          if (mainpage[0][secondcate].Secondcategories) {
+            mainpage[0][secondcate].Secondcategories.forEach((cate2) => {
               str += `<a href="/product_list?cate2=${cate2.id}" class="cate-list">${cate2.name}</a>`;
             });
           }
@@ -35,10 +28,10 @@ const catelist3Elem = document.getElementById("cate-list3");
               let thirdcate = i;
               let str = "";
               if (
-                category[0][secondcate].Secondcategories[thirdcate]
+                mainpage[0][secondcate].Secondcategories[thirdcate]
                   .Thirdcategories
               ) {
-                category[0][secondcate].Secondcategories[
+                mainpage[0][secondcate].Secondcategories[
                   thirdcate
                 ].Thirdcategories.forEach((cate3) => {
                   str += `<a href="/product_list?cate3=${cate3.id}" class="cate-list">${cate3.name}</a>`;
@@ -64,160 +57,27 @@ const catelist3Elem = document.getElementById("cate-list3");
         };
       }
     }
-    ////////body cate
-
-    const cate1Elem = document.getElementById("cate1");
-    const cate2Elem = document.getElementById("cate2");
-    const cate3Elem = document.getElementById("cate3");
-    const selectcate1Elem = document.getElementById("cate1-sel");
-    const selectcate2Elem = document.getElementById("cate2-sel");
-    const selectcate3Elem = document.getElementById("cate3-sel");
-    const mainElem = document.getElementsByClassName("main")[0];
-    const subElem = document.getElementsByClassName("sub")[0];
-    const sub2Elem = document.getElementsByClassName("sub2")[0];
-    const catebtnsElem = document.getElementById("cate-btns");
-    const pickElem = document.getElementById("pick-title");
+    //
     let urlStr = window.location.href;
     let url = new URL(urlStr);
     let urlparams = url.searchParams;
     let cate1 = urlparams.get("cate1");
     let cate2 = urlparams.get("cate2");
     let cate3 = urlparams.get("cate3");
-    let Firstarr = category[0];
-    let secondarr = [];
-    Firstarr.forEach((item) => {
-      item.Secondcategories.forEach((item) => {
-        secondarr.push(item);
-      });
-    });
-    let thirdarr = [];
-    secondarr.forEach((item) => {
-      item.Thirdcategories.forEach((item) => {
-        thirdarr.push(item);
-      });
-    });
-    console.log(Firstarr);
-    console.log(secondarr);
-    console.log(thirdarr);
 
     if (cate1) {
-      let firstcate = Firstarr[cate1 - 1];
-      let secondcate = Firstarr[cate1 - 1].Secondcategories;
-      selectcate1Elem.innerText = firstcate.name;
-      pickElem.innerText = "";
-      pickElem.innerText = firstcate.name;
-      if (!cate2) {
-        catebtnsElem.innerHTML = "";
-        catebtnsElem.innerHTML = `  <div class="cate-all" id="cate-all">
-        <a href="?cate1=${cate1}">전체보기<img src="./imgs/path.png" /></a>
-      </div>`;
-        secondcate.forEach((item) => {
-          catebtnsElem.innerHTML += `<div class="sub-btn">
-      <a href="?cate2=${item.id}">${item.name}<span>76만+</span></a>
-    </div>`;
-        });
-      }
-
-      Firstarr.forEach((item) => {
-        mainElem.innerHTML += `<li><a href="?cate1=${item.id}" class="cate-li">${item.name}</a></li>`;
-      });
+      console.log("cate1");
     }
-
     if (cate2) {
-      selectcate1Elem.innerText =
-        Firstarr[secondarr[cate2 - 1].firstcategory_id - 1].name;
-      selectcate2Elem.innerText = secondarr[cate2 - 1].name;
-      cate2Elem.classList.add("on");
-
-      pickElem.innerText = "";
-      pickElem.innerText = secondarr[cate2 - 1].name;
-
-      Firstarr.forEach((item) => {
-        mainElem.innerHTML += `<li><a href="?cate1=${item.id}" class="cate-li">${item.name}</a></li>`;
-      });
-      secondarr.forEach((item) => {
-        if (
-          item.firstcategory_id ==
-          Firstarr[secondarr[cate2 - 1].firstcategory_id - 1].id
-        )
-          subElem.innerHTML += `<li><a href="?cate2=${item.id}" class="cate-li">${item.name}</a></li>`;
-      });
-
-      if (!cate3) {
-        catebtnsElem.innerHTML = "";
-        catebtnsElem.innerHTML = `  <div class="cate-all" id="cate-all">
-        <a href="?cate2=${cate2}">전체보기<img src="./imgs/path.png" /></a>
-      </div>`;
-        thirdarr.forEach((item) => {
-          if (item.secondcategory_id == cate2) {
-            catebtnsElem.innerHTML += `<div class="sub2-btn">
-<a href="?cate3=${item.id}">${item.name}<span>76만+</span></a>
-</div>`;
-          }
-        });
-      }
+      console.log("cate2");
     }
     if (cate3) {
-      cate2Elem.classList.add("on");
-      cate3Elem.classList.add("on");
-
-      selectcate1Elem.innerText =
-        Firstarr[
-          secondarr[thirdarr[cate3 - 1].secondcategory_id - 1]
-            .firstcategory_id - 1
-        ].name;
-
-      selectcate2Elem.innerText =
-        secondarr[thirdarr[cate3 - 1].secondcategory_id - 1].name;
-      selectcate3Elem.innerText = thirdarr[cate3 - 1].name;
-
-      pickElem.innerText = "";
-      pickElem.innerText = thirdarr[cate3 - 1].name;
-
-      mainElem.innerHTML = "";
-      subElem.innerHTML = "";
-      sub2Elem.innerHTML = "";
-
-      Firstarr.forEach((item) => {
-        mainElem.innerHTML += `<li><a href="?cate1=${item.id}" class="cate-li">${item.name}</a></li>`;
-      });
-      secondarr.forEach((item) => {
-        if (
-          item.firstcategory_id ==
-          Firstarr[
-            secondarr[thirdarr[cate3].secondcategory_id].firstcategory_id - 1
-          ].id
-        ) {
-          subElem.innerHTML += `<li><a href="?cate2=${item.id}" class="cate-li">${item.name}</a></li>`;
-        }
-      });
-
-      thirdarr.forEach((item) => {
-        if (
-          item.secondcategory_id ==
-          secondarr[thirdarr[cate3 - 1].secondcategory_id - 1].id
-        ) {
-          sub2Elem.innerHTML += `<li><a href="?cate3=${item.id}" class="cate-li">${item.name}</a></li>`;
-        }
-      });
-      catebtnsElem.innerHTML = "";
+      console.log("cate3");
     }
   } catch (err) {
     console.error(err);
   }
 })();
-
-//search
-const form = document.forms.searchform;
-
-form.search.onsubmit = async (e) => {
-  try {
-    const search = (await axios.get("http://localhost:8080/products", {})).data;
-    console.log(search);
-  } catch (err) {
-    console.error(err);
-  }
-};
 
 //paging script
 const pagelistElem = document.getElementsByClassName("page-list")[0];
