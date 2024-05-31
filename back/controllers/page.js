@@ -19,7 +19,6 @@ import search_high from "../services/page/search_high.js";
 import mainitem from "../services/page/mainitem.js";
 
 const router = Router();
-
 router.use("/main", main);
 router.use("/mainitem", mainitem);
 router.use("/product_list", product_list);

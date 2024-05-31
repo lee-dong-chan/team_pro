@@ -329,6 +329,9 @@ loginform.onsubmit = async (e) => {
       alert(logindata.error);
     } else if (logindata.pwerror) {
       alert(logindata.pwerror);
+    } else if (logindata.menager) {
+      alert(logindata.menager);
+      location.href = "http://localhost:8080/manage";
     } else {
       alert("로그인 성공!");
       location.href = location.href;
