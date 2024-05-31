@@ -5438,7 +5438,7 @@ const prdArea = document.getElementById("product-wrap");
 const getPrd = async () => {
   try {
     const product = (
-      await axios.post("http://localhost:8000/product_list", {
+      await axios.post("http://localhost:8080/product_list", {
         user,
         page,
         count,
@@ -5495,10 +5495,6 @@ const pageLi = async () => {
         creLi.onclick = () => {
           page = i + 1;
           getPrd(page);
-          console.log("i:", i);
-          console.log("page:", page);
-          console.log("idx:", pageidx);
-
           [...pageElem].forEach((item) => {
             item.classList.remove("on");
           });
@@ -5520,9 +5516,6 @@ const pageLi = async () => {
           console.log("idx: " + pageidx);
           getPrd(page);
           pageLi();
-          console.log("i:", i);
-          console.log("page:", page);
-          console.log("idx:", pageidx);
         };
       }
     }
@@ -5533,12 +5526,8 @@ const pageLi = async () => {
         creLi.onclick = () => {
           pageidx -= 1;
           page = pageidx * 10 + 10;
-          console.log("idx: " + pageidx);
           getPrd(page);
           pageLi();
-          console.log("i:", i);
-          console.log("page:", page);
-          console.log("idx:", pageidx);
         };
         preElem.append(creLi);
       }
@@ -5552,3 +5541,17 @@ const pageLi = async () => {
 };
 
 pageLi();
+
+//search
+const form = document.forms.searchform;
+console.log(form);
+
+form.onsubmit = async (e) => {
+  e.preventDefault();
+  try {
+    const search = (await axios.get("http://localhost:8000/products", {})).data;
+    console.log(search);
+  } catch (err) {
+    console.error(err);
+  }
+};
