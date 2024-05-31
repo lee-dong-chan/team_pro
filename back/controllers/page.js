@@ -31,7 +31,7 @@ router.use(
   })
 );
 
-router.use("/main", main);
+router.use("/", main);
 router.use("/product_list", product_list);
 router.use("/talk", talk);
 router.use("/products", products);
