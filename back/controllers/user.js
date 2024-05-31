@@ -1,22 +1,14 @@
 import { Router } from "express";
-
 import login from "../services/user/login.js";
 import logout from "../services/user/logout.js";
 import regist from "../services/user/regist.js";
+import logCheck from "../services/user/logcheck.js";
 
-import nickCheck from "../services/user/nickCheck.js";
-import info from "../services/user/info.js";
-import logcheck from "../services/user/logCheck.js";
 const router = Router();
 
-router.use(logcheck);
-router.use("/info", info);
-router.post("/regist", regist);
-
-router.use("/nick", nickCheck);
-
+router.use(logCheck);
 router.post("/login", login);
-
+router.post("/regist", regist);
 router.post("/logout", logout);
 
 export default router;

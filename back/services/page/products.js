@@ -12,7 +12,6 @@ export default async (req, res) => {
         },
       ],
     });
-    // req.session.product = product.id;
     res.json(product);
   } catch (err) {
     console.log(err);
