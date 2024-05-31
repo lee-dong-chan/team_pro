@@ -5,7 +5,7 @@ export default class Firstcategory extends Model {
     return super.init(
       {
         name: {
-          type: DataTypes.STRING(30),
+          type: DataTypes.STRING(10),
           allowNull: false,
         },
       },
@@ -13,12 +13,10 @@ export default class Firstcategory extends Model {
         sequelize,
         modelName: "Firstcategory",
         tableName: "firstcategory",
-        paranoid: true,
+        underscored: true,
         timestamps: true,
+        paranoid: true,
       }
     );
-  }
-  static associate({ Firstcategory, Secondcategory }) {
-    Firstcategory.hasMany(Secondcategory);
   }
 }

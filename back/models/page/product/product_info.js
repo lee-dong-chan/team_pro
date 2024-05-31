@@ -9,17 +9,18 @@ export default class Productinfo extends Model {
           allowNull: false,
         },
         product_status: {
-          type: DataTypes.TINYINT,
-          defaultValue: 1,
+          type: DataTypes.ENUM(1, 2, 3, 4, 5),
+          allowNull: false,
         },
-        firstcategory_id: {
+        firstcate_id: {
           type: DataTypes.INTEGER.UNSIGNED,
+          allowNull: false,
         },
-        secondcategory_id: {
+        secondcate_id: {
           type: DataTypes.INTEGER.UNSIGNED,
           allowNull: true,
         },
-        thirdcategory_id: {
+        thirdcate_id: {
           type: DataTypes.INTEGER.UNSIGNED,
           allowNull: true,
         },
@@ -37,17 +38,5 @@ export default class Productinfo extends Model {
         paranoid: true,
       }
     );
-  }
-  static associate({
-    Product,
-    Productinfo,
-    Firstcategory,
-    Secondcategory,
-    Thirdcategory,
-  }) {
-    Productinfo.belongsTo(Product);
-    Productinfo.belongsTo(Firstcategory);
-    Productinfo.belongsTo(Secondcategory);
-    Productinfo.belongsTo(Thirdcategory);
   }
 }

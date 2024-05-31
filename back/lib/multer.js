@@ -13,11 +13,9 @@ const storege = multer.diskStorage({
   },
   filename: (req, file, callback) => {
     if(){
-        callback(null, `${Date.now()}_product`)
+        callback(null, `${Date.now()}_store`)
     }else if(){
         callback(null, `${Date.now()}_store`)
-    }else if (){
-      callback(null, `${Date.now()}_talk`)
     }
     
   },
