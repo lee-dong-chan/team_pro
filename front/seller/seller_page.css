@@ -760,7 +760,7 @@ a {
   height: 5rem;
 }
 
-#prd_detail {
+#prd_detail textarea {
   width: 850px;
   height: 10rem;
   padding: 1rem;
