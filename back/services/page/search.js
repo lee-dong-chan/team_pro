@@ -18,7 +18,6 @@ export default async (req, res) => {
     console.log(key);
     const serchlist = await Product.findAll({
       where: {
-        deletedAt: null,
         name: { [Op.like]: `%${key}%` },
       },
       include: [
@@ -34,7 +33,6 @@ export default async (req, res) => {
           model: Userstore,
           // attributes: ["visitor"],
           attributes: [],
-
           include: [
             {
               model: User,
@@ -49,12 +47,10 @@ export default async (req, res) => {
           include: [
             {
               model: Firstcategory,
-
               attributes: [],
             },
             {
               model: Secondcategory,
-
               attributes: [],
             },
             {

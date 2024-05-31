@@ -8,6 +8,14 @@ const cateImgElem = document.getElementById("cateImg");
 const firstCateElem = document.getElementsByClassName("first-cate")[0];
 const secondCateElem = document.getElementsByClassName("second-cate")[0];
 const thirdCateElem = document.getElementsByClassName("third-cate")[0];
+const loginbtnELem = document.getElementById("login-btn");
+const loginmodalElem = document.getElementsByClassName("login-modal")[0];
+const loginonElem = document.getElementsByClassName("login")[0];
+const modal_registELem = document.getElementsByClassName("regist-link")[0];
+const modal_loginELem = document.getElementsByClassName("login-link")[0];
+const registonElem = document.getElementsByClassName("regist")[0];
+const registbtnElem = document.getElementsByClassName("regist-btn")[0];
+const loginbtnElem = document.getElementsByClassName("login-btn")[0];
 
 const salebtnELem = document.getElementsByClassName("sale-btn")[0];
 const storeElem = document.getElementsByClassName("store-btn")[0];
@@ -148,21 +156,21 @@ bodyElem.onmouseover = () => {
   }
 };
 
-// loginbtnELem.onclick = () => {
-//   loginmodalElem.classList.add("on");
-//   loginonElem.classList.add("on");
-// };
-// modal_registELem.onclick = () => {
-//   loginonElem.classList.remove("on");
-//   registonElem.classList.add("on");
-// };
-// modal_loginELem.onclick = () => {
-//   registonElem.classList.remove("on");
-//   loginonElem.classList.add("on");
-// };
+loginbtnELem.onclick = () => {
+  loginmodalElem.classList.add("on");
+  loginonElem.classList.add("on");
+};
+modal_registELem.onclick = () => {
+  loginonElem.classList.remove("on");
+  registonElem.classList.add("on");
+};
+modal_loginELem.onclick = () => {
+  registonElem.classList.remove("on");
+  loginonElem.classList.add("on");
+};
 
-// loginmodalElem.onclick = () => {
-//   loginmodalElem.classList.remove("on");
-//   loginonElem.classList.remove("on");
-//   registonElem.classList.remove("on");
-// };
+loginmodalElem.onclick = () => {
+  loginmodalElem.classList.remove("on");
+  loginonElem.classList.remove("on");
+  registonElem.classList.remove("on");
+};

@@ -256,7 +256,7 @@ const prdArea = document.getElementById("product-wrap");
                 24 +
               "일전";
           }
-          prdArea.innerHTML += `<a href="/product_page/?product=${product[i].product_id}">
+          prdArea.innerHTML += `<a href="/product_page/?product${product[i].product_id}">
         <div class="product">
           <img id="pd_img" src="http://localhost:8000/productimg/${product[i].Product.Prdimgs[0].img_path}" />
           <div class="info">

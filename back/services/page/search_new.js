@@ -15,7 +15,6 @@ export default async (req, res) => {
     console.log(key);
     const serchlist = await Product.findAll({
       where: {
-        deletedAt: null,
         name: { [Op.like]: `%${key}%` },
       },
       include: [
