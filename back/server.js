@@ -27,7 +27,10 @@ app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extendd: true }));
 
+<<<<<<< HEAD
+=======
 // app.post("*/seller", storegeRouter("img"));
+>>>>>>> 3bf4352 (feat:service)
 // app.post("*/store", storegeRouter("img"));
 // app.post("*/talk", storegeRouter("img"));
 //req.url 확인;
