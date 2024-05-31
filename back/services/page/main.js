@@ -37,7 +37,7 @@ export default async (req, res) => {
         },
       ],
     });
-    res.json([category]);
+    res.json([category, product]);
   } catch (err) {
     console.log(err);
     res.send("error");

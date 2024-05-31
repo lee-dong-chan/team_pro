@@ -1,18 +1,11 @@
-import { Prd_img, Product, Productsell } from "../../models/index.js";
+import { Firstcategory } from "../../models/index.js";
 
 export default async (req, res) => {
   try {
-    const product = await Product.findAll({
-      include: [
-        {
-          model: Productsell,
-        },
-        {
-          model: Prd_img,
-        },
-      ],
+    const category = await Firstcategory.findAll({
+      attributes: ["name"],
     });
-    res.json(product);
+    res.json(category);
   } catch (err) {
     console.log(err);
     res.send("error");
