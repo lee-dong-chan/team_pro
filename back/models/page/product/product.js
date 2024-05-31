@@ -31,9 +31,9 @@ export default class Product extends Model {
     Product,
     Productetc,
     Productinfo,
-    ProductSell,
+    Productsell,
     Prd_img,
-    ProductTag,
+    Product_tag,
     Favorit_prd,
     Userstore,
     Storereview,
@@ -42,8 +42,8 @@ export default class Product extends Model {
   }) {
     Product.hasOne(Productetc);
     Product.hasOne(Productinfo);
-    Product.hasOne(ProductSell);
-    Product.hasOne(ProductTag);
+    Product.hasOne(Productsell);
+    Product.hasOne(Product_tag);
     Product.hasMany(Prd_img);
     Product.hasOne(Favorit_prd);
     Product.belongsTo(Userstore);
