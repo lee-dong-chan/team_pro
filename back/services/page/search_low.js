@@ -1,12 +1,8 @@
-import {
-  Prd_img,
-  Product,
-  Productinfo,
-  ProductSell,
-  Userstore,
-  Sequelize,
-  User,
-} from "../../models/index.js";
+import Prd_img from "../../models/img/prd_img.js";
+import Product from "../../models/page/product/product.js";
+import ProductSell from "../../models/page/product/product_sell.js";
+import Productinfo from "../../models/page/product/product_info.js";
+import Userstore from "../../models/page/store/userstore.js";
 import { Op } from "sequelize";
 
 export default async (req, res) => {
@@ -14,8 +10,10 @@ export default async (req, res) => {
     const key = req.body.keyword;
     console.log(key);
     const serchlist = await Product.findAll({
+      attributes: ["name", "created_at"],
       where: {
         name: { [Op.like]: `%${key}%` },
+        location: { [Op.like]: `%${key}%` },
       },
       include: [
         {
@@ -28,32 +26,14 @@ export default async (req, res) => {
         },
         {
           model: Userstore,
-          // attributes: ["visitor"],
-          attributes: [],
-          include: [
-            {
-              model: User,
-              // attributes: ["location"],
-              attributes: [],
-            },
-          ],
+          attributes: ["location"],
         },
         {
           model: Productinfo,
-          attributes: [],
+          attributes: ["thirdcategory_id"],
         },
       ],
-      attributes: [
-        "id",
-        "name",
-        "created_at",
-        [Sequelize.col("Userstore.User.location"), "location"],
-        [Sequelize.col("ProductSell.price"), "price"],
-        [Sequelize.col("Productinfo.firstcategory_id"), "cate1"],
-        [Sequelize.col("Productinfo.secondcategory_id"), "cate2"],
-        [Sequelize.col("Productinfo.thirdcategory_id"), "cate3"],
-      ],
-      order: [["price", "asc"]],
+      order: [ProductSell, "price", "asc"],
     });
     res.json(serchlist);
   } catch (err) {

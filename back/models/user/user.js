@@ -41,5 +41,9 @@ export default class User extends Model {
       foreignKey: "user_id",
       targetKey: "id",
     });
+    // User.hasOne(Userstore, {
+    //   foreignKey: "location",
+    //   targetKey: "location",
+    // });
   }
 }
