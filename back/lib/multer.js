@@ -1,9 +1,8 @@
 import multer from "multer";
 
-const storage = multer.diskStorage({
+const storege = multer.diskStorage({
   destination: (req, file, callback) => {
-    console.log("1?");
-    callback(null, "./productimg");
+    callback(null, "./front/productimg");
     // if(req.body.URL == seller){
     //     callback(null, "./front/productimg")
     //  }
@@ -14,7 +13,6 @@ const storage = multer.diskStorage({
     // }
   },
   filename: (req, file, callback) => {
-    console.log("2?");
     callback(null, `${Date.now()}_product`);
     // if(){
     //     callback(null, `${Date.now()}_product`)
@@ -26,6 +24,6 @@ const storage = multer.diskStorage({
   },
 });
 
-const storegeRouter = (name) => multer({ storage }).array(name);
+const storegeRouter = (name) => multer({ storege }).array(name);
 
 export default storegeRouter;

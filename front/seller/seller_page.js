@@ -273,82 +273,38 @@ form.onsubmit = async (e) => {
   } else if (cateValue1 == null) {
     alert("카테고리를 선택해주세요!");
   } else {
-    const data = new FormData();
-    data.append("URL", "seller");
-    data.append("userstore_id", "1");
-    console.log([...form.prd_img.files]);
-    // [...form.prd_img.files].forEach((item) => data.append("imgs", item));
-    for (let i = 0; i < form.prd_img.files.length; i++) {
-      data.append("imgs", prd_img.files[i]);
-    }
-    // if (cateValue2 == null) {
-    //   data.append("secondcategory_id", null);
-    // } else if (cateValue2 != null) {
-    //   data.append("secondcategory_id", cateValue2);
-    // }
-    data.append("name", form.nameinput.value);
-    data.append("price", form.price.value);
-    data.append("product_count", form.count.value);
-    data.append("direct_trade", form.directtrade.value);
-    data.append("price_nego", negoValue);
-    data.append("product_status", statusValue);
-    data.append("product_explanation", form.prd_detail.value);
-    if (cateValue1 != null) {
-      data.append("firstcategory_id", cateValue1);
-    }
-    if (cateValue2 != null) {
-      data.append("secondcategory_id", cateValue2);
-    }
-    if (cateValue3 != null) {
-      data.append("thirdcategory_id", cateValue3);
-    }
-    if (tagArr[0] != null) {
-      data.append("tag1", tagArr[0]);
-    }
-    if (tagArr[1] != null) {
-      data.append("tag2", tagArr[1]);
-    }
-    if (tagArr[2] != null) {
-      data.append("tag3", tagArr[2]);
-    }
-    if (tagArr[3] != null) {
-      data.append("tag4", tagArr[3]);
-    }
-    if (tagArr[4] != null) {
-      data.append("tag5", tagArr[4]);
-    }
     try {
       const sellData = (
         await axios.post(
           "http://localhost:8000/seller",
-          data,
-          // {
-          //   userstore_id: 1,
-          //   img: form.prd_img.files,
-          //   name: form.nameinput.value,
-          //   price: form.price.value,
-          //   product_count: form.count.value,
-          //   direct_trade: form.directtrade.value,
-          //   price_nego: negoValue,
-          //   product_status: statusValue,
-          //   product_count: form.count.value,
-          //   product_explanation: form.prd_detail.value,
-          //   firstcategory_id: cateValue1,
-          //   secondcategory_id: cateValue2,
-          //   thirdcategory_id: cateValue3,
-          //   tag1: tagArr[0],
-          //   tag2: tagArr[1],
-          //   tag3: tagArr[2],
-          //   tag4: tagArr[3],
-          //   tag5: tagArr[4],
-          //   URL: "seller",
-          // },
+          {
+            userstore_id: 1,
+            img: form.prd_img.files,
+            name: form.nameinput.value,
+            price: form.price.value,
+            product_count: form.count.value,
+            direct_trade: form.directtrade.value,
+            price_nego: negoValue,
+            product_status: statusValue,
+            product_count: form.count.value,
+            product_explanation: form.prd_detail.value,
+            firstcategory_id: cateValue1,
+            secondcategory_id: cateValue2,
+            thirdcategory_id: cateValue3,
+            tag1: tagArr[0],
+            tag2: tagArr[1],
+            tag3: tagArr[2],
+            tag4: tagArr[3],
+            tag5: tagArr[4],
+            URL: "seller",
+          },
           {
             // options
             withCredentials: true,
           }
         )
       ).data;
+      console.log(sellData);
       location.href = "http://localhost:8080";
     } catch (err) {
       console.error(err);
