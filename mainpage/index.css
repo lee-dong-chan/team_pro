@@ -676,6 +676,9 @@ a {
   justify-content: space-between;
 }
 
+.body .goods-list .list .item .info > div :last-child div {
+}
+
 .body .goods-list .list .item .info > div span {
   color: gray;
   font-size: 12px;
