@@ -25,7 +25,7 @@ app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extendd: true }));
 
-app.post("*/seller", storegeRouter("img"));
+// app.post("*/seller", storegeRouter("img"));
 // app.post("*/store", storegeRouter("img"));
 // app.post("*/talk", storegeRouter("img"));
 //req.url 확인;

@@ -1,11 +1,11 @@
-import { Prd_img, Product, ProductSell } from "../../models/index.js";
+import { Prd_img, Product, Productsell } from "../../models/index.js";
 
 export default async (req, res) => {
   try {
     const product = await Product.findAll({
       include: [
         {
-          model: ProductSell,
+          model: Productsell,
         },
         {
           model: Prd_img,

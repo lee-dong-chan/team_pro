@@ -6,9 +6,9 @@ import ThirdcategoryModel from "./page/category/thirdcategory.js";
 import ProductModel from "./page/product/product.js";
 import ProductetcModel from "./page/product/product_etc.js";
 import ProductinfoModel from "./page/product/product_info.js";
-import ProductSellModel from "./page/product/product_sell.js";
+import ProductsellModel from "./page/product/product_sell.js";
 import Prd_imgModel from "./img/prd_img.js";
-import ProductTagModel from "./page/product/product_tag.js";
+import Product_tagModel from "./page/product/product_tag.js";
 import Favorit_prdModel from "./page/product/favorit_prd.js";
 import UserstoreModel from "./page/store/userstore.js";
 import Store_imgModel from "./img/store_img.js";
@@ -35,9 +35,9 @@ export const Thirdcategory = ThirdcategoryModel.init(sequelize);
 export const Product = ProductModel.init(sequelize);
 export const Productetc = ProductetcModel.init(sequelize);
 export const Productinfo = ProductinfoModel.init(sequelize);
-export const ProductSell = ProductSellModel.init(sequelize);
+export const Productsell = ProductsellModel.init(sequelize);
 export const Prd_img = Prd_imgModel.init(sequelize);
-export const ProductTag = ProductTagModel.init(sequelize);
+export const Product_tag = Product_tagModel.init(sequelize);
 export const Favorit_prd = Favorit_prdModel.init(sequelize);
 export const Userstore = UserstoreModel.init(sequelize);
 export const Store_img = Store_imgModel.init(sequelize);
@@ -57,9 +57,9 @@ const db = {
   Product,
   Productetc,
   Productinfo,
-  ProductSell,
+  Productsell,
   Prd_img,
-  ProductTag,
+  Product_tag,
   Favorit_prd,
   Userstore,
   Store_img,
