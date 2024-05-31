@@ -72,6 +72,7 @@ const db = {
 };
 
 Object.keys(db).forEach((model) => {
+  console.log(db[model]);
   if (db[model].associate) {
     db[model].associate(db);
   }

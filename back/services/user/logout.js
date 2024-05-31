@@ -1,7 +1,8 @@
 export default async (req, res) => {
   try {
-    // req.session
+    res.json();
   } catch (err) {
-    console.error(err);
+    console.log(err);
+    res.send("error");
   }
 };
