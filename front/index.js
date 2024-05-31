@@ -27,15 +27,7 @@ const catelist2Elem = document.getElementById("cate-list2");
 const catelist3Elem = document.getElementById("cate-list3");
 (async () => {
   try {
-    const mainpage = (
-      await axios.get(
-        "http://localhost:8000/main",
-        {},
-        {
-          withCredentials: true,
-        }
-      )
-    ).data;
+    const mainpage = (await axios.get("http://localhost:8000/main", {})).data;
 
     //category
     if (mainpage[0]) {
@@ -339,20 +331,18 @@ registform["pw-check"].oninput = (e) => {
 registform.nick.onchange = async (e) => {
   const nickReg = /^[A-Z|a-z|0-9|ㄱ-ㅎ|가-힣]{2,16}$/;
   isNick = false;
+  // // (async () => {
+  // //   const nickdub = await axios.post("http://localhost:8000/user/nick", {
+  // //     nick: e.target.value,
+  // //   });
+  // // }).data;
 
-  const nickdub = (
-    await axios.post("http://localhost:8000/user/nick", {
-      nick: e.target.value,
-    })
-  ).data;
-  console.log(nickdub.message);
+  // console.log(nickdub);
 
   if (e.target.value.lenght < 2 || e.target.value.length > 30) {
     nickResultElem.innerHTML = "닉네임 2글자 이상, 16글자 이하로 작성하세요";
   } else if (!nickReg.test(e.target.value)) {
     nickResultElem.innerHTML = "특수문자 제외 알파벳과 한글로 작성하세요";
-  } else if (nickdub.message == "중복임") {
-    nickResultElem.innerHTML = "중복된 닉네임입니다";
   } else {
     isNick = true;
     nickResultElem.innerHTML = "";
@@ -404,7 +394,7 @@ registform.onsubmit = async (e) => {
         }
       )
     ).data;
-    location.href = location.href;
+    location.href = "./";
   } catch (err) {
     console.error(err);
   }
@@ -478,32 +468,10 @@ loginform.onsubmit = async (e) => {
         }
       )
     ).data;
-    location.href = location.href;
+    location.href = "./";
   } catch (err) {
     console.error(err);
   }
-};
-
-//logout
-const logoutbtn = document.getElementById("logout-btn");
-logoutbtn.onclick = () => {
-  console.log("작동함");
-  (async () => {
-    try {
-      (
-        await axios.post(
-          "http://localhost:8000/user/logout",
-          {},
-          {
-            withCredentials: true,
-          }
-        )
-      ).data;
-      location.href = location.href;
-    } catch (err) {
-      console.error(err);
-    }
-  })();
 };
 // logcheck
 
@@ -511,11 +479,8 @@ logoutbtn.onclick = () => {
   const noCookieElem = document.getElementsByClassName("noCookie")[0];
   const CookieElem = document.getElementsByClassName("Cookie")[0];
   try {
-    const logUser = (
-      await axios.get("http://localhost:8000/user/info", {
-        withCredentials: true,
-      })
-    ).data;
+    const logUser = (await axios.get("http://localhost:8000/user/info", {}))
+      .data;
     console.log(logUser.result);
     if (logUser.result == "notlogin") {
       CookieElem.classList.remove("on");
@@ -529,6 +494,16 @@ logoutbtn.onclick = () => {
   }
 })();
 
+//logout
+async () => {
+  const logoutbtn = document.getElementById("logout-btn");
+  logoutbtn.onclick = () => {
+    console.log("작동함");
+  };
+  //   await axios.post("", {})
+  // ).data;
+};
+
 // search;
 
 const searchform = document.forms.searchform;
@@ -537,12 +512,14 @@ searchform.onsubmit = async (e) => {
   e.preventDefault();
 
   try {
-    location.href = `http://localhost:8080/search/?${searchform.search.value}`;
     await axios.post("http://localhost:8000/search", {
       keyword: searchform.search.value,
     });
     await axios.get("http://localhost:8000/search", {}).data;
+    location.href = `http://localhost:8080/search/?${searchform.search.value}`;
   } catch (err) {
     console.error(err);
   }
 };
+
+console.log();

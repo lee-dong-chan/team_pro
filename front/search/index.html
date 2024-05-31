@@ -73,7 +73,7 @@
               <div class="my-store" id="my-store1">내 상점 ▼</div>
             </div>
             <div class="Cookie">
-              <button id="logout-btn">로그아웃</button>
+              <button id="login-btn">로그아웃</button>
               <div class="notice" id="notice">알림 ▼</div>
               <div class="my-store" id="my-store2">내 상점 ▼</div>
             </div>
@@ -173,18 +173,16 @@
               </g>
             </svg>
           </a>
-          <form action="" id="searchform">
+          <form action="http://localhost/search/" id="searchform">
             <div class="search">
               <fieldset>
                 <input
                   type="text"
-                  name="search"
+                  name="serch"
                   placeholder="상품명,지역명,@상점명 입력"
                 />
                 <div>
-                  <button>
-                    <img src="./imgs/search.png" />
-                  </button>
+                  <button><img src="./imgs/search.png" /></button>
                 </div>
               </fieldset>
             </div>
@@ -496,16 +494,6 @@
                 <legend>닉네임</legend>
                 <input type="text" name="nick" placeholder="닉네임" />
                 <div class="err" id="nick-result"></div>
-              </fieldset>
-              <fieldset>
-                <legend>전화번호</legend>
-                <input type="text" name="phone" placeholder="전화번호" />
-                <div class="err" id="phone-result"></div>
-              </fieldset>
-              <fieldset>
-                <legend>주소</legend>
-                <input type="text" name="location" placeholder="주소" />
-                <div class="err" id="location-result"></div>
               </fieldset>
               <button class="regist-btn">회원가입</button>
             </form>
