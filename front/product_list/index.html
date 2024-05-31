@@ -73,7 +73,7 @@
               <div class="my-store" id="my-store1">내 상점 ▼</div>
             </div>
             <div class="Cookie">
-              <button id="logout-btn">로그아웃</button>
+              <button id="login-btn">로그아웃</button>
               <div class="notice" id="notice">알림 ▼</div>
               <div class="my-store" id="my-store2">내 상점 ▼</div>
             </div>
@@ -174,22 +174,20 @@
             </svg>
           </a>
           <form action="http://localhost/search/" id="searchform">
-            <form action="" id="searchform">
-              <div class="search">
-                <fieldset>
-                  <input
-                    type="text"
-                    name="search"
-                    placeholder="상품명,지역명,@상점명 입력"
-                  />
-                  <div>
-                    <button>
-                      <img src="./imgs/search.png" />
-                    </button>
-                  </div>
-                </fieldset>
-              </div>
-            </form>
+            <div class="search">
+              <fieldset>
+                <input
+                  type="text"
+                  name="serch"
+                  placeholder="상품명,지역명,@상점명 입력"
+                />
+                <div>
+                  <a href="../search/"
+                    ><button><img src="./imgs/search.png" /></button
+                  ></a>
+                </div>
+              </fieldset>
+            </div>
           </form>
           <div class="menu-btns">
             <a class="sale-btn" href="../seller/">

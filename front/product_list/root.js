@@ -314,22 +314,16 @@ registform.onsubmit = async (e) => {
   console.log(registform.email.value);
   try {
     (
-      await axios.post(
-        "http://localhost:8000/user/regist",
-        {
-          email: registform.email.value,
-          pw: registform.pw.value,
-          "pw-check": registform["pw-check"].value,
-          nick: registform.nick.value,
-          phone: registform.phone.value,
-          location: registform.location.value,
-        },
-        {
-          withCredentials: true,
-        }
-      )
+      await axios.post("http://localhost:8000/user/regist", {
+        email: registform.email.value,
+        pw: registform.pw.value,
+        "pw-check": registform["pw-check"].value,
+        nick: registform.nick.value,
+        phone: registform.phone.value,
+        location: registform.location.value,
+      })
     ).data;
-    location.href = location.href;
+    location.href = "./";
   } catch (err) {
     console.error(err);
   }
@@ -392,84 +386,31 @@ loginform.onsubmit = async (e) => {
   e.preventDefault();
   try {
     const logindata = (
-      await axios.post(
-        "http://localhost:8000/user/login",
-        {
-          email: loginform.email.value,
-          pw: loginform.pw.value,
-        },
-        {
-          withCredentials: true,
-        }
-      )
-    ).data;
-    location.href = location.href;
-  } catch (err) {
-    console.error(err);
-  }
-};
-
-//logout
-const logoutbtn = document.getElementById("logout-btn");
-logoutbtn.onclick = () => {
-  console.log("작동함");
-  (async () => {
-    try {
-      (
-        await axios.post(
-          "http://localhost:8000/user/logout",
-          {},
-          {
-            withCredentials: true,
-          }
-        )
-      ).data;
-      location.href = location.href;
-    } catch (err) {
-      console.error(err);
-    }
-  })();
-};
-// logcheck
-
-(async () => {
-  const noCookieElem = document.getElementsByClassName("noCookie")[0];
-  const CookieElem = document.getElementsByClassName("Cookie")[0];
-  try {
-    const logUser = (
-      await axios.get("http://localhost:8000/user/info", {
-        withCredentials: true,
+      await axios.post("http://localhost:8000/user/login", {
+        email: loginform.email.value,
+        pw: loginform.pw.value,
       })
     ).data;
-    console.log(logUser.result);
-    if (logUser.result == "notlogin") {
-      CookieElem.classList.remove("on");
-      noCookieElem.classList.add("on");
-    } else if (logUser.result == "login") {
-      noCookieElem.classList.remove("on");
-      CookieElem.classList.add("on");
-    }
-  } catch (err) {
-    console.error(err);
-  }
-})();
-
-// search;
-
-const searchform = document.forms.searchform;
-
-searchform.onsubmit = async (e) => {
-  e.preventDefault();
-
-  try {
-    await axios.post("http://localhost:8000/search", {
-      keyword: searchform.search.value,
-    });
-    await axios.get("http://localhost:8000/search", {}).data;
-    location.href = `http://localhost:8080/search/?${searchform.search.value}`;
+    location.href = "./";
   } catch (err) {
     console.error(err);
   }
 };
 
-console.log();
+//search
+
+// const searchform = document.forms.searchform;
+
+// searchform.onsubmit = async (e) => {
+//   e.preventDefault();
+
+//   try {
+//     await axios.post("http://localhost:8000/search", {
+//       keyword: searchform.search.value,
+//     });
+//     await axios.get("http://localhost:8000/search", {}).data;
+//     location.href = `http://localhost:8080/search/?${searchform.search.value}`;
+//   } catch (err) {
+//     console.error(err);
+//   }
+// };
