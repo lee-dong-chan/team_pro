@@ -749,7 +749,6 @@ a {
   padding: 1rem 0;
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
   gap: 0.8rem;
 }
 
@@ -1050,10 +1049,6 @@ a {
   background-color: white;
 }
 
-.follower_infobox button a {
-  color: red;
-}
-
 .follower_infobox button img {
   width: 1.2rem;
   height: 0.8rem;
@@ -1066,7 +1061,6 @@ a {
 
 .followers_area {
   display: flex;
-  flex-wrap: wrap;
   flex-wrap: wrap;
   gap: 3rem;
 }
@@ -1118,10 +1112,6 @@ a {
   color: gray;
   border: 1px solid gray;
   background-color: white;
-}
-
-.follower_box button a {
-  color: gray;
 }
 
 .follower_box button img {
