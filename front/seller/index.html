@@ -360,7 +360,6 @@
                       placeholder="상품명을 입력해주세요"
                       name="prd_name"
                       id="nameinput"
-                      maxlength="40"
                     />
                     <span id="name_length"> 0/40 </span>
                   </div>
@@ -385,12 +384,12 @@
                   </div>
                 </div>
                 <div id="cate_selected">
-                  <span class="red">선택한 카테고리 :</span>
-                  <span id="selcate1">여성의류</span>
+                  <span class="red">카테고리를 선택해주세요 :</span>
+                  <span>여성의류</span>
                   <span>></span>
-                  <span id="selcate2">아우터</span>
+                  <span>아우터</span>
                   <span>></span>
-                  <span id="selcate3">패딩</span>
+                  <span>패딩</span>
                 </div>
               </div>
 
@@ -483,7 +482,6 @@
                       type="text"
                       name="prd_detail"
                       id="prd_detail"
-                      maxlength="2000"
                       placeholder=" 브랜드, 모델명, 구매 시기, 하자 유무 등 상품 설명을 최대한 자세히 적어주세요.&#10; 전화번호, SNS 계정 등 개인정보 입력은 제한될 수 있어요. &#10; 안전하고 건전한 거래 환경을 위해 과학기술정보통신부, 한국인터넷진흥원과 번개장터(주)가 함께합니다."
                     ></textarea>
                   </div>
@@ -494,16 +492,12 @@
               </div>
               <div class="sell_prd">
                 <div class="sell_prd_right"><span>태그(선택)</span></div>
-                <!-- <div id="tagContent"></div>
-                <button id="tagBtn" type="button"></button> -->
                 <div>
                   <div id="prd_tag">
-                    <div id="tagElem"></div>
                     <input
-                      id="tags"
+                      name=""
                       placeholder="태그를 입력해 주세요. (최대 5개)"
                     />
-                    <!-- <button id="deltag" type="button">삭제</button> -->
                   </div>
                   <div class="tag_footer">
                     <span
@@ -521,7 +515,7 @@
                 </div>
               </div>
               <div class="prd-header">
-                <h1>가격</h1>
+                <h1>가격 및 배송비</h1>
               </div>
               <div class="sell_prd">
                 <div class="sell_prd_right"><span>가격</span></div>
@@ -530,7 +524,6 @@
                     <div>
                       <input
                         type="number"
-                        id="price"
                         name="price"
                         id="price_input"
                         placeholder="가격을 입력해 주세요."
@@ -539,12 +532,15 @@
                     </div>
                   </div>
                   <div id="price_req">
-                    <input id="checkbox_round" type="checkbox" name="nego" />
+                    <input id="checkbox_round" type="checkbox" />
                     <label for="checkbox_round">
                       <span>가격 제안 받기</span></label
                     >
                   </div>
                 </div>
+              </div>
+              <div class="sell_prd">
+                <div class="sell_prd_right"><span>배송비</span></div>
               </div>
               <div class="prd-header">
                 <h1>추가정보</h1>
@@ -555,7 +551,7 @@
                   <div>
                     <input
                       type="number"
-                      name="count"
+                      name="price"
                       placeholder="숫자만 입력해 주세요."
                     />
                     <span>개</span>
@@ -570,17 +566,12 @@
                       type="radio"
                       id="direct-trade-yes"
                       name="direct-trade"
-                      value="0"
-                      checked
-                      onclick="tradeFnc(event)"
                     />
                     <label for="direct-trade-yes"><span>가능</span></label>
                     <input
                       type="radio"
                       id="direct-trade-no"
                       name="direct-trade"
-                      value="1"
-                      onclick="tradeFnc(event)"
                     />
                     <label for="direct-trade-no"><span>불가능</span></label>
                   </div>
