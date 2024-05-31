@@ -29,6 +29,7 @@ const catelist3Elem = document.getElementById("cate-list3");
   try {
     const mainpage = (await axios.get("http://localhost:8000/main", {})).data;
 
+    console.log(mainpage);
     //category
     if (mainpage[0]) {
       mainpage[0].forEach((cate1) => {
@@ -257,7 +258,7 @@ const registElem = document.getElementById("regist");
 
 const reset = () => {
   for (const item of registElem.getElementsByTagName("input")) {
-    item.value = null;
+    item.value = "";
   }
   emailResultElem.innerHTML = "";
   pwResultElem.innerHTML = "";
@@ -278,6 +279,13 @@ modal_registELem.onclick = () => {
 modal_loginELem.onclick = () => {
   registonElem.classList.remove("on");
   loginonElem.classList.add("on");
+};
+
+loginmodalElem.onclick = () => {
+  reset();
+  loginmodalElem.classList.remove("on");
+  loginonElem.classList.remove("on");
+  registonElem.classList.remove("on");
 };
 
 let isEmail = false,
@@ -328,17 +336,10 @@ registform["pw-check"].oninput = (e) => {
   }
 };
 
-registform.nick.onchange = async (e) => {
+registform.nick.oninput = (e) => {
   const nickReg = /^[A-Z|a-z|0-9|ㄱ-ㅎ|가-힣]{2,16}$/;
   isNick = false;
-  // // (async () => {
-  // //   const nickdub = await axios.post("http://localhost:8000/user/nick", {
-  // //     nick: e.target.value,
-  // //   });
-  // // }).data;
-
-  // console.log(nickdub);
-
+  console.log(e.target.value);
   if (e.target.value.lenght < 2 || e.target.value.length > 30) {
     nickResultElem.innerHTML = "닉네임 2글자 이상, 16글자 이하로 작성하세요";
   } else if (!nickReg.test(e.target.value)) {
@@ -378,21 +379,15 @@ registform.onsubmit = async (e) => {
   e.preventDefault();
   console.log(registform.email.value);
   try {
-    (
-      await axios.post(
-        "http://localhost:8000/user/regist",
-        {
-          email: registform.email.value,
-          pw: registform.pw.value,
-          "pw-check": registform["pw-check"].value,
-          nick: registform.nick.value,
-          phone: registform.phone.value,
-          location: registform.location.value,
-        },
-        {
-          withCredentials: true,
-        }
-      )
+    const data = (
+      await axios.post("http://localhost:8000/user/regist", {
+        email: registform.email.value,
+        pw: registform.pw.value,
+        "pw-check": registform["pw-check"].value,
+        nick: registform.nick.value,
+        phone: registform.phone.value,
+        location: registform.location.value,
+      })
     ).data;
     location.href = "./";
   } catch (err) {
@@ -405,23 +400,6 @@ registform.onsubmit = async (e) => {
 const loginform = document.forms.login;
 const emailCheckElem = document.getElementById("email");
 const pwCheckElem = document.getElementById("pw");
-const loginElem = document.getElementById("login");
-
-const loginreset = () => {
-  for (const item of loginElem.getElementsByTagName("input")) {
-    item.value = null;
-  }
-  emailCheckElem.innerHTML = "";
-  pwCheckElem.innerHTML = "";
-};
-
-loginmodalElem.onclick = () => {
-  reset();
-  loginreset();
-  loginmodalElem.classList.remove("on");
-  loginonElem.classList.remove("on");
-  registonElem.classList.remove("on");
-};
 
 let loginEmail = false,
   loginPw = false;
@@ -457,54 +435,18 @@ loginform.onsubmit = async (e) => {
   e.preventDefault();
   try {
     const logindata = (
-      await axios.post(
-        "http://localhost:8000/user/login",
-        {
-          email: loginform.email.value,
-          pw: loginform.pw.value,
-        },
-        {
-          withCredentials: true,
-        }
-      )
+      await axios.post("http://localhost:8000/user/login", {
+        email: loginform.email.value,
+        pw: loginform.pw.value,
+      })
     ).data;
     location.href = "./";
   } catch (err) {
     console.error(err);
   }
 };
-// logcheck
 
-(async () => {
-  const noCookieElem = document.getElementsByClassName("noCookie")[0];
-  const CookieElem = document.getElementsByClassName("Cookie")[0];
-  try {
-    const logUser = (await axios.get("http://localhost:8000/user/info", {}))
-      .data;
-    console.log(logUser.result);
-    if (logUser.result == "notlogin") {
-      CookieElem.classList.remove("on");
-      noCookieElem.classList.add("on");
-    } else if (logUser.result == "login") {
-      noCookieElem.classList.remove("on");
-      CookieElem.classList.add("on");
-    }
-  } catch (err) {
-    console.error(err);
-  }
-})();
-
-//logout
-async () => {
-  const logoutbtn = document.getElementById("logout-btn");
-  logoutbtn.onclick = () => {
-    console.log("작동함");
-  };
-  //   await axios.post("", {})
-  // ).data;
-};
-
-// search;
+//search
 
 const searchform = document.forms.searchform;
 
@@ -521,5 +463,3 @@ searchform.onsubmit = async (e) => {
     console.error(err);
   }
 };
-
-console.log();
