@@ -10,16 +10,18 @@ import {
 export default async (req, res) => {
   try {
     const category = await Firstcategory.findAll({
+      where: { deletedAt: null },
       attributes: ["id", "name"],
       include: [
         {
           model: Secondcategory,
           attributes: ["id", "name", "firstcategory_id"],
-
+          where: { deletedAt: null },
           include: [
             {
               model: Thirdcategory,
               attributes: ["id", "name", "secondcategory_id"],
+              where: { deletedAt: null },
             },
           ],
         },
