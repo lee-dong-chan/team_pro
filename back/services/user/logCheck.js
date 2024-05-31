@@ -14,7 +14,6 @@ export default async (req, res, next) => {
         attributes: ["id", [Sequelize.col("Userstore.id"), "store"]],
       });
     }
-    console.log(req.user);
   } catch (err) {
     console.error(err);
   } finally {
