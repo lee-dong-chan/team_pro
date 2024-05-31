@@ -483,7 +483,6 @@ loginform.onsubmit = async (e) => {
       alert(logindata.pwerror);
     } else if (logindata.menager) {
       alert(logindata.menager);
-      location.href = "http://localhost:8080/manage";
     } else {
       alert("로그인 성공!");
       location.href = location.href;
@@ -527,8 +526,6 @@ logoutbtn.onclick = () => {
         withCredentials: true,
       })
     ).data;
-
-    console.log(logUser);
 
     if (logUser.result == "notlogin") {
       CookieElem.classList.remove("on");

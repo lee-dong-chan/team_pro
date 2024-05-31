@@ -43,6 +43,9 @@ export default class User extends Model {
     );
   }
   static associate({ User, Userstore }) {
-    User.hasOne(Userstore);
+    User.hasOne(Userstore, {
+      foreignKey: "user_id",
+      targetKey: "id",
+    });
   }
 }

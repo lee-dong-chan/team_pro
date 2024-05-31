@@ -15,7 +15,6 @@ export default async (req, res) => {
   console.log("file :", req.file);
   console.log("files :", req.files);
   try {
-    console.log(req.body);
     const prd = await Product.create(req.body);
 
     const files = req.files;
