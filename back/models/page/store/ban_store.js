@@ -4,11 +4,13 @@ export default class Banstore extends Model {
   static init(sequelize) {
     return super.init(
       {
-        banstoreId: {
-          type: DataTypes.INTEGER,
+        ban_store_id: {
+          type: DataTypes.INTEGER.UNSIGNED,
+          allowNull: false,
         },
-        userstoreId: {
-          type: DataTypes.INTEGER,
+        user_store_id: {
+          type: DataTypes.INTEGER.UNSIGNED,
+          allowNull: false,
         },
       },
       {
@@ -21,14 +23,5 @@ export default class Banstore extends Model {
       }
     );
   }
-  static assosiate({ Banstore, Userstore }) {
-    Banstore.belongsTo(Userstore, {
-      foreignKey: "banstoreId",
-      sourceKey: "userstoreId",
-    });
-    Banstore.belongsTo(Userstore, {
-      foreignKey: "userstoreId",
-      sourceKey: "userstoreId",
-    });
-  }
 }
+v;

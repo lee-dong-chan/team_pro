@@ -9,7 +9,7 @@ export default class Productinfo extends Model {
           allowNull: false,
         },
         product_status: {
-          type: DataTypes.ENUM("1", "2", "3", "4", "5"),
+          type: DataTypes.TINYINT,
           defaultValue: 1,
         },
         firstcategory_id: {
