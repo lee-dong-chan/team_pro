@@ -11,32 +11,29 @@ import {
 export default async (req, res) => {
   try {
     const serchlist = await Product.findAll({
-      where: { deletedAt: null },
       include: [
         {
           model: Prdimg,
-          where: { deletedAt: null },
           attributes: ["img_path"],
         },
         {
           model: ProductSell,
-          where: { deletedAt: null },
           attributes: ["price"],
         },
         {
           model: Userstore,
-          where: { deletedAt: null },
+          // attributes: ["visitor"],
           attributes: [],
           include: [
             {
               model: User,
+              // attributes: ["location"],
               attributes: [],
             },
           ],
         },
         {
           model: Productinfo,
-          where: { deletedAt: null },
           attributes: [],
         },
       ],

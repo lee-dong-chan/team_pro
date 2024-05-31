@@ -6,8 +6,6 @@ import {
   Userstore,
   User,
   Sequelize,
-  Secondcategory,
-  Thirdcategory,
 } from "../../models/index.js";
 
 export default async (req, res) => {
@@ -51,18 +49,11 @@ export default async (req, res) => {
           [Sequelize.col("Product.ProductSell.price"), "price"],
         ],
       });
-
+      console.log(cate1items);
       res.json(cate1items);
     } else if (req.body.cate2ID) {
-      const cate1 = await Secondcategory.findOne({
-        where: { id: req.body.cate2ID },
-      });
-
       const cate2items = await Productinfo.findAll({
-        where: {
-          firstcategory_id: cate1.Firstcategory_id,
-          secondcategory_id: req.body.cate2ID,
-        },
+        where: { secondcategory_id: req.body.cate2ID },
         include: [
           {
             model: Product,
@@ -99,21 +90,11 @@ export default async (req, res) => {
         ],
       });
 
+      console.log(cate2items);
       res.json(cate2items);
     } else if (req.body.cate3ID) {
-      const cate2 = await Thirdcategory.findOne({
-        where: { id: req.body.cate3ID },
-      });
-      const cate1 = await Secondcategory.findOne({
-        where: { id: cate2.Secondcategory_id },
-      });
-
       const cate3items = await Productinfo.findAll({
-        where: {
-          firstcategory_id: cate1.id,
-          secondcategory_id: cate2.Secondcategory_id,
-          thirdcategory_id: req.body.cate3ID,
-        },
+        where: { thirdcategory_id: req.body.cate3ID },
         include: [
           {
             model: Product,
