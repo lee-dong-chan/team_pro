@@ -1,5 +1,5 @@
 import {
-  Prdimg,
+  Prd_img,
   Product,
   Productinfo,
   ProductSell,
@@ -19,7 +19,7 @@ export default async (req, res) => {
       },
       include: [
         {
-          model: Prdimg,
+          model: Prd_img,
           attributes: ["img_path"],
         },
         {

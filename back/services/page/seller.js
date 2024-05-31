@@ -4,7 +4,7 @@ import {
   Productinfo,
   ProductSell,
   ProductTag,
-  Prdimg,
+  Prd_img,
 } from "../../models/index.js";
 
 import fs from "fs/promises";
@@ -21,7 +21,7 @@ export default async (req, res) => {
     console.log("왜 파일경로를 못 받아와!", files);
     const fileUrls = [];
     files.forEach((item) => {
-      fileUrls.push(`${item.filename}`);
+      fileUrls.push(`./productimg/${item.filename}`);
     });
     console.log("파일경로 : ", fileUrls);
     // await Productinfo.create({ ...req.body, productId: prd.id });
@@ -34,7 +34,7 @@ export default async (req, res) => {
     let prd_id = prd.id;
     console.log("상품 생성 ID : ", prd_id);
     for (let i = 0; i < fileUrls.length; ++i) {
-      await Prdimg.create({ product_id: prd_id, img_path: fileUrls[i] });
+      await Prd_img.create({ product_id: prd_id, img_path: fileUrls[i] });
     }
     res.json({
       uploaded: true,

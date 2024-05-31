@@ -1,5 +1,5 @@
 import {
-  Prdimg,
+  Prd_img,
   Product,
   Productinfo,
   ProductSell,
@@ -22,7 +22,7 @@ export default async (req, res) => {
       },
       include: [
         {
-          model: Prdimg,
+          model: Prd_img,
           attributes: ["img_path"],
         },
         {
@@ -64,7 +64,6 @@ export default async (req, res) => {
         "id",
         "name",
         "created_at",
-
         [Sequelize.col("Userstore.User.location"), "location"],
         [Sequelize.col("ProductSell.price"), "price"],
         [Sequelize.col("Productinfo.Firstcategory.name"), "cate1"],
