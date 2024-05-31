@@ -27,8 +27,9 @@ export default class Productsell extends Model {
           allowNull: false,
         },
         sell_status: {
-          type: DataTypes.ENUM("0", "1", "2"),
-          defaultValue: "0",
+          type: DataTypes.TINYINT,
+          allowNull: false,
+          defaultValue: 0,
         },
       },
       {
