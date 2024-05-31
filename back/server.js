@@ -1,7 +1,7 @@
 import express from "express";
 import morgan from "morgan";
 import dotenv from "dotenv";
-import cookieParser from "cookie-parser";
+// import cookieParser from "cookie-parser";
 import cors from "cors";
 import router from "./controllers/index.js";
 import category from "./lib/createcategory.js";
@@ -20,16 +20,17 @@ app.use(cors({ origin: "http://localhost:8080", credentials: true }));
 app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(cookieParser(process.env.COOKIE_SECRET));
+// app.use(cookieParser(process.env.COOKIE_SECRET));
 
 // app.post("*/seller", storegeRouter("img"));
 // app.post("*/store", storegeRouter("img"));
 // app.post("*/talk", storegeRouter("img"));
 //req.url 확인;
 app.use(
+  // "/login",
   session({
-    resave: false,
-    saveUninitialized: false,
+    resave: true,
+    saveUninitialized: true,
     secret: "project",
     name: "user",
     store: new FileStore({

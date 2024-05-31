@@ -15,12 +15,12 @@ export default async (req, res) => {
     if (!user) {
       throw new Error("not found user");
     } else if (user.password == cryptoPw) {
-      let cookie = req.session;
-      cookie.user = user.id;
+      // let cookie = req.session;
+      // cookie.user = user.id;
       // console.log(cookie);
       console.log("이거맞음");
       req.session.user = user.id;
-      // console.log(req.session);
+      console.log(req.session);
       console.log(req.session.id);
       res.json({ user: user.id });
     } else {

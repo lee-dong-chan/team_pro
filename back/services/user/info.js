@@ -1,10 +1,11 @@
+import User from "../../models/user/user.js";
+
 export default async (req, res) => {
   try {
-    console.log(req.user);
+    console.log(req.session);
     if (req.user) {
       res.json({ result: "login" });
     } else {
-      res.clearCookie("user");
       res.json({ result: "notlogin" });
     }
   } catch (err) {

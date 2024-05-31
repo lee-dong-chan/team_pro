@@ -10,11 +10,13 @@ import logcheck from "../services/user/logCheck.js";
 const router = Router();
 
 router.use(logcheck);
-
 router.use("/info", info);
-router.post("/logout", logout);
 router.post("/regist", regist);
+
 router.use("/nick", nickCheck);
+
 router.post("/login", login);
+
+router.post("/logout", logout);
 
 export default router;
