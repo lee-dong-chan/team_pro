@@ -1,6 +1,7 @@
 import crypto from "crypto";
 
 import { Userstore, User } from "../../models/index.js";
+import { userInfo } from "os";
 
 export default async (req, res) => {
   try {
@@ -22,9 +23,11 @@ export default async (req, res) => {
         location: req.body.location,
       });
 
-      await Userstore.create({
-        user_id: Userinfo.id,
-      });
+      Userinfo.setUserstore(
+        await Userstore.create({
+          name: Userinfo.nickname,
+        })
+      );
     }
     res.json({ pop: "회원가입완료" });
   } catch (err) {

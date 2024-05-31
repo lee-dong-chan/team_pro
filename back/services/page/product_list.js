@@ -19,6 +19,10 @@ export default async (req, res) => {
             attributes: ["name", "created_at"],
             include: [
               {
+                model: Prdimg,
+                attributes: ["img_path"],
+              },
+              {
                 model: ProductSell,
                 attributes: [],
               },
@@ -32,10 +36,6 @@ export default async (req, res) => {
                   },
                 ],
               },
-              {
-                model: Prdimg,
-                attributes: ["img_path"],
-              },
             ],
           },
         ],
@@ -44,6 +44,7 @@ export default async (req, res) => {
           [Sequelize.col("Product.Userstore.User.location"), "location"],
           [Sequelize.col("Product.name"), "name"],
           // [Sequelize.col("Product.Prdimg.img_path"), "path"],
+          [Sequelize.col("Product.name"), "name"],
           [Sequelize.col("Product.created_at"), "created_at"],
           [Sequelize.col("Product.ProductSell.price"), "price"],
         ],
@@ -59,12 +60,12 @@ export default async (req, res) => {
             attributes: ["name", "created_at"],
             include: [
               {
-                model: Prd_img,
-                attributes: [],
+                model: Prdimg,
+                attributes: ["img_path"],
               },
               {
                 model: ProductSell,
-                attributes: ["img_path"],
+                attributes: [],
               },
               {
                 model: Userstore,
@@ -100,7 +101,7 @@ export default async (req, res) => {
             attributes: ["name", "created_at"],
             include: [
               {
-                model: Prd_img,
+                model: Prdimg,
                 attributes: ["img_path"],
               },
               {
