@@ -6,7 +6,6 @@ import cors from "cors";
 import router from "./controllers/index.js";
 import category from "./lib/createcategory.js";
 import "./models/index.js";
-import bodyParser from "body-parser";
 // import { storegeRouter } from "./lib/multer.js";
 import session from "express-session";
 import fileStore from "session-file-store";
@@ -22,8 +21,6 @@ app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cookieParser(process.env.COOKIE_SECRET));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extendd: true }));
 
 // app.post("*/seller", storegeRouter("img"));
 // app.post("*/store", storegeRouter("img"));

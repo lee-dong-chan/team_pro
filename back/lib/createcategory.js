@@ -3,8 +3,6 @@ import {
   Firstcategory,
   Secondcategory,
   Thirdcategory,
-  User,
-  Userstore,
 } from "../models/index.js";
 
 const category = async function () {
@@ -1283,21 +1281,9 @@ const category = async function () {
       for (let i = 0; i < Thirdcate.length; i++) {
         await Thirdcategory.create(Thirdcate[i]);
       }
-
       // const First = await Firstcategory.create(firstcate);
       // const Second = First.addChildren(await Secondcategory.create(secondcate));
       // Second.addChildren(await Thirdcategory.create(Thirdcate));
-
-      await User.create({
-        email: "1234@naver.com",
-        password: "1234",
-        nickname: "TESTnickname",
-        phone_number: "010-1234-5678",
-      });
-      await Userstore.create({
-        name: "시험용상점",
-        user_id: 1,
-      });
     }
   } catch (err) {
     console.error(err);
