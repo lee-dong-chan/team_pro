@@ -1,4 +1,4 @@
-import { Model, DataTypes } from "sequelize";
+import { Model, DataType, DataTypes } from "sequelize";
 
 export default class User extends Model {
   static init(sequelize) {
@@ -37,5 +37,4 @@ export default class User extends Model {
       }
     );
   }
-  static associate() {}
 }

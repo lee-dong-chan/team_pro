@@ -5,12 +5,12 @@ export default class Secondcategory extends Model {
     return super.init(
       {
         name: {
-          type: DataTypes.STRING(30),
+          type: DataTypes.STRING(10),
           allowNull: false,
         },
-        Firstcategory_id: {
+        parent_id: {
           type: DataTypes.INTEGER.UNSIGNED,
-          allowNull: true,
+          allowNull: false,
         },
       },
       {
@@ -22,9 +22,5 @@ export default class Secondcategory extends Model {
         paranoid: true,
       }
     );
-  }
-  static associate({ Secondcategory, Firstcategory, Thirdcategory }) {
-    Secondcategory.belongsTo(Firstcategory);
-    Secondcategory.hasMany(Thirdcategory);
   }
 }
