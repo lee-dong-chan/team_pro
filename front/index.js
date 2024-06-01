@@ -599,7 +599,7 @@ searchform.onsubmit = async (e) => {
         <div class="info">
           <div>
             <p>${mainitem[i].name}</p>
-            <div>20000원<span>${timedata}</span></div>
+            <div>${mainitem[i].price}원<span>${timedata}</span></div>
           </div>
         </div>
       </div>

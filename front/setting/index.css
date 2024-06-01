@@ -33,3 +33,11 @@ body {
 #wrap hr {
   margin: 0;
 }
+
+#manage.on {
+  display: block;
+}
+
+#manage {
+  display: none;
+}
