@@ -11,7 +11,11 @@ export default async (req, res, next) => {
             attributes: [],
           },
         ],
-        attributes: ["id", [Sequelize.col("Userstore.id"), "store"]],
+        attributes: [
+          "id",
+          "authority",
+          [Sequelize.col("Userstore.id"), "store"],
+        ],
       });
     }
   } catch (err) {

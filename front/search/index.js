@@ -15,7 +15,7 @@ searchform.onsubmit = async (e) => {
     location.href = `http://localhost:8080/search/?${searchform.search.value}`;
 
     await axios.post(
-      "http://localhost:8000/search",
+      "http://localhost:8000/searchproduct",
       {
         keyword: searchform.search.value,
       },

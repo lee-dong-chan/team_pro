@@ -9,4 +9,5 @@ router.use(manager);
 router.use("/", page);
 router.use("/user", user);
 router.use("/manage", managepage);
+
 export default router;
