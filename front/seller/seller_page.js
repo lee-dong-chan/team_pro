@@ -547,8 +547,8 @@ cateTEXT3.innerHTML = "";
           prd_catelist2Elem.innerHTML = str;
           for (let j = 0; j < prd_catelist2.length; j++) {
             prd_catelist2[j].onclick = () => {
-              prd_catelist1[j].setAttribute("data-auto", true);
-              cateValue2 = prd_catelist1[j].dataset.itemtype;
+              prd_catelist2[j].setAttribute("data-auto", true);
+              cateValue2 = prd_catelist2[j].dataset.itemtype;
 
               cateTEXT2.innerHTML = prd_catelist2[j].innerText;
               cateTEXT3.innerHTML = "";
@@ -578,7 +578,7 @@ cateTEXT3.innerHTML = "";
               for (let k = 0; k < cate3Btn.length; k++) {
                 cate3Btn[k].onclick = () => {
                   prd_catelist3[k].setAttribute("data-auto", true);
-                  cateValue3 = prd_catelist1[k].dataset.itemtype;
+                  cateValue3 = prd_catelist3[k].dataset.itemtype;
 
                   console.log(cateValue3);
                   cateTEXT3.innerHTML = cate3Btn[k].innerText;
@@ -651,7 +651,8 @@ form.onsubmit = async (e) => {
   } else {
     const data = new FormData();
     data.append("URL", "seller");
-    data.append("userstore_id", logUser[1][0].store);
+    // data.append("userstore_id", logUser[1][0].store);
+    data.append("userstore_id", 1);
     console.log([...form.prd_img.files]);
     // [...form.prd_img.files].forEach((item) => data.append("imgs", item));
     for (let i = 0; i < form.prd_img.files.length; i++) {
