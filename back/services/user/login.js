@@ -17,10 +17,10 @@ export default async (req, res) => {
     } else if (user.password == cryptoPw) {
       let cookie = req.session;
       cookie.user = user.id;
-
+      console.log(user);
       console.log("이거맞음");
       req.session.user = user.id;
-      if (req.session.user == 1) {
+      if (user.authority == 1) {
         res.json({ menager: "관리자님 환영합니다." });
       } else {
         res.json({ user: user.id });

@@ -1,5 +1,6 @@
 const logoutElem = document.getElementById("logout");
 const delElem = document.getElementById("account_del");
+const manageElem = document.getElementById("manage");
 console.log(logoutElem);
 
 logoutElem.onclick = () => {
@@ -22,4 +23,26 @@ logoutElem.onclick = () => {
       console.error(err);
     }
   })();
+};
+
+(async () => {
+  try {
+    const logUser = (
+      await axios.get("http://localhost:8000/user/info", {
+        withCredentials: true,
+      })
+    ).data;
+    console.log(logUser[1][0].authority);
+    if (logUser[1][0].authority == true) {
+      manageElem.classList.add("on");
+    } else {
+      manageElem.classList.remove("on");
+    }
+  } catch (err) {
+    console.error(err);
+  }
+})();
+
+manageElem.onclick = () => {
+  location.href = "http://localhost:8080/manage";
 };

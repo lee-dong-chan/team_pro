@@ -1,4 +1,5 @@
-import { User, Userstore } from "../../models/index.js";
+import { NOW } from "sequelize";
+import { Productreport, User, Userstore } from "../../models/index.js";
 import crypto from "crypto";
 export default async (req, res, next) => {
   try {
@@ -21,10 +22,6 @@ export default async (req, res, next) => {
         authority: true,
       };
       await User.create(maneger);
-
-      await Userstore.create({
-        user_id: maneger.id,
-      });
     }
   } catch (err) {
     console.error(err);
