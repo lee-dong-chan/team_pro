@@ -20,7 +20,8 @@ export default class Productetc extends Model {
         },
         direct_trade_location: {
           type: DataTypes.STRING(100),
-          allowNull: false,
+          allowNull: true,
+          defaultValue: null,
         },
       },
       {

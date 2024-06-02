@@ -674,6 +674,8 @@ a {
 
 .body .goods-list .list .item .info > div p {
   margin-top: 0;
+  width: 10rem;
+  overflow: hidden;
   font-size: 14px;
   font-weight: 400;
   text-align: left;

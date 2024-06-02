@@ -108,7 +108,7 @@
 
       <div class="top-menu">
         <div class="top">
-          <a href="../mainpage/"
+          <a href="/"
             ><svg
               xmlns="http://www.w3.org/2000/svg"
               width="136"
@@ -349,7 +349,7 @@
           </div>
 
           <div class="product-area">
-            <div class="img-area">
+            <div class="img-area" id="img-area">
               <img src="./pro_exam1.PNG" />
             </div>
             <div class="prd-info">
@@ -362,15 +362,22 @@
               <div class="prd-detail">
                 <div class="detail-head">
                   <div>
-                    <span><img src="./img_src/heart_btn.png" /> 1</span>
+                    <span
+                      ><img src="./img_src/heart_btn.png" /><span id="favArea"
+                        >1</span
+                      ></span
+                    >
                     <span>|</span>
                     <span
                       ><img class="view_btn" src="./img_src/view_btn.png" />
-                      24</span
-                    >
+                      <span id="viewArea">24</span>
+                    </span>
                     <span>|</span>
 
-                    <span><img src="./img_src/cr_at_btn.png" /> 5일 전</span>
+                    <span
+                      ><img src="./img_src/cr_at_btn.png" />
+                      <span id="created">5일 전</span></span
+                    >
                   </div>
                   <span><img src="./img_src/siren_btn.png" />신고하기</span>
                 </div>
@@ -385,7 +392,10 @@
                   </div> -->
                   <div>
                     <span class="info-head">ㆍ거래지역</span>
-                    <span><img src="./img_src/area_btn.png" /> 전국</span>
+                    <span class="location_area"
+                      ><img src="./img_src/area_btn.png" />
+                      <span id="location">전국</span></span
+                    >
                   </div>
                 </div>
                 <div class="btn_area">
@@ -469,7 +479,7 @@
                     <div>
                       <img src="./img_src/area_btn.png" /><span>거래 지역</span>
                     </div>
-                    <div><span>전국</span></div>
+                    <div><span id="location2">전국</span></div>
                   </div>
                   <div class="border">
                     <div>
@@ -488,10 +498,10 @@
                       <img src="./img_src/tag_btn.png" /><span>상품 태그</span>
                     </div>
                     <div>
-                      <span id="tag1">#시나모롤쿠지</span>
-                      <span id="tag2">#산리오쿠지</span>
-                      <span id="tag3">#시나모롤이치방쿠지</span>
-                      <span id="tag4">#산리오이치방쿠지</span>
+                      <span id="tag1"></span>
+                      <span id="tag2"></span>
+                      <span id="tag3"></span>
+                      <span id="tag4"></span>
                       <span id="tag5"></span>
                     </div>
                   </div>
@@ -529,7 +539,7 @@
                 <div class="seller_who">
                   <img src="./pro_exam1.PNG" />
                   <div>
-                    <p>윰면냥</p>
+                    <p id="store_name">윰면냥</p>
                     <p>상품 7 | 팔로워 0</p>
                   </div>
                 </div>
