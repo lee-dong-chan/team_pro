@@ -13,12 +13,12 @@ export default async (req, res) => {
       include: [
         {
           model: Secondcategory,
-          where: { deletedAt: null },
+
           attributes: ["name", "id"],
           include: [
             {
               model: Thirdcategory,
-              where: { deletedAt: null },
+
               attributes: ["name", "id"],
             },
           ],
