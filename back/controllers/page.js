@@ -17,7 +17,7 @@ import search_low from "../services/page/search_low.js";
 import search_high from "../services/page/search_high.js";
 
 import mainitem from "../services/page/mainitem.js";
-
+import product_cookie from "../services/page/product_cookie.js";
 const router = Router();
 router.use("/main", main);
 router.use("/mainitem", mainitem);
@@ -31,5 +31,5 @@ router.use("/search", search);
 router.use("/search_new", search_new);
 router.use("/search_low", search_low);
 router.use("/search_high", search_high);
-
+router.use("product_cookie", product_cookie);
 export default router;

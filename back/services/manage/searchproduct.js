@@ -11,7 +11,7 @@ export default async (req, res) => {
     const key = req.body.keyword;
     console.log(key);
     const product = await Product.findAll({
-      where: { deletedAt: null, name: { [Op.like]: `${key}` } },
+      where: { deletedAt: null, name: { [Op.like]: `%${key}%` } },
       include: [
         {
           model: ProductSell,

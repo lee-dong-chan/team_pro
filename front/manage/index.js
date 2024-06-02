@@ -1,85 +1,16 @@
-// 카테고리 조작
 (async () => {
   try {
-    const categorydata = (
-      await axios.get("http://localhost:8000/manage/editcategory", {
+    const logUser = (
+      await axios.get("http://localhost:8000/user/info", {
         withCredentials: true,
       })
     ).data;
-
-    const firstcateELem = document.getElementsByClassName("first-cate")[0];
-    const secondcateElem = document.getElementsByClassName("second-cate")[0];
-    const thirdcateElem = document.getElementsByClassName("third-cate")[0];
-    const firstlistElem = document.getElementsByClassName("first-list");
-    const secondlistElem = document.getElementsByClassName("second-list");
-    const thirdlistElem = document.getElementsByClassName("third-list");
-    const firstoutElem = document.getElementById("outFirst");
-    const secondoutElem = document.getElementById("outSecond");
-    const thirdoutElem = document.getElementById("outThird");
-    firstcateELem.innerHTML = "";
-    secondcateElem.innerHTML = "";
-    categorydata.forEach((item) => {
-      firstcateELem.innerHTML += `<ul class="first-list">
-      <li>
-        <div>${item.name}</div><span>${item.id}</span>
-      </li>
-    </ul>`;
-    });
-    for (let i = 0; i < firstlistElem.length; i++) {
-      firstlistElem[i].onclick = () => {
-        let secondcate = i;
-        let str = "";
-        if (categorydata[secondcate].Secondcategories) {
-          categorydata[secondcate].Secondcategories.forEach((item) => {
-            str += `<ul class="second-list">
-              <li>
-                <div>${item.name}</div><span>${item.id}</span>
-              </li>
-            </ul>`;
-          });
-        }
-
-        firstoutElem.value = categorydata[secondcate].id;
-        secondoutElem.value = "";
-        thirdoutElem.value = "";
-
-        secondcateElem.innerHTML = str;
-
-        for (let i = 0; i < secondlistElem.length; i++) {
-          secondlistElem[i].onclick = () => {
-            let thirdcate = i;
-            let str = "";
-
-            if (
-              categorydata[secondcate].Secondcategories[thirdcate]
-                .Thirdcategories
-            ) {
-              categorydata[secondcate].Secondcategories[
-                thirdcate
-              ].Thirdcategories.forEach((item) => {
-                str += `<ul class="third-list">
-                <li>
-                  <div>${item.name}</div><span>${item.id}</span>
-                </li>
-              </ul>`;
-              });
-            }
-            thirdcateElem.innerHTML = str;
-            secondoutElem.value =
-              categorydata[secondcate].Secondcategories[thirdcate].id;
-            thirdoutElem.value = "";
-
-            for (let i = 0; i < thirdlistElem.length; i++) {
-              thirdlistElem[i].onclick = () => {
-                thirdoutElem.value =
-                  categorydata[secondcate].Secondcategories[
-                    thirdcate
-                  ].Thirdcategories[i].id;
-              };
-            }
-          };
-        }
-      };
+    console.log(logUser);
+    if (logUser.result == "notlogin") {
+      location.href = "http://localhost:8080";
+    } else if (logUser[1][0].authority == false) {
+      alert("관리자 계정이 아닙니다.");
+      location.href = "http://localhost:8080";
     }
   } catch (err) {
     console.error(err);
@@ -201,9 +132,8 @@
   });
 
   console.log(store);
-  if (store[0]) {
-    const deletuserElem = document.getElementsByClassName("delete-store");
-
+  const deletuserElem = document.getElementsByClassName("delete-store");
+  if (deletuserElem) {
     for (let i = 0; i < deletuserElem.length; i++) {
       deletuserElem[i].onclick = () => {
         console.log("ok");
@@ -218,6 +148,50 @@
       };
     }
   }
+  const storeform = document.forms.store;
+
+  storeform.onsubmit = async (e) => {
+    e.preventDefault();
+    const searchstore = (
+      await axios.post(
+        "http://localhost:8000/manage/searchstore",
+        { keyword: storeform.searchstore.value },
+        {
+          withCredentials: true,
+        }
+      )
+    ).data;
+
+    storeElem.innerHTML = "";
+
+    searchstore.forEach((item) => {
+      storeElem.innerHTML += ` <ul>
+      <li>
+        <a href="http://localhost:8080/my_page/?my_page=${item.store_id}"
+          ><div>
+            <span>상점번호: ${item.store_id} </span>상점이름:${item.store_name} <span>유저번호:${item.id} </span>
+          </div></a
+        >
+        <div class="search-store">유저삭제</div>
+      </li>
+    </ul>`;
+    });
+
+    const searchuserElem = document.getElementsByClassName("search-store");
+
+    for (let i = 0; i < searchuserElem.length; i++) {
+      searchuserElem[i].onclick = () => {
+        axios.post(
+          "http://localhost:8000/manage/deluser",
+          { id: searchstore[i].id, store_id: searchstore[i].store_id },
+          {
+            withCredentials: true,
+          }
+        ).data;
+        location.href = location.href;
+      };
+    }
+  };
 })();
 
 //신고 상품 삭제
@@ -259,5 +233,148 @@
       ).data;
       location.href = location.href;
     };
+  }
+})();
+
+//카테고리 삭제
+
+const cateform = document.forms.outcate;
+
+cateform.onsubmit = async (e) => {
+  e.preventDefault();
+  const category = (
+    await axios.post(
+      "http://localhost:8000/manage/delcategory",
+      {
+        cate1: cateform.first.value,
+        cate2: cateform.second.value,
+        cate3: cateform.third.value,
+      },
+      {
+        withCredentials: true,
+      }
+    )
+  ).data;
+  if (category.error == "입력값이 잘못되었습니다") {
+    alert(category.error);
+  } else {
+    alert("카테고리 " + category + " 항목이 삭제되었습니다");
+  }
+  location.href = location.href;
+};
+
+//카테고리 생성
+
+const createcateform = document.forms.incate;
+
+createcateform.onsubmit = async (e) => {
+  e.preventDefault();
+  const category = (
+    await axios.post(
+      "http://localhost:8000/manage/makecategory",
+      {
+        cate1: createcateform.first.value,
+        cate2: createcateform.second.value,
+        cate3: createcateform.third.value,
+      },
+      {
+        withCredentials: true,
+      }
+    )
+  ).data;
+
+  console.log(category);
+
+  if (category) {
+    alert("카테고리 " + category + " 항목이 생성되었습니다.");
+  }
+  location.href = location.href;
+};
+
+// 카테고리 조작
+(async () => {
+  try {
+    const categorydata = (
+      await axios.get("http://localhost:8000/manage/editcategory", {
+        withCredentials: true,
+      })
+    ).data;
+
+    const firstcateELem = document.getElementsByClassName("first-cate")[0];
+    const secondcateElem = document.getElementsByClassName("second-cate")[0];
+    const thirdcateElem = document.getElementsByClassName("third-cate")[0];
+    const firstlistElem = document.getElementsByClassName("first-list");
+    const secondlistElem = document.getElementsByClassName("second-list");
+    const thirdlistElem = document.getElementsByClassName("third-list");
+    const firstoutElem = document.getElementById("outFirst");
+    const secondoutElem = document.getElementById("outSecond");
+    const thirdoutElem = document.getElementById("outThird");
+    firstcateELem.innerHTML = "";
+    secondcateElem.innerHTML = "";
+    categorydata.forEach((item) => {
+      firstcateELem.innerHTML += `<ul class="first-list">
+      <li>
+        <div>${item.name}</div><span>${item.id}</span>
+      </li>
+    </ul>`;
+    });
+    for (let i = 0; i < firstlistElem.length; i++) {
+      firstlistElem[i].onclick = () => {
+        let secondcate = i;
+        let str = "";
+        if (categorydata[secondcate].Secondcategories) {
+          categorydata[secondcate].Secondcategories.forEach((item) => {
+            str += `<ul class="second-list">
+              <li>
+                <div>${item.name}</div><span>${item.id}</span>
+              </li>
+            </ul>`;
+          });
+        }
+
+        firstoutElem.value = categorydata[secondcate].id;
+        secondoutElem.value = "";
+        thirdoutElem.value = "";
+
+        secondcateElem.innerHTML = str;
+
+        for (let i = 0; i < secondlistElem.length; i++) {
+          secondlistElem[i].onclick = () => {
+            let thirdcate = i;
+            let str = "";
+
+            if (
+              categorydata[secondcate].Secondcategories[thirdcate]
+                .Thirdcategories
+            ) {
+              categorydata[secondcate].Secondcategories[
+                thirdcate
+              ].Thirdcategories.forEach((item) => {
+                str += `<ul class="third-list">
+                <li>
+                  <div>${item.name}</div><span>${item.id}</span>
+                </li>
+              </ul>`;
+              });
+            }
+            thirdcateElem.innerHTML = str;
+            secondoutElem.value =
+              categorydata[secondcate].Secondcategories[thirdcate].id;
+            thirdoutElem.value = "";
+
+            for (let i = 0; i < thirdlistElem.length; i++) {
+              thirdlistElem[i].onclick = () => {
+                thirdoutElem.value =
+                  categorydata[secondcate].Secondcategories[
+                    thirdcate
+                  ].Thirdcategories[i].id;
+              };
+            }
+          };
+        }
+      };
+    }
+  } catch (err) {
+    console.error(err);
   }
 })();
