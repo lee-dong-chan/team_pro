@@ -77,6 +77,8 @@ const catelist3Elem = document.getElementById("cate-list3");
       })
     ).data;
 
+    console.log(logUser[1][0]);
+
     if (logUser.result == "notlogin") {
       CookieElem.classList.remove("on");
       noCookieElem.classList.add("on");
@@ -384,7 +386,6 @@ inputBtn.onchange = (e) => {
     reader.readAsDataURL(image);
   }
 };
-
 const namelength = document.getElementById("name_length");
 const nameInput = document.getElementById("nameinput");
 const form = document.forms.create_prd;
@@ -396,8 +397,10 @@ const statusRadio = document.getElementsByName("prd_quality");
 let statusValue = document.querySelector(
   'input[name="prd_quality"]:checked'
 ).value;
+
 function radioFnc(e) {
-  console.log(e.target.value);
+  statusValue = e.target.value;
+  console.log(statusValue);
 }
 
 form.sizeSelecter.oninput = (e) => {
@@ -640,6 +643,8 @@ form.onsubmit = async (e) => {
     })
   ).data;
 
+  console.log(logUser);
+
   if (isnameEmpty == false) {
     alert("상품명을 입력해주세요!");
   } else if (detail_empty == false) {
@@ -651,8 +656,8 @@ form.onsubmit = async (e) => {
   } else {
     const data = new FormData();
     data.append("URL", "seller");
-    // data.append("userstore_id", logUser[1][0].store);
-    data.append("userstore_id", 1);
+    data.append("userstore_id", logUser[1][0].store);
+    // data.append("userstore_id", 1);
     console.log([...form.prd_img.files]);
     // [...form.prd_img.files].forEach((item) => data.append("imgs", item));
     for (let i = 0; i < form.prd_img.files.length; i++) {
@@ -670,6 +675,10 @@ form.onsubmit = async (e) => {
     data.append("price_nego", negoValue);
     data.append("product_status", statusValue);
     data.append("product_explanation", form.prd_detail.value);
+    data.append("direct_trade_location", form.location.value);
+    data.append("favorite_product", 0);
+    data.append("view", 0);
+
     if (cateValue1 != null) {
       data.append("firstcategory_id", cateValue1);
     }

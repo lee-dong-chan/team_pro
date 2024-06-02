@@ -36,8 +36,14 @@
   padding: 0.5rem;
 }
 
+.prd-img1 {
+  width: 30rem;
+  height: 25rem;
+}
+
 .prd-info {
   height: 100%;
+  width: 30rem;
   display: flex;
   flex-direction: column;
   padding-left: 1rem;
@@ -116,13 +122,15 @@
 }
 
 .detail-body div span {
-  width: 7rem;
   padding: 0.2rem;
   margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
 }
 
 .info-head {
   color: grey;
+  width: 7rem;
 }
 
 .btn_area {
@@ -274,6 +282,11 @@
 .prd_explain {
   width: 39rem;
   border-right: 1px solid #ebeef1;
+}
+
+#prd_exp {
+  width: 39rem;
+  word-break: break-all;
 }
 
 .seller_info {
@@ -510,4 +523,12 @@
   flex-direction: column;
   font-size: 0.8rem;
   padding-right: 2rem;
+}
+
+.location_area {
+  display: flex;
+  width: 18rem;
+}
+#location {
+  display: flex;
 }
