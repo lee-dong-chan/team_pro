@@ -4,6 +4,26 @@ favoriteBtn = document.getElementById("user_favorite_list");
 followingBtn = document.getElementById("user_following");
 followerBtn = document.getElementById("user_follower");
 
+(async () => {
+  const logUser = (
+    await axios.get("http://localhost:8000/user/info", {
+      withCredentials: true,
+    })
+  ).data;
+
+  try {
+    const UserInfo = await axios.post(
+      "http://localhost:8000/my_page",
+      {
+        userstore_id: logUser[0][1].store,
+      },
+      { withCredentials: true }
+    );
+  } catch (err) {
+    console.err(error);
+  }
+})();
+
 mypageElem = document.getElementById("content_body_wrap");
 
 mypageElem.innerHTML = `<div class="all_sell_list">
