@@ -244,8 +244,8 @@ fieldset {
   margin-top: 1rem;
 }
 
-.wrap .manage_body .control-menu .input-category #in-cate,
-.wrap .manage_body .control-menu .input-category #out-cate {
+.wrap .manage_body .control-menu .input-category #incate,
+.wrap .manage_body .control-menu .input-category #outcate {
   display: flex;
   width: 100%;
   height: 100%;
@@ -253,15 +253,15 @@ fieldset {
   justify-content: space-between;
   align-items: center;
 }
-.wrap .manage_body .control-menu .input-category #in-cate fieldset,
-.wrap .manage_body .control-menu .input-category #out-cate fieldset {
+.wrap .manage_body .control-menu .input-category #incate fieldset,
+.wrap .manage_body .control-menu .input-category #outcate fieldset {
   height: 3.5rem;
   margin: 1rem;
   display: flex;
   align-items: center;
 }
-.wrap .manage_body .control-menu .input-category #in-cate input,
-.wrap .manage_body .control-menu .input-category #out-cate input {
+.wrap .manage_body .control-menu .input-category #incate input,
+.wrap .manage_body .control-menu .input-category #outcate input {
   height: 3rem;
   width: 22rem;
 }
