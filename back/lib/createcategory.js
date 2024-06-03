@@ -8,7 +8,7 @@ import {
 } from "../models/index.js";
 
 const category = async function () {
-  const force = true;
+  const force = false;
 
   const firstcate = [
     { name: "여성의류" },
@@ -823,7 +823,7 @@ const category = async function () {
     { name: "기타(국산차)", Secondcategory_id: 83 },
     //
     { name: "경차/소형차", Secondcategory_id: 84 },
-    { name: "준/중형치", Secondcategory_id: 84 },
+    { name: "준/중형차", Secondcategory_id: 84 },
     { name: "준/대형차", Secondcategory_id: 84 },
     { name: "SRV/RV", Secondcategory_id: 84 },
     { name: "밴/승합차", Secondcategory_id: 84 },

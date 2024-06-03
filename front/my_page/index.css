@@ -414,9 +414,11 @@ a {
   align-items: center;
   padding: 0.5rem;
 }
+
 .pop .recent-view .recent-list img {
   height: 2.8rem;
 }
+
 .pop .recent-view .recent-list div {
   text-align: center;
   font-size: 12px;
@@ -488,7 +490,7 @@ a {
 #modal .login.on {
   width: 500px;
   height: 600px;
-  top: 200px;
+  top: 80px;
   margin: auto;
   position: fixed;
   z-index: 11000;
@@ -501,8 +503,8 @@ a {
 }
 #modal .regist.on {
   width: 500px;
-  height: 600px;
-  top: 200px;
+
+  top: 10px;
   margin: auto;
   position: fixed;
   z-index: 11000;
@@ -527,6 +529,7 @@ a {
 
 .log .user-box h1,
 .regist .user-box h1 {
+  font-size: 19px;
   text-align: center;
 }
 
