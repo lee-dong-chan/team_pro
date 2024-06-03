@@ -8,14 +8,6 @@ const cateImgElem = document.getElementById("cateImg");
 const firstCateElem = document.getElementsByClassName("first-cate")[0];
 const secondCateElem = document.getElementsByClassName("second-cate")[0];
 const thirdCateElem = document.getElementsByClassName("third-cate")[0];
-const loginbtnELem = document.getElementById("login-btn");
-const loginmodalElem = document.getElementsByClassName("login-modal")[0];
-const loginonElem = document.getElementsByClassName("login")[0];
-const modal_registELem = document.getElementsByClassName("regist-link")[0];
-const modal_loginELem = document.getElementsByClassName("login-link")[0];
-const registonElem = document.getElementsByClassName("regist")[0];
-const registbtnElem = document.getElementsByClassName("regist-btn")[0];
-const loginbtnElem = document.getElementsByClassName("login-btn")[0];
 
 const salebtnELem = document.getElementsByClassName("sale-btn")[0];
 const storeElem = document.getElementsByClassName("store-btn")[0];
@@ -31,7 +23,6 @@ const catelist2 = document
 const catelist3 = document
   .getElementById("cate-list3")
   .getElementsByTagName("a");
-// const noticehover = ();
 
 noticeElem.onmouseover = () => {
   noticelistElem.classList.add("on");
@@ -156,21 +147,76 @@ bodyElem.onmouseover = () => {
   }
 };
 
-loginbtnELem.onclick = () => {
-  loginmodalElem.classList.add("on");
-  loginonElem.classList.add("on");
-};
-modal_registELem.onclick = () => {
-  loginonElem.classList.remove("on");
-  registonElem.classList.add("on");
-};
-modal_loginELem.onclick = () => {
-  registonElem.classList.remove("on");
-  loginonElem.classList.add("on");
-};
+const catelist1Elem = document.getElementById("cate-list1");
+const catelist2Elem = document.getElementById("cate-list2");
+const catelist3Elem = document.getElementById("cate-list3");
 
-loginmodalElem.onclick = () => {
-  loginmodalElem.classList.remove("on");
-  loginonElem.classList.remove("on");
-  registonElem.classList.remove("on");
-};
+(async () => {
+  try {
+    const mainpage = (
+      await axios.get("http://localhost:8000/main", {
+        withCredentials: true,
+      })
+    ).data;
+
+    //category
+    if (mainpage[0]) {
+      mainpage[0].forEach((cate1) => {
+        catelist1Elem.innerHTML += `<a href="/product_list?cate1=${cate1.id}" class="cate-list">${cate1.name}</a>`;
+      });
+      for (let i = 0; i < catelist1.length; i++) {
+        catelist1[i].onmouseover = () => {
+          secondCateElem.classList.add("on");
+          let secondcate = i;
+          let str = "";
+          if (mainpage[0][secondcate].Secondcategories) {
+            mainpage[0][secondcate].Secondcategories.forEach((cate2) => {
+              str += `<a href="/product_list?cate2=${cate2.id}" class="cate-list">${cate2.name}</a>`;
+            });
+          }
+          catelist2Elem.innerHTML = str;
+          for (let i = 0; i < catelist2.length; i++) {
+            catelist2[i].onmouseover = () => {
+              thirdCateElem.classList.add("on");
+              let thirdcate = i;
+              let str = "";
+
+              console.log(
+                mainpage[0][secondcate].Secondcategories[thirdcate]
+                  .Thirdcategories
+              );
+              if (
+                mainpage[0][secondcate].Secondcategories[thirdcate]
+                  .Thirdcategories
+              ) {
+                mainpage[0][secondcate].Secondcategories[
+                  thirdcate
+                ].Thirdcategories.forEach((cate3) => {
+                  str += `<a href="/product_list?cate3=${cate3.id}" class="cate-list">${cate3.name}</a>`;
+                });
+              }
+              catelist3Elem.innerHTML = str;
+            };
+
+            catelist2[i].onmousedown = () => {
+              for (let a = 0; a < catelist1.length; a++) {
+                catelist2[a].classList.remove("on");
+              }
+              catelist2[i].classList.add("on");
+            };
+          }
+        };
+
+        catelist1[i].onmousedown = () => {
+          for (let a = 0; a < catelist1.length; a++) {
+            catelist1[a].classList.remove("on");
+          }
+          catelist1[i].classList.add("on");
+        };
+      }
+    }
+    //
+  } catch (err) {
+    console.error(err);
+  }
+})();

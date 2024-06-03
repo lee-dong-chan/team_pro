@@ -481,3 +481,61 @@ searchform.onsubmit = async (e) => {
     console.error(err);
   }
 };
+
+//찜한상품확인
+(async () => {
+  try {
+    const logUser = (
+      await axios.get("http://localhost:8000/user/info", {
+        withCredentials: true,
+      })
+    ).data;
+
+    if (logUser.result == "notlogin") {
+      console.log("ok");
+    } else if (logUser[0].result == "login") {
+      const favorite = (
+        await axios.post(
+          "http://localhost:8000/favorite",
+          { store: logUser[1][0].store },
+          {
+            withCredentials: true,
+          }
+        )
+      ).data;
+      console.log(favorite);
+      const favoritElem = document.getElementsByClassName("wish-list")[0];
+      if (favorite) {
+        favoritElem.innerHTML = "";
+        favoritElem.innerHTML = ` <h5>찜한상품</h5>
+        <div>
+          <a href="./"
+            ><span><img src="./imgs/like.png" /></span>${favorite[0][0].idcnt}</a
+          >
+        </div>`;
+      }
+
+      const recentitem = (
+        await axios.post(
+          "http://localhost:8000/cookie",
+          { id: favorite[1].product },
+          {
+            withCredentials: true,
+          }
+        )
+      ).data;
+      if (recentitem) {
+        console.log(recentitem[0].Prdimgs[0].img_path);
+        const recentElem = document.getElementsByClassName("recent-view")[0];
+        recentElem.innerHTML = "";
+        recentElem.innerHTML = `   <h5>최근본상품</h5>
+      <div class="line"></div>
+      <div class="recent-list">
+      <a id ="pri" href="/product_page/?product=${recentitem[0].id}"><img src="http://localhost:8000/productimg/${recentitem[0].Prdimgs[0].img_path}" /></a>
+      </div>`;
+      }
+    }
+  } catch (err) {
+    console.error(err);
+  }
+})();
