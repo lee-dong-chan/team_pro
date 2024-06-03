@@ -8,6 +8,7 @@ import {
   Sequelize,
   Secondcategory,
   Thirdcategory,
+  Firstcategory,
 } from "../../models/index.js";
 
 export default async (req, res) => {
@@ -101,17 +102,22 @@ export default async (req, res) => {
 
       res.json(cate2items);
     } else if (req.body.cate3ID) {
-      const cate2 = await Thirdcategory.findOne({
+      console.log(req.body.cate3ID);
+
+      const cate3 = await Thirdcategory.findOne({
         where: { id: req.body.cate3ID },
       });
-      const cate1 = await Secondcategory.findOne({
-        where: { id: cate2.Secondcategory_id },
+
+      const cate2 = await Secondcategory.findOne({
+        where: { id: cate3.Secondcategory_id },
       });
+
+      console.log(cate2.Firstcategory_id);
 
       const cate3items = await Productinfo.findAll({
         where: {
-          firstcategory_id: cate1.id,
-          secondcategory_id: cate2.Secondcategory_id,
+          firstcategory_id: cate2.Firstcategory_id,
+          secondcategory_id: cate3.Secondcategory_id,
           thirdcategory_id: req.body.cate3ID,
         },
         include: [
