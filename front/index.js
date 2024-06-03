@@ -536,6 +536,9 @@ logoutbtn.onclick = () => {
     } else if (logUser[1][0].id) {
       noCookieElem.classList.remove("on");
       CookieElem.classList.add("on");
+    } else {
+      noCookieElem.classList.remove("on");
+      CookieElem.classList.add("on");
     }
   } catch (err) {
     console.error(err);

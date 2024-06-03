@@ -17,7 +17,7 @@ export default async (req, res) => {
     console.log(req.body.paramValue);
 
     res.cookie("product", req.body.paramValue, {
-      maxAge: 120000,
+      maxAge: 240000,
       httpOnly: true,
       secure: true,
       signed: false,

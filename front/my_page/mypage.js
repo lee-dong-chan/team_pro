@@ -16,8 +16,6 @@ const explanation = document.getElementById("store_exp");
     })
   ).data;
 
-  console.log(logUser[1][0].store);
-
   try {
     const UserInfo = (
       await axios.post(

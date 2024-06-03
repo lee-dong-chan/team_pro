@@ -229,7 +229,7 @@ const prdArea = document.getElementById("product-wrap");
       }
     )
   ).data;
-  console.log(product[0].Product.Prdimgs[0].img_path);
+  console.log(product);
 
   const getPrd = async () => {
     try {

@@ -742,7 +742,6 @@ form.onsubmit = async (e) => {
   }
 };
 
-//찜한상품확인
 (async () => {
   try {
     const logUser = (
