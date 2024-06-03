@@ -419,7 +419,7 @@ logoutbtn.onclick = () => {
     if (logUser.result == "notlogin") {
       CookieElem.classList.remove("on");
       noCookieElem.classList.add("on");
-    } else if (logUser[0].result == "login") {
+    } else if (logUser[1][0].id) {
       noCookieElem.classList.remove("on");
       CookieElem.classList.add("on");
     }

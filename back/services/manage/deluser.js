@@ -8,7 +8,7 @@ import {
 
 export default async (req, res) => {
   try {
-    console.log(req.body.id);
+    console.log(req.body);
     await User.update(
       {
         deletedAt: Date.now(),
@@ -24,6 +24,15 @@ export default async (req, res) => {
       },
       {
         where: { id: req.body.store_id },
+      }
+    );
+
+    await Product.update(
+      {
+        deletedAt: Date.now(),
+      },
+      {
+        where: { UserstoreId: req.body.store_id },
       }
     );
 

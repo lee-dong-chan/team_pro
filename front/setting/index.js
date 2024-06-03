@@ -46,3 +46,40 @@ logoutElem.onclick = () => {
 manageElem.onclick = () => {
   location.href = "http://localhost:8080/manage";
 };
+
+(async () => {
+  try {
+    const logUser = (
+      await axios.get("http://localhost:8000/user/info", {
+        withCredentials: true,
+      })
+    ).data;
+    console.log(logUser[1][0].id);
+    const delaccount = document.getElementById("account_del");
+    if (logUser[1][0].id) {
+      delaccount.onclick = (e) => {
+        e.preventDefault();
+        axios.post(
+          "http://localhost:8000/manage/deluser",
+          { id: logUser[1][0].id, store_id: logUser[1][0].store },
+          {
+            withCredentials: true,
+          }
+        ).data;
+
+        axios.post(
+          "http://localhost:8000/user/logout",
+          {},
+          {
+            withCredentials: true,
+          }
+        ).data;
+
+        alert("회왼탈퇴 완료");
+        location.href = "http://localhost:8080";
+      };
+    }
+  } catch (err) {
+    console.error(err);
+  }
+})();
