@@ -314,7 +314,7 @@
           <div class="profile_box">
             <div class="profile_inner">
               <img class="profile_img" src="./store_profile.svg" />
-              <span>nanam1956</span>
+              <span id="IDArea">nanam1956</span>
               <div id="store_score">
                 <img src="./imgs/empty_star.png" />
                 <img src="./imgs/empty_star.png" />
@@ -326,10 +326,12 @@
             </div>
           </div>
           <div class="mystore_info">
-            <div><span>nanam1956</span><button>상점명 수정</button></div>
+            <div>
+              <span id="store_name">nanam1956</span><button>상점명 수정</button>
+            </div>
             <div class="store_info_detail">
               <img src="./imgs/store_icon.png" /><span>상점오픈일</span>
-              <span class="detail_black">49일 전</span>
+              <span class="detail_black" id="created_at">49일 전</span>
               <img src="./imgs/store_visitor.png" /><span>상점방문수</span
               ><span class="detail_black">3 명</span>
               <img src="./imgs/store_icon3.png" /><span>상품판매 </span
@@ -337,15 +339,17 @@
               <img src="./imgs/store_icon4.png" /><span>택배발송</span
               ><span class="detail_black">0 회</span>
             </div>
-            <div>
-              <p>안녕하세요 방지완입니다.</p>
-            </div>
-            <button>소개글 수정</button>
+            <form>
+              <div>
+                <p id="store_exp">안녕하세요 방지완입니다.</p>
+              </div>
+              <button>소개글 수정</button>
+            </form>
           </div>
         </div>
         <div class="store_content">
           <div class="content_head">
-            <span id="all_sell_list" class="content on">상품 1</span>
+            <span id="all_sell_list" class="content on">상품</span>
             <span id="store_review" class="content">상품후기 0</span>
             <span id="user_favorite_list" class="content">찜 0</span>
             <span id="user_following" class="content">팔로잉 1</span>
@@ -354,7 +358,7 @@
           <div id="content_body_wrap">
             <div class="all_sell_list">
               <div class="content_body_header">
-                <span>상품<span>1</span></span>
+                <span>상품<span id="prd_length">1</span></span>
                 <select>
                   <option>전체</option>
                   <option>여성의류</option>
