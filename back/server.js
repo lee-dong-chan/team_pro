@@ -42,7 +42,7 @@ app.use(
       path: "./user_session",
     }),
     cookie: {
-      maxAge: 1200000,
+      maxAge: 20 * 60 * 1000,
     },
   })
 );
