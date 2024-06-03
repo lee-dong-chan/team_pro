@@ -3,6 +3,11 @@ reviewBtn = document.getElementById("store_review");
 favoriteBtn = document.getElementById("user_favorite_list");
 followingBtn = document.getElementById("user_following");
 followerBtn = document.getElementById("user_follower");
+const storeOpen = document.getElementById("created_at");
+const IDArea = document.getElementById("IDArea");
+const NameArea = document.getElementById("store_name");
+const prdCount = document.getElementById("prd_length");
+const explanation = document.getElementById("store_exp");
 
 (async () => {
   const logUser = (
@@ -11,135 +16,249 @@ followerBtn = document.getElementById("user_follower");
     })
   ).data;
 
+  console.log(logUser[1][0].store);
+
   try {
-    const UserInfo = await axios.post(
-      "http://localhost:8000/my_page",
-      {
-        userstore_id: logUser[0][1].store,
-      },
-      { withCredentials: true }
+    const UserInfo = (
+      await axios.post(
+        "http://localhost:8000/my_page",
+        {
+          id: logUser[1][0].store,
+        },
+        { withCredentials: true }
+      )
+    ).data;
+
+    console.log(UserInfo);
+    console.log(UserInfo[0].Products);
+    console.log("상품 갯수 : ", UserInfo[0].Products.length);
+
+    prdlistBtn.onclick = () => {
+      mypageElem.innerHTML = "";
+      prdlistBtn.classList.remove("on");
+      reviewBtn.classList.remove("on");
+      favoriteBtn.classList.remove("on");
+      followerBtn.classList.remove("on");
+      followingBtn.classList.remove("on");
+      prdlistBtn.classList.add("on");
+    };
+
+    mypageElem.innerHTML = ` <div class="all_sell_list">
+    <div class="content_body_header">
+      <span>상품<span>${UserInfo[0].Products.length}</span></span>
+    </div>
+    <dlv class="content_body">
+      <div class="body_head">
+        <div>
+          <span>전체</span>
+          <span>${UserInfo[0].Products.length}개</span>
+        </div>
+        <div>
+          <a class="on">최신순</a>
+          <a>|</a>
+          <a>인기순</a>
+          <a>|</a>
+          <a>저가순</a>
+          <a>|</a>
+          <a>고가순</a>
+        </div>
+      </div>
+      <div class="prdboxArea" id="prdArea">
+        <div class="prdimgbox">
+          <img src="./imgs/sample.png" />
+          <span class="prdname">상품명예시텍스트</span>
+          <div class="priceandCA">
+            <span>750,000원</span>
+            <span>3년 전</span>
+          </div>
+          <div class="location">
+            <img class="icon" src="./imgs/loca_icon.png" />
+            <span>서울특별시 강남구 세곡동</span>
+          </div>
+        </div>
+      </div>
+    </dlv>
+  </div>`;
+    console.log(
+      (new Date() - new Date(UserInfo[0].created_at)) / (1000 * 60 * 60)
     );
+
+    const time = Math.floor(
+      (new Date() - new Date(UserInfo[0].created_at)) / (1000 * 60 * 60)
+    );
+
+    let timedata =
+      Math.floor(
+        (new Date() - new Date(UserInfo[0].created_at)) / (1000 * 60 * 60)
+      ) + "시간전";
+    if (time < 1) {
+      timedata = "방금전";
+    }
+    if (time > 24) {
+      timedata =
+        Math.floor(
+          (new Date() - new Date(UserInfo[0].created_at)) / (1000 * 60 * 60)
+        ) /
+          24 +
+        "일전";
+    }
+
+    storeOpen.innerHTML = timedata;
+    IDArea.innerHTML = UserInfo[0].name;
+    NameArea.innerHTML = UserInfo[0].name;
+
+    prdCount.innerHTML = "";
+    prdCount.innerHTML = `${UserInfo[0].Products.length}`;
+
+    const prdArea = document.getElementById("prdArea");
+    prdArea.innerHTML = "";
+    for (let i = 0; i < UserInfo[0].Products.length; ++i) {
+      let location = UserInfo[0].Products[i].Productetc.direct_trade_location;
+      let prdid = UserInfo[0].Products[i].id;
+      if (location == null) {
+        location = "전국";
+      }
+
+      const PRDtime = Math.floor(
+        (new Date() - new Date(UserInfo[0].Products[i].created_at)) /
+          (1000 * 60 * 60)
+      );
+      let prdtimer =
+        Math.floor(
+          (new Date() - new Date(UserInfo[0].Products[i].created_at)) /
+            (1000 * 60 * 60)
+        ) + "시간전";
+      if (PRDtime < 1) {
+        prdtimer = "방금전";
+      }
+      if (PRDtime > 24) {
+        prdtimer =
+          Math.floor(
+            (new Date() - new Date(UserInfo[0].Products[i].created_at)) /
+              (1000 * 60 * 60)
+          ) /
+            24 +
+          "일전";
+      }
+
+      prdArea.innerHTML += `
+      <a href = "http://localhost:8080/product_page/?product=${prdid}"
+      <div class="prdboxArea" id="prdArea">
+        <div class="prdimgbox">
+          <img src="http://localhost:8000/productimg/${UserInfo[0].Products[i].Prdimgs[0].img_path}" />
+            <span class="prdname">${UserInfo[0].Products[i].name}</span>
+              <div class="priceandCA">
+                  <span>${UserInfo[0].Products[i].ProductSell.price}원</span>
+                  <span>${prdtimer}</span>
+              </div>
+              <div class="location">
+                  <img class="icon" src="./imgs/loca_icon.png" />
+                  <span>${location}</span>
+              </div>
+          </div>
+      </div>
+      </a>`;
+    }
   } catch (err) {
-    console.err(error);
+    console.error(err);
   }
 })();
 
 mypageElem = document.getElementById("content_body_wrap");
 
-mypageElem.innerHTML = `<div class="all_sell_list">
-<div class="content_body_header">
-  <span>상품<span>1</span></span>
-  <select>
-    <option>전체</option>
-    <option>여성의류</option>
-    <option>남성의류</option>
-    <option>신발</option>
-    <option>가방/지갑</option>
-    <option>시계</option>
-    <option>쥬얼리</option>
-    <option>패션 액세서리</option>
-    <option>디지털</option>
-    <option>가전제품</option>
-    <option>스포츠/레저</option>
-    <option>차량/오토바이</option>
-    <option>스타굿즈</option>
-    <option>예술/희귀/수집품</option>
-    <option>음반/악기</option>
-    <option>도서/티켓/문구</option>
-    <option>뷰티/미용</option>
-    <option>가구/인테리어</option>
-    <option>생활/주방용품</option>
-  </select>
-</div>
-<dlv class="content_body">
-  <div class="body_head">
-    <div>
-      <span>전체</span>
-      <span>1개</span>
-    </div>
-    <div>
-      <a class="on">최신순</a>
-      <a>|</a>
-      <a>인기순</a>
-      <a>|</a>
-      <a>저가순</a>
-      <a>|</a>
-      <a>고가순</a>
-    </div>
-  </div>
-  <div class="prdboxArea">
-  <a href="./">
-    <div class="prdimgbox">
-      <img src="./imgs/sample.png" />
-      <span class="prdname">상품명예시텍스트</span>
-      <div class="priceandCA">
-        <span>750,000원</span>
-        <span>3년 전</span>
-      </div>
-      <div class="location">
-        <img class="icon" src="./imgs/loca_icon.png" />
-        <span>서울특별시 강남구 세곡동</span>
-      </div>
-    </div>
-    </a>
-    <a href="./">
-    <div class="prdimgbox">
-      <img src="./imgs/sample.png" />
-      <span class="prdname">상품명예시텍스트</span>
-      <div class="priceandCA">
-        <span>750,000원</span>
-        <span>3년 전</span>
-      </div>
-      <div class="location">
-        <img class="icon" src="./imgs/loca_icon.png" />
-        <span>서울특별시 강남구 세곡동</span>
-      </div>
-    </div>
-    </a>
-    <a href="./">
-    <div class="prdimgbox">
-      <img src="./imgs/sample.png" />
-      <span class="prdname">상품명예시텍스트</span>
-      <div class="priceandCA">
-        <span>750,000원</span>
-        <span>3년 전</span>
-      </div>
-      <div class="location">
-        <img class="icon" src="./imgs/loca_icon.png" />
-        <span>서울특별시 강남구 세곡동</span>
-      </div>
-    </div>
-    </a>
-    <a href="./">
-    <div class="prdimgbox">
-      <img src="./imgs/sample.png" />
-      <span class="prdname">상품명예시텍스트</span>
-      <div class="priceandCA">
-        <span>750,000원</span>
-        <span>3년 전</span>
-      </div>
-      <div class="location">
-        <img class="icon" src="./imgs/loca_icon.png" />
-        <span>서울특별시 강남구 세곡동</span>
-      </div>
-    </div>
-    </a>
-    <div class="prdimgbox">
-      <img src="./imgs/sample.png" />
-      <span class="prdname">상품명예시텍스트</span>
-      <div class="priceandCA">
-        <span>750,000원</span>
-        <span>3년 전</span>
-      </div>
-      <div class="location">
-        <img class="icon" src="./imgs/loca_icon.png" />
-        <span>서울특별시 강남구 세곡동</span>
-      </div>
-    </div>
-  </div>
-</dlv>
-</div>
-`;
+// mypageElem.innerHTML = `<div class="all_sell_list">
+// <div class="content_body_header">
+//   <span>상품<span>1</span></span>
+// </div>
+// <dlv class="content_body">
+//   <div class="body_head">
+//     <div>
+//       <span>전체</span>
+//       <span>1개</span>
+//     </div>
+//     <div>
+//       <a class="on">최신순</a>
+//       <a>|</a>
+//       <a>인기순</a>
+//       <a>|</a>
+//       <a>저가순</a>
+//       <a>|</a>
+//       <a>고가순</a>
+//     </div>
+//   </div>
+//   <div class="prdboxArea">
+//   <a href="./">
+//     <div class="prdimgbox">
+//       <img src="./imgs/sample.png" />
+//       <span class="prdname">상품명예시텍스트</span>
+//       <div class="priceandCA">
+//         <span>750,000원</span>
+//         <span>3년 전</span>
+//       </div>
+//       <div class="location">
+//         <img class="icon" src="./imgs/loca_icon.png" />
+//         <span>서울특별시 강남구 세곡동</span>
+//       </div>
+//     </div>
+//     </a>
+//     <a href="./">
+//     <div class="prdimgbox">
+//       <img src="./imgs/sample.png" />
+//       <span class="prdname">상품명예시텍스트</span>
+//       <div class="priceandCA">
+//         <span>750,000원</span>
+//         <span>3년 전</span>
+//       </div>
+//       <div class="location">
+//         <img class="icon" src="./imgs/loca_icon.png" />
+//         <span>서울특별시 강남구 세곡동</span>
+//       </div>
+//     </div>
+//     </a>
+//     <a href="./">
+//     <div class="prdimgbox">
+//       <img src="./imgs/sample.png" />
+//       <span class="prdname">상품명예시텍스트</span>
+//       <div class="priceandCA">
+//         <span>750,000원</span>
+//         <span>3년 전</span>
+//       </div>
+//       <div class="location">
+//         <img class="icon" src="./imgs/loca_icon.png" />
+//         <span>서울특별시 강남구 세곡동</span>
+//       </div>
+//     </div>
+//     </a>
+//     <a href="./">
+//     <div class="prdimgbox">
+//       <img src="./imgs/sample.png" />
+//       <span class="prdname">상품명예시텍스트</span>
+//       <div class="priceandCA">
+//         <span>750,000원</span>
+//         <span>3년 전</span>
+//       </div>
+//       <div class="location">
+//         <img class="icon" src="./imgs/loca_icon.png" />
+//         <span>서울특별시 강남구 세곡동</span>
+//       </div>
+//     </div>
+//     </a>
+//     <div class="prdimgbox">
+//       <img src="./imgs/sample.png" />
+//       <span class="prdname">상품명예시텍스트</span>
+//       <div class="priceandCA">
+//         <span>750,000원</span>
+//         <span>3년 전</span>
+//       </div>
+//       <div class="location">
+//         <img class="icon" src="./imgs/loca_icon.png" />
+//         <span>서울특별시 강남구 세곡동</span>
+//       </div>
+//     </div>
+//   </div>
+// </dlv>
+// </div>
+// `;
 
 prdlistBtn.onclick = () => {
   mypageElem.innerHTML = "";

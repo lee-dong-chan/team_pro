@@ -24,7 +24,7 @@ router.use("/mainitem", mainitem);
 router.use("/product_list", product_list);
 router.use("/talk", talk);
 router.use("/product_page", products);
-router.use("/mystore", mystore);
+router.use("/my_page", mystore);
 router.post("/seller", storegeRouter("imgs"), seller);
 // router.post("/imgtest", storegeRouter, imgtest);
 router.use("/search", search);
