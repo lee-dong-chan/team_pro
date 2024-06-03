@@ -1,0 +1,156 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>manege</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="title"><h1>관리페이지</h1></div>
+      <div class="manage_body">
+        <div class="control-menu">
+          <div class="report">
+            <fieldset>
+              <legend>신고상품</legend>
+              <div class="report-product"></div>
+            </fieldset>
+          </div>
+          <div class="product">
+            <fieldset>
+              <legend>상품목록</legend>
+              <div class="product-box">
+                <ul>
+                  <li>
+                    <a href=""
+                      ><div>
+                        <span>상품번호: </span>상품제목 <span>가격 </span
+                        ><span> 작성상점번호</span>
+                      </div></a
+                    >
+                    <div class="delete-product">삭제</div>
+                  </li>
+                </ul>
+              </div>
+            </fieldset>
+          </div>
+          <div class="product-search">
+            <fieldset>
+              <legend>상품검색</legend>
+
+              <form id="search">
+                <input type="text" name="search" placeholder="상품제목" />
+                <button>검색</button>
+              </form>
+            </fieldset>
+          </div>
+
+          <div class="store">
+            <fieldset>
+              <legend>상점목록</legend>
+              <div class="store-box">
+                <ul>
+                  <li>
+                    <a href=""
+                      ><div>
+                        <span>상점번호: </span>상점이름 <span>유저번호 </span>
+                      </div></a
+                    >
+                    <div class="delete-product">삭제</div>
+                  </li>
+                </ul>
+              </div>
+            </fieldset>
+          </div>
+          <div class="store-search">
+            <fieldset>
+              <legend>상점검색</legend>
+
+              <form id="store">
+                <input type="text" name="searchstore" placeholder="상점이름" />
+                <button>검색</button>
+              </form>
+            </fieldset>
+          </div>
+
+          <fieldset id="del">
+            <legend>카테고리</legend>
+            <div class="del-category">
+              <div class="first-cate">
+                <ul class="first-list">
+                  <li>
+                    <div>카테고리</div>
+                    <span class="first-del">삭제</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="second-cate"></div>
+              <div class="third-cate"></div>
+            </div>
+          </fieldset>
+          <fieldset id="out">
+            <legend>카테고리 삭제</legend>
+            <div class="input-category">
+              <form id="outcate">
+                <fieldset>
+                  <legend>outFirst</legend>
+                  <input
+                    id="outFirst"
+                    type="text"
+                    name="first"
+                    placeholder="id입력"
+                    value=""
+                  />
+                </fieldset>
+                <fieldset>
+                  <legend>outSecond</legend>
+                  <input
+                    id="outSecond"
+                    type="text"
+                    name="second"
+                    placeholder="id입력"
+                    value=""
+                  />
+                </fieldset>
+                <fieldset>
+                  <legend>outThird</legend>
+                  <input
+                    id="outThird"
+                    type="text"
+                    name="third"
+                    placeholder="id입력"
+                    value=""
+                  />
+                </fieldset>
+                <button>입력</button>
+              </form>
+            </div>
+          </fieldset>
+          <fieldset id="in">
+            <legend>카테고리 입력</legend>
+            <div class="input-category">
+              <form id="incate">
+                <fieldset>
+                  <legend>AddFirst</legend>
+                  <input type="text" name="first" placeholder="이름입력" />
+                </fieldset>
+                <fieldset>
+                  <legend>AddSecond</legend>
+                  <input type="text" name="second" />
+                </fieldset>
+                <fieldset>
+                  <legend>AddThird</legend>
+                  <input type="text" name="third" />
+                </fieldset>
+                <button>입력</button>
+              </form>
+            </div>
+          </fieldset>
+          <a href="../"><div>메인페이지로 이동</div></a>
+        </div>
+      </div>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>
