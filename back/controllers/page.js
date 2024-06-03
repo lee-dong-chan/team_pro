@@ -15,8 +15,9 @@ import imgtest from "../services/page/imgtest.js";
 import search_new from "../services/page/search_new.js";
 import search_low from "../services/page/search_low.js";
 import search_high from "../services/page/search_high.js";
-
+import favorite from "../services/page/favorite.js";
 import mainitem from "../services/page/mainitem.js";
+import cookie from "../services/page/cookie.js";
 
 const router = Router();
 router.use("/main", main);
@@ -31,5 +32,6 @@ router.use("/search", search);
 router.use("/search_new", search_new);
 router.use("/search_low", search_low);
 router.use("/search_high", search_high);
-
+router.use("/favorite", favorite);
+router.use("/cookie", cookie);
 export default router;
