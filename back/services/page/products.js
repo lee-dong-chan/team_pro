@@ -15,6 +15,14 @@ import {
 export default async (req, res) => {
   try {
     console.log(req.body.paramValue);
+
+    res.cookie("product", req.body.paramValue, {
+      maxAge: 120000,
+      httpOnly: true,
+      secure: true,
+      signed: false,
+    });
+
     const product_info = await Product.findAll({
       attributes: ["name", "userstore_id", "created_at"],
       where: {

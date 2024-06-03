@@ -609,3 +609,5 @@ searchform.onsubmit = async (e) => {
     console.log(timedata);
   } catch (err) {}
 })();
+
+//찜한상품

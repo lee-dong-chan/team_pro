@@ -22,14 +22,18 @@ const createdAt = document.getElementById("created");
 const favorite = document.getElementById("favArea");
 
 const storeName = document.getElementById("store_name");
-const url = new URL(window.location).search;
-let words = url.split("=");
+let urlStr = window.location.href;
+let url = new URL(urlStr);
+let urlparams = url.searchParams;
 
-console.log(words[1]);
+let words = urlparams.get("product");
+
+console.log(words);
 
 (async () => {
   try {
-    let paramElem = words[1];
+    let paramElem = words;
+
     const product_page = (
       await axios.post(
         "http://localhost:8000/product_page",
