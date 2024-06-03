@@ -533,7 +533,7 @@ logoutbtn.onclick = () => {
     if (logUser.result == "notlogin") {
       CookieElem.classList.remove("on");
       noCookieElem.classList.add("on");
-    } else if (logUser[0].result == "login") {
+    } else if (logUser[1][0].id) {
       noCookieElem.classList.remove("on");
       CookieElem.classList.add("on");
     }
@@ -651,7 +651,8 @@ searchform.onsubmit = async (e) => {
           }
         )
       ).data;
-      if (recentitem) {
+
+      if (recentitem[0].id) {
         console.log(recentitem[0].Prdimgs[0].img_path);
         const recentElem = document.getElementsByClassName("recent-view")[0];
         recentElem.innerHTML = "";
