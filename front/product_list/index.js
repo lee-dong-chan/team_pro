@@ -211,7 +211,7 @@ let cate1 = urlparams.get("cate1");
 let cate2 = urlparams.get("cate2");
 let cate3 = urlparams.get("cate3");
 let page = 1;
-let count = 40;
+let count = 20;
 let pageidx = 0;
 
 const prdArea = document.getElementById("product-wrap");
@@ -281,7 +281,7 @@ const prdArea = document.getElementById("product-wrap");
 
   const pageLi = async () => {
     try {
-      const pagingCount = Math.floor(product.length / 40);
+      const pagingCount = Math.floor(product.length / 20) + 1;
       const pagingElem = document.getElementById("page-list");
       const preElem = document.getElementById("pre-btn");
       pagingElem.innerHTML = "";
