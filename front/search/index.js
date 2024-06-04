@@ -171,7 +171,7 @@ const prdArea = document.getElementById("product-wrap");
     const nextElem = document.getElementById("next-btn");
 
     let page = 1;
-    let count = 40;
+    let count = 20;
     let pageidx = 0;
 
     const getPrd = () => {
@@ -221,13 +221,13 @@ const prdArea = document.getElementById("product-wrap");
     getPrd();
 
     const pageLi = () => {
-      const pagingCount = Math.floor(product.length / 40);
+      const pagingCount = Math.floor(searchproduct.length / 20) + 1;
       const pagingElem = document.getElementById("page-list");
       const preElem = document.getElementById("pre-btn");
       pagingElem.innerHTML = "";
       preElem.innerHTML = "";
       const creLi = document.createElement("li");
-
+      console.log(pageidx);
       for (let i = pageidx * 10; i < pagingCount; ++i) {
         if (i < 10 * (pageidx + 1)) {
           const creLi = document.createElement("li");
@@ -287,8 +287,8 @@ const prdArea = document.getElementById("product-wrap");
 
       pageElem[page - pageidx * 10 - 1].classList.add("on");
       console.log("page C:", pagingCount);
-      pageLi();
     };
+    pageLi();
   } catch (err) {
     console.error(err);
   }
