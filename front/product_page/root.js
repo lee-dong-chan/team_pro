@@ -154,7 +154,7 @@ const catelist3Elem = document.getElementById("cate-list3");
 (async () => {
   try {
     const mainpage = (
-      await axios.get("http://localhost:8000/main", {
+      await axios.get("/api/main", {
         withCredentials: true,
       })
     ).data;

@@ -12,10 +12,10 @@ searchform.onsubmit = async (e) => {
   e.preventDefault();
 
   try {
-    location.href = `http://localhost:8080/search/?${searchform.search.value}`;
+    location.href = `/search/?${searchform.search.value}`;
 
     await axios.post(
-      "http://localhost:8000/searchproduct",
+      "/api/searchproduct",
       {
         keyword: searchform.search.value,
       },
@@ -39,7 +39,7 @@ const prdArea = document.getElementById("product-wrap");
   try {
     const correctitem = (
       await axios.post(
-        "http://localhost:8000/search",
+        "/api/search",
         {
           keyword: searchresult,
         },
@@ -51,7 +51,7 @@ const prdArea = document.getElementById("product-wrap");
 
     const newitem = (
       await axios.post(
-        "http://localhost:8000/search_new",
+        "/api/search_new",
         {
           keyword: searchresult,
         },
@@ -63,7 +63,7 @@ const prdArea = document.getElementById("product-wrap");
 
     const lowtitem = (
       await axios.post(
-        "http://localhost:8000/search_low",
+        "/api/search_low",
         {
           keyword: searchresult,
         },
@@ -75,7 +75,7 @@ const prdArea = document.getElementById("product-wrap");
 
     const highitem = (
       await axios.post(
-        "http://localhost:8000/search_high",
+        "/api/search_high",
         {
           keyword: searchresult,
         },
@@ -202,7 +202,7 @@ const prdArea = document.getElementById("product-wrap");
           }
           prdArea.innerHTML += `<a href="/product_page/?product=${searchproduct[i].id}">
         <div class="product">
-          <img id="pd_img" src="http://localhost:8000/productimg/${searchproduct[i].Prdimgs[0].img_path}" />
+          <img id="pd_img" src="/productimg/${searchproduct[i].Prdimgs[0].img_path}" />
           <div class="info">
             <p>${searchproduct[i].name}</p>
             <div>
