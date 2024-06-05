@@ -262,7 +262,7 @@ registform.nick.onchange = async (e) => {
   isNick = false;
 
   const nickdub = (
-    await axios.post("http://localhost:8000/user/nick", {
+    await axios.post("/api/user/nick", {
       nick: e.target.value,
     })
   ).data;
@@ -310,7 +310,7 @@ registform.onsubmit = async (e) => {
   try {
     const registdata = (
       await axios.post(
-        "http://localhost:8000/user/regist",
+        "/api/user/regist",
         {
           email: registform.email.value,
           pw: registform.pw.value,
@@ -391,7 +391,7 @@ loginform.onsubmit = async (e) => {
   try {
     const logindata = (
       await axios.post(
-        "http://localhost:8000/user/login",
+        "/api/user/login",
         {
           email: loginform.email.value,
           pw: loginform.pw.value,
@@ -424,7 +424,7 @@ logoutbtn.onclick = () => {
     try {
       const logoutdata = (
         await axios.post(
-          "http://localhost:8000/user/logout",
+          "/api/user/logout",
           {},
           {
             withCredentials: true,
@@ -447,7 +447,7 @@ logoutbtn.onclick = () => {
   const CookieElem = document.getElementsByClassName("Cookie")[0];
   try {
     const logUser = (
-      await axios.get("http://localhost:8000/user/info", {
+      await axios.get("/api/user/info", {
         withCredentials: true,
       })
     ).data;
@@ -473,10 +473,10 @@ searchform.onsubmit = async (e) => {
 
   try {
     location.href = `http://localhost:8080/search/?${searchform.search.value}`;
-    await axios.post("http://localhost:8000/search", {
+    await axios.post("/api/search", {
       keyword: searchform.search.value,
     });
-    await axios.get("http://localhost:8000/search", {}).data;
+    await axios.get("/api/search", {}).data;
   } catch (err) {
     console.error(err);
   }
@@ -486,7 +486,7 @@ searchform.onsubmit = async (e) => {
 (async () => {
   try {
     const logUser = (
-      await axios.get("http://localhost:8000/user/info", {
+      await axios.get("/api/user/info", {
         withCredentials: true,
       })
     ).data;
@@ -496,7 +496,7 @@ searchform.onsubmit = async (e) => {
     } else if (logUser[0].result == "login") {
       const favorite = (
         await axios.post(
-          "http://localhost:8000/favorite",
+          "/api/favorite",
           { store: logUser[1][0].store },
           {
             withCredentials: true,
@@ -517,7 +517,7 @@ searchform.onsubmit = async (e) => {
 
       const recentitem = (
         await axios.post(
-          "http://localhost:8000/cookie",
+          "/api/cookie",
           { id: favorite[1].product },
           {
             withCredentials: true,
@@ -531,7 +531,7 @@ searchform.onsubmit = async (e) => {
         recentElem.innerHTML = `   <h5>최근본상품</h5>
       <div class="line"></div>
       <div class="recent-list">
-      <a id ="pri" href="/product_page/?product=${recentitem[0].id}"><img src="http://localhost:8000/productimg/${recentitem[0].Prdimgs[0].img_path}" /></a>
+      <a id ="pri" href="/product_page/?product=${recentitem[0].id}"><img src="/api/productimg/${recentitem[0].Prdimgs[0].img_path}" /></a>
       </div>`;
       }
     }

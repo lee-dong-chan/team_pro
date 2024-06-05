@@ -1,7 +1,7 @@
 (async () => {
   try {
     const logUser = (
-      await axios.get("http://localhost:8000/user/info", {
+      await axios.get("/api/user/info", {
         withCredentials: true,
       })
     ).data;
@@ -22,7 +22,7 @@
   const productElem = document.getElementsByClassName("product-box")[0];
 
   const product = (
-    await axios.get("http://localhost:8000/manage/getproduct", {
+    await axios.get("/api/manage/getproduct", {
       withCredentials: true,
     })
   ).data;
@@ -49,7 +49,7 @@
       deletElem[i].onclick = () => {
         console.log("ok");
         axios.post(
-          "http://localhost:8000/manage/delproduct",
+          "/api/manage/delproduct",
           { id: product[i].id },
           {
             withCredentials: true,
@@ -66,7 +66,7 @@
     e.preventDefault();
     const search = (
       await axios.post(
-        "http://localhost:8000/manage/searchproduct",
+        "/api/manage/searchproduct",
         { keyword: searchform.search.value },
         {
           withCredentials: true,
@@ -94,7 +94,7 @@
         deletElem[i].onclick = () => {
           console.log("ok");
           axios.post(
-            "http://localhost:8000/manage/delproduct",
+            "/api/manage/delproduct",
             { id: search[i].id },
             {
               withCredentials: true,
@@ -111,7 +111,7 @@
 (async () => {
   const storeElem = document.getElementsByClassName("store-box")[0];
   const store = (
-    await axios.get("http://localhost:8000/manage/getstore", {
+    await axios.get("/api/manage/getstore", {
       withCredentials: true,
     })
   ).data;
@@ -138,7 +138,7 @@
       deletuserElem[i].onclick = () => {
         console.log("ok");
         axios.post(
-          "http://localhost:8000/manage/deluser",
+          "/api/manage/deluser",
           { id: store[i].id, store_id: store[i].store_id },
           {
             withCredentials: true,
@@ -154,7 +154,7 @@
     e.preventDefault();
     const searchstore = (
       await axios.post(
-        "http://localhost:8000/manage/searchstore",
+        "/api/manage/searchstore",
         { keyword: storeform.searchstore.value },
         {
           withCredentials: true,
@@ -182,7 +182,7 @@
     for (let i = 0; i < searchuserElem.length; i++) {
       searchuserElem[i].onclick = () => {
         axios.post(
-          "http://localhost:8000/manage/deluser",
+          "/api/manage/deluser",
           { id: searchstore[i].id, store_id: searchstore[i].store_id },
           {
             withCredentials: true,
@@ -199,7 +199,7 @@
   const reportElem = document.getElementsByClassName("report-product")[0];
 
   const report = (
-    await axios.get("http://localhost:8000/manage//getreport", {
+    await axios.get("/api/manage//getreport", {
       withCredentials: true,
     })
   ).data;
@@ -225,7 +225,7 @@
     delpdElem[i].onclick = () => {
       console.log("ok");
       axios.post(
-        "http://localhost:8000/manage/delreport",
+        "/api/manage/delreport",
         { id: report[i].id },
         {
           withCredentials: true,
@@ -244,7 +244,7 @@ cateform.onsubmit = async (e) => {
   e.preventDefault();
   const category = (
     await axios.post(
-      "http://localhost:8000/manage/delcategory",
+      "/api/manage/delcategory",
       {
         cate1: cateform.first.value,
         cate2: cateform.second.value,
@@ -271,7 +271,7 @@ createcateform.onsubmit = async (e) => {
   e.preventDefault();
   const category = (
     await axios.post(
-      "http://localhost:8000/manage/makecategory",
+      "/api/manage/makecategory",
       {
         cate1: createcateform.first.value,
         cate2: createcateform.second.value,
@@ -295,7 +295,7 @@ createcateform.onsubmit = async (e) => {
 (async () => {
   try {
     const categorydata = (
-      await axios.get("http://localhost:8000/manage/editcategory", {
+      await axios.get("/api/manage/editcategory", {
         withCredentials: true,
       })
     ).data;

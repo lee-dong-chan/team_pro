@@ -23,7 +23,7 @@ const app = express();
 
 app.set("port", process.env.PORT || 3000);
 
-app.use(cors({ origin: "http://localhost:8080", credentials: true }));
+app.use(cors({ origin: "/api", credentials: true }));
 app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -49,12 +49,12 @@ app.use(
 
 // const server = createServer(app);
 // const io = new Server(server, {
-//   cors: { origin: ["http://localhost:8080"] },
+//   cors: { origin: ["/api"] },
 // });
 
 // const chat = io.of("chat");
 
-app.use(router);
+app.use("/api", router);
 
 category();
 

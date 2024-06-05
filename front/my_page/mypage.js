@@ -11,7 +11,7 @@ const explanation = document.getElementById("store_exp");
 
 (async () => {
   const logUser = (
-    await axios.get("http://localhost:8000/user/info", {
+    await axios.get("/api/user/info", {
       withCredentials: true,
     })
   ).data;
@@ -19,7 +19,7 @@ const explanation = document.getElementById("store_exp");
   try {
     const UserInfo = (
       await axios.post(
-        "http://localhost:8000/my_page",
+        "/api/my_page",
         {
           id: logUser[1][0].store,
         },
@@ -143,7 +143,7 @@ const explanation = document.getElementById("store_exp");
       <a href = "http://localhost:8080/product_page/?product=${prdid}"
       <div class="prdboxArea" id="prdArea">
         <div class="prdimgbox">
-          <img src="http://localhost:8000/productimg/${UserInfo[0].Products[i].Prdimgs[0].img_path}" />
+          <img src="/api/productimg/${UserInfo[0].Products[i].Prdimgs[0].img_path}" />
             <span class="prdname">${UserInfo[0].Products[i].name}</span>
               <div class="priceandCA">
                   <span>${UserInfo[0].Products[i].ProductSell.price}원</span>

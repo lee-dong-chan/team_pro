@@ -4,7 +4,7 @@ const catelist3Elem = document.getElementById("cate-list3");
 (async () => {
   try {
     const category = (
-      await axios.get("http://localhost:8000/main", {
+      await axios.get("/api/main", {
         withCredentials: true,
       })
     ).data;
@@ -218,7 +218,7 @@ const prdArea = document.getElementById("product-wrap");
 (async () => {
   const product = (
     await axios.post(
-      "http://localhost:8000/product_list",
+      "/api/product_list",
       {
         cate1ID: cate1,
         cate2ID: cate2,
@@ -258,7 +258,7 @@ const prdArea = document.getElementById("product-wrap");
           }
           prdArea.innerHTML += `<a href="/product_page/?product=${product[i].product_id}">
         <div class="product">
-          <img id="pd_img" src="http://localhost:8000/productimg/${product[i].Product.Prdimgs[0].img_path}" />
+          <img id="pd_img" src="/api/productimg/${product[i].Product.Prdimgs[0].img_path}" />
           <div class="info">
             <p>${product[i].name}</p>
             <div>

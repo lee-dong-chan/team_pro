@@ -8,7 +8,7 @@ logoutElem.onclick = () => {
     try {
       const logout = (
         await axios.post(
-          "http://localhost:8000/user/logout",
+          "/api/user/logout",
           {},
           {
             withCredentials: true,
@@ -28,7 +28,7 @@ logoutElem.onclick = () => {
 (async () => {
   try {
     const logUser = (
-      await axios.get("http://localhost:8000/user/info", {
+      await axios.get("/api/user/info", {
         withCredentials: true,
       })
     ).data;
@@ -50,7 +50,7 @@ manageElem.onclick = () => {
 (async () => {
   try {
     const logUser = (
-      await axios.get("http://localhost:8000/user/info", {
+      await axios.get("/api/user/info", {
         withCredentials: true,
       })
     ).data;
@@ -60,7 +60,7 @@ manageElem.onclick = () => {
       delaccount.onclick = (e) => {
         e.preventDefault();
         axios.post(
-          "http://localhost:8000/manage/deluser",
+          "/api/manage/deluser",
           { id: logUser[1][0].id, store_id: logUser[1][0].store },
           {
             withCredentials: true,
@@ -68,7 +68,7 @@ manageElem.onclick = () => {
         ).data;
 
         axios.post(
-          "http://localhost:8000/user/logout",
+          "/api/user/logout",
           {},
           {
             withCredentials: true,

@@ -6,7 +6,7 @@ form.onsubmit = async (e) => {
   console.log(data);
   try {
     const sellData = (
-      await axios.post("http://localhost:8000/imgtest", data, {
+      await axios.post("/api/imgtest", data, {
         withCredentials: true,
       })
     ).data;
