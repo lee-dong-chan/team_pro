@@ -813,12 +813,14 @@ a {
 }
 
 .tagbtns {
+  display: flex;
+  align-items: center;
   border: 1px solid gray;
   background-color: #ebeefe;
   border-radius: 16px;
   gap: 0.3rem;
   font-size: 0.8rem;
-  min-width: 2rem;
+  width: max-content;
   height: 1.5rem;
 }
 

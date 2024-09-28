@@ -790,7 +790,7 @@ form.onsubmit = async (e) => {
         recentElem.innerHTML = `   <h5>최근본상품</h5>
       <div class="line"></div>
       <div class="recent-list">
-      <a id ="pri" href="/product_page/?product=${recentitem[0].id}"><img src="/productimg/${recentitem[0].Prdimgs[0].img_path}" /></a>
+      <a id ="pri" href="/product_page/?product=${recentitem[0].id}"><img src="/api/productimg/${recentitem[0].Prdimgs[0].img_path}" /></a>
       </div>`;
       }
     }

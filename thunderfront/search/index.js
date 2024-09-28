@@ -202,7 +202,7 @@ const prdArea = document.getElementById("product-wrap");
           }
           prdArea.innerHTML += `<a href="/product_page/?product=${searchproduct[i].id}">
         <div class="product">
-          <img id="pd_img" src="/productimg/${searchproduct[i].Prdimgs[0].img_path}" />
+          <img id="pd_img" src="/api/productimg/${searchproduct[i].Prdimgs[0].img_path}" />
           <div class="info">
             <p>${searchproduct[i].name}</p>
             <div>

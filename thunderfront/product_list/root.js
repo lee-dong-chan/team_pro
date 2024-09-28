@@ -1,131 +1,13 @@
-// import { Prdimg } from "../../back/models";
-
-const prdName = document.getElementById("prd_name");
-const prdPrice = document.getElementById("prd_price");
-const prdStatus = document.getElementById("prd_status");
-const explanation = document.getElementById("prd_exp");
-const tag1 = document.getElementById("tag1");
-const tag2 = document.getElementById("tag2");
-const tag3 = document.getElementById("tag3");
-const tag4 = document.getElementById("tag4");
-const tag5 = document.getElementById("tag5");
-const imgArea = document.getElementById("img-area");
-const locationElem = document.getElementById("location");
-const locationElem2 = document.getElementById("location2");
-
-const cate1 = document.getElementById("cate1");
-const cate2 = document.getElementById("cate2");
-const cate3 = document.getElementById("cate3");
-
-const viewElem = document.getElementById("viewArea");
-const createdAt = document.getElementById("created");
-const favorite = document.getElementById("favArea");
-
-const storeName = document.getElementById("store_name");
-let urlStr = window.location.href;
-let url = new URL(urlStr);
-let urlparams = url.searchParams;
-
-let words = urlparams.get("product");
-
-console.log(words);
-
-(async () => {
-  try {
-    let paramElem = words;
-
-    const product_page = (
-      await axios.post(
-        "/api/product_page",
-        { paramValue: paramElem },
-        {
-          withCredentials: true,
-        }
-      )
-    ).data;
-
-    console.log(product_page);
-    console.log(product_page[0].Prdimgs[0].img_path);
-    console.log(product_page[0].Productetc.direct_trade_location);
-
-    prdName.innerHTML = product_page[0].name;
-    imgArea.innerHTML = `<img class= "prd-img1" src="/productimg/${product_page[0].Prdimgs[0].img_path}" />`;
-    prdPrice.innerHTML = `${product_page[0].ProductSell.price}원`;
-    if (product_page[0].Productetc.direct_trade_location == null) {
-      locationElem.innerHTML = "전국";
-      locationElem2.innerHTML = "전국";
-    } else if (product_page[0].Productetc.direct_trade_location != null) {
-      locationElem.innerHTML = product_page[0].Productetc.direct_trade_location;
-      locationElem2.innerHTML =
-        product_page[0].Productetc.direct_trade_location;
-    }
-
-    if (product_page[0].Productinfo.product_status == 1) {
-      prdStatus.innerHTML = "새 상품(미사용)";
-    } else if (product_page[0].Productinfo.product_status == 2) {
-      prdStatus.innerHTML = "사용감 없음";
-    } else if (product_page[0].Productinfo.product_status == 3) {
-      prdStatus.innerHTML = "사용감 적음";
-    } else if (product_page[0].Productinfo.product_status == 4) {
-      prdStatus.innerHTML = "사용감 많음";
-    } else if (product_page[0].Productinfo.product_status == 5) {
-      prdStatus.innerHTML = "고장/파손 상품";
-    }
-
-    if (product_page[0].ProductTag.tag5 != null) {
-      tag5.innerHTML = `#${product_page[0].ProductTag.tag5}`;
-    } else if (product_page[0].ProductTag.tag5 == null) {
-      tag5.innerHTML = "";
-    }
-
-    if (product_page[0].ProductTag.tag4 != null) {
-      tag4.innerHTML = `#${product_page[0].ProductTag.tag4}`;
-    } else if (product_page[0].ProductTag.tag4 == null) {
-      tag4.innerHTML = "";
-    }
-
-    if (product_page[0].ProductTag.tag3 != null) {
-      tag3.innerHTML = `#${product_page[0].ProductTag.tag3}`;
-    } else if (product_page[0].ProductTag.tag3 == null) {
-      tag3.innerHTML = "";
-    }
-
-    if (product_page[0].ProductTag.tag2 != null) {
-      tag2.innerHTML = `#${product_page[0].ProductTag.tag2}`;
-    } else if (product_page[0].ProductTag.tag2 != null) {
-      tag2.innerHTML = "";
-    }
-
-    if (product_page[0].ProductTag.tag1 != null) {
-      tag1.innerHTML = `#${product_page[0].ProductTag.tag1}`;
-    } else if (product_page[0].ProductTag.tag1 != null) {
-      tag1.innerHTML = "";
-    }
-
-    explanation.innerHTML = product_page[0].Productinfo.product_explanation;
-
-    if (product_page[0].Productinfo.thirdcategory_id != null) {
-      cate3.innerHTML = product_page[0].Productinfo.Thirdcategory.name;
-    } else if (product_page[0].Productinfo.thirdcategory_id == null) {
-      cate3.innerHTML = "";
-    }
-
-    if (product_page[0].Productinfo.secondcategory_id != null) {
-      cate2.innerHTML = product_page[0].Productinfo.Secondcategory.name;
-    } else if (product_page[0].Productinfo.secondcategory_id == null) {
-      cate2.innerHTML = "";
-    }
-
-    cate1.innerHTML = product_page[0].Productinfo.Firstcategory.name;
-    storeName.innerHTML = product_page[0].Userstore.name;
-    // prdPrice.innerHTML =
-  } catch (err) {
-    console.error(err);
-  }
-  //   console.log(req);
-})();
-
-//regist
+const bodyElem = document.getElementsByClassName("product-list-body")[0];
+const noticeElem = document.getElementById("notice");
+const noticelistElem = document.getElementById("notice-list");
+const mystore1Elem = document.getElementById("my-store1");
+const mystore2Elem = document.getElementById("my-store2");
+const mystorelistElem = document.getElementById("myStore-menu");
+const cateImgElem = document.getElementById("cateImg");
+const firstCateElem = document.getElementsByClassName("first-cate")[0];
+const secondCateElem = document.getElementsByClassName("second-cate")[0];
+const thirdCateElem = document.getElementsByClassName("third-cate")[0];
 const loginbtnELem = document.getElementById("login-btn");
 const loginmodalElem = document.getElementsByClassName("login-modal")[0];
 const loginonElem = document.getElementsByClassName("login")[0];
@@ -134,6 +16,163 @@ const modal_loginELem = document.getElementsByClassName("login-link")[0];
 const registonElem = document.getElementsByClassName("regist")[0];
 const registbtnElem = document.getElementsByClassName("regist-btn")[0];
 const loginbtnElem = document.getElementsByClassName("login-btn")[0];
+const salebtnELem = document.getElementsByClassName("sale-btn")[0];
+const storeElem = document.getElementsByClassName("store-btn")[0];
+const talkElem = document.getElementsByClassName("talk-btn")[0];
+const nocookieElem = document.getElementsByClassName("noCookie")[0];
+const catelist1 = document
+  .getElementById("cate-list1")
+  .getElementsByTagName("a");
+const catelist2 = document
+  .getElementById("cate-list2")
+  .getElementsByTagName("a");
+const catelist3 = document
+  .getElementById("cate-list3")
+  .getElementsByTagName("a");
+// const noticehover = ();
+
+noticeElem.onmouseover = () => {
+  noticelistElem.classList.add("on");
+  mystorelistElem.classList.remove("on");
+};
+
+noticeElem.onmouseout = () => {
+  setTimeout(() => {
+    noticelistElem.classList.remove("on");
+  }, 1500);
+};
+
+// mystore1Elem.onmouseover = () => {
+//   mystorelistElem.classList.add("on");
+// };
+
+// mystore1Elem.onmouseout = () => {
+//   setTimeout(() => {
+//     mystorelistElem.classList.remove("on");
+//   }, 1500);
+// };
+
+mystore1Elem.onclick = () => {
+  loginmodalElem.classList.add("on");
+  loginonElem.classList.add("on");
+};
+
+mystore2Elem.onmouseover = () => {
+  mystorelistElem.classList.add("on");
+  noticelistElem.classList.remove("on");
+};
+
+mystore2Elem.onmouseout = () => {
+  setTimeout(() => {
+    mystorelistElem.classList.remove("on");
+  }, 1500);
+};
+
+salebtnELem.onclick = (e) => {
+  if (nocookieElem.classList.contains("on")) {
+    e.preventDefault();
+    loginmodalElem.classList.add("on");
+    loginonElem.classList.add("on");
+  }
+};
+
+storeElem.onclick = (e) => {
+  if (nocookieElem.classList.contains("on")) {
+    e.preventDefault();
+    loginmodalElem.classList.add("on");
+    loginonElem.classList.add("on");
+  }
+};
+
+talkElem.onclick = (e) => {
+  if (nocookieElem.classList.contains("on")) {
+    e.preventDefault();
+    loginmodalElem.classList.add("on");
+    loginonElem.classList.add("on");
+  }
+};
+
+cateImgElem.onmouseover = () => {
+  cateImgElem.classList.add("on");
+  firstCateElem.classList.add("on");
+};
+
+firstCateElem.onmouseover = () => {
+  firstCateElem.classList.add("on");
+  cateImgElem.classList.add("on");
+};
+
+// for (let i = 0; i < catelist1.length; i++) {
+//   catelist1[i].onmouseover = () => {
+//     secondCateElem.classList.add("on");
+//   };
+
+//   catelist1[i].onmousedown = () => {
+//     for (let a = 0; a < catelist1.length; a++) {
+//       catelist1[a].classList.remove("on");
+//     }
+//     catelist1[i].classList.add("on");
+//   };
+// }
+
+// for (let i = 0; i < catelist2.length; i++) {
+//   catelist2[i].onmouseover = () => {
+//     thirdCateElem.classList.add("on");
+//   };
+//   catelist2[i].onmousedown = () => {
+//     for (let a = 0; a < catelist1.length; a++) {
+//       catelist2[a].classList.remove("on");
+//     }
+//     catelist2[i].classList.add("on");
+//   };
+// }
+
+for (let i = 0; i < catelist3.length; i++) {
+  catelist3[i].onclick = () => {
+    for (let a = 0; a < catelist3.length; a++) {
+      catelist3[a].classList.remove("on");
+    }
+    catelist3[i].classList.add("on");
+  };
+}
+// thirdCateElem.onmouseover = () => {
+//   thirdCateElem.classList.add("on");
+// };
+
+bodyElem.onmouseover = () => {
+  cateImgElem.classList.remove("on");
+  firstCateElem.classList.remove("on");
+  secondCateElem.classList.remove("on");
+  thirdCateElem.classList.remove("on");
+  for (let a = 0; a < catelist1.length; a++) {
+    catelist1[a].classList.remove("on");
+  }
+  for (let a = 0; a < catelist2.length; a++) {
+    catelist2[a].classList.remove("on");
+  }
+  for (let a = 0; a < catelist3.length; a++) {
+    catelist3[a].classList.remove("on");
+  }
+};
+
+loginbtnELem.onclick = () => {
+  loginmodalElem.classList.add("on");
+  loginonElem.classList.add("on");
+};
+modal_registELem.onclick = () => {
+  loginonElem.classList.remove("on");
+  registonElem.classList.add("on");
+};
+modal_loginELem.onclick = () => {
+  registonElem.classList.remove("on");
+  loginonElem.classList.add("on");
+};
+
+loginmodalElem.onclick = () => {
+  loginmodalElem.classList.remove("on");
+  loginonElem.classList.remove("on");
+  registonElem.classList.remove("on");
+};
 
 const registform = document.forms.regist;
 
@@ -265,7 +304,6 @@ registform.location.oninput = (e) => {
     locationResultElem.innerHTML = "";
   }
 };
-
 registform.onsubmit = async (e) => {
   e.preventDefault();
   console.log(registform.email.value);
@@ -414,8 +452,6 @@ logoutbtn.onclick = () => {
       })
     ).data;
 
-    console.log(logUser);
-
     if (logUser.result == "notlogin") {
       CookieElem.classList.remove("on");
       noCookieElem.classList.add("on");
@@ -427,6 +463,7 @@ logoutbtn.onclick = () => {
     console.error(err);
   }
 })();
+
 // search;
 
 const searchform = document.forms.searchform;
@@ -444,56 +481,6 @@ searchform.onsubmit = async (e) => {
     console.error(err);
   }
 };
-
-(async () => {
-  try {
-    const mainitem = (
-      await axios.get("/api/mainitem", {
-        withCredentials: true,
-      })
-    ).data;
-    const prdArea = document.getElementById("prd-list");
-    console.log(mainitem);
-    prdArea.innerHTML = "";
-
-    for (let i = 0; i < mainitem.length; i++) {
-      const time = Math.floor(
-        (new Date() - new Date(mainitem[i].created_at)) / (1000 * 60 * 60)
-      );
-      let timedata =
-        Math.floor(
-          (new Date() - new Date(mainitem[i].created_at)) / (1000 * 60 * 60)
-        ) + "시간전";
-      if (time < 1) {
-        timedata = "방금전";
-      }
-      if (time > 24) {
-        timedata =
-          Math.floor(
-            (new Date() - new Date(mainitem[i].created_at)) / (1000 * 60 * 60)
-          ) /
-            24 +
-          "일전";
-      }
-
-      prdArea.innerHTML += `<a href="/product_page/?product=${mainitem[i].id}" class="item">
-      <div>
-        <div id="imgdiv">
-          <img src="/productimg/${mainitem[i].Prdimgs[0].img_path}" />
-        </div>
-        <div class="info">
-          <div>
-            <p>${mainitem[i].name}</p>
-            <div>${mainitem[i].price}원<span>${timedata}</span></div>
-          </div>
-        </div>
-      </div>
-    </a>`;
-    }
-
-    console.log(timedata);
-  } catch (err) {}
-})();
 
 //찜한상품확인
 (async () => {
@@ -544,7 +531,7 @@ searchform.onsubmit = async (e) => {
         recentElem.innerHTML = `   <h5>최근본상품</h5>
       <div class="line"></div>
       <div class="recent-list">
-      <a id ="pri" href="/product_page/?product=${recentitem[0].id}"><img src="/productimg/${recentitem[0].Prdimgs[0].img_path}" /></a>
+      <a id ="pri" href="/product_page/?product=${recentitem[0].id}"><img src="/api/productimg/${recentitem[0].Prdimgs[0].img_path}" /></a>
       </div>`;
       }
     }

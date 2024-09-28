@@ -30,7 +30,7 @@ app.use(express.json());
 app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extendd: true }));
-app.use("/productimg", express.static("productimg"));
+app.use("/api/productimg", express.static("productimg"));
 app.use(
   session({
     resave: false,
